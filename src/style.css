@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'KoHo', sans-serif;
+    background-image: url(img/fondo-pokemon_go_2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+header{
+    max-width: 375px;
+    height: 120px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box
+}
+
+header img{
+    height: 80%;
+}
+
+main{
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+#root{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 320px;
+    height: 530px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+h1{
+    font-size: 22px;
+    text-align: center;
+    color: white;
+    padding: 15px 0 15px 0;
+}
+
+input{
+    width: 296px;
+    height: 44px;
+    text-align: center;
+    font-family: KoHo;
+    border-radius: 10px;
+    border: 2px solid #bdbdbd;
+}
