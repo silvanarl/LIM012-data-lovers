@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 body{
     background-image: url(img/fondo-pokemon.jpg);
@@ -24,7 +24,7 @@ header img{
     height:80%;
 }
 h1{
-    font-size: 22px;
+    font-size: 22 pt;
     text-align: center;
     color: #FFFFFF;
 }
