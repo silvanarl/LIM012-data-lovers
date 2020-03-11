@@ -54,3 +54,16 @@ input{
     border-radius: 10px;
     border: 2px solid #bdbdbd;
 }
+
+#contenedor{
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contenedorPokemon{
+    width: 120px;
+    height: 120px;
+    background-color: white;
+}
