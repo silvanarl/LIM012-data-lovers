@@ -1,20 +1,13 @@
 import { example } from './data.js';
-import data from './data/pokemon/pokemon.js';
+import pokemon from './data/pokemon/pokemon.js';
 
-const pokemon = data;
+const listado = pokemon;
+listado.pokemon.forEach((element, index)=>{
+    let pokeImagen = document.createElement("img");
+    pokeImagen.setAttribute("src", listado.pokemon[index].img);
+    document.body.appendChild(pokeImagen);
 
+    let bigDiv = document.getElementById("root");
+    
+});
 
-document.body.onload = addElement;
-
-function addElement(){
-    const newDiv = document.createElement('div');
-    newDiv.setAttribute('class', 'contenedorPokemon')
-    //newDiv.classList.add('contenedorPokemon');
-
-    const newContent = document.createTextNode(pokemon.pokemon[1].img);
-    newDiv.appendChild(newContent);
-
-    let currentDiv = document.getElementById('contenedor');
-    currentDiv.appendChild(newDiv);
-}
-console.log(pokemon.pokemon[1].name);
