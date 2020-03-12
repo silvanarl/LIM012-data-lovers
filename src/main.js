@@ -5,6 +5,12 @@ const listado = pokemon;
 console.log(listado.pokemon[1].name);
 console.log(listado.pokemon[1].type);
 
+//for (const prop in listado){
+//    console.log(`listado.${prop} = ${listado[prop]}`);
+//}
+
+console.log(Object.keys(listado));
+
 document.body.onload = addElement;
 
 function addElement(){
