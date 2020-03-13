@@ -9,10 +9,6 @@ body{
     font-family: 'KoHo', sans-serif;
     height: 100vh;
 }
-main{
-    margin: 0 auto;
-    max-width: 375px;
-}
 header{
     margin: 0 auto;
     max-width: 375px;
@@ -23,28 +19,101 @@ header{
 header img{
     height:80%;
 }
+main{
+    max-width: 375px;
+    margin: 0 auto;
+}
+#root{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 320px;
+    height: 530px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+.formBuscar{
+    margin-bottom: 15px;
+}
+
 h1{
-    font-size: 22 pt;
+    font-size: 22 px;
     text-align: center;
     color: #FFFFFF;
+    padding: 15px 0 15px 0;
 }
-.search{
-    width: 296px;
+
+#buscar{
+    width: 250px;
     height: 44px;
     left: 40px;
     top: 176px;
+    font-family: KoHo;
     border: 2px solid #BDBDBD;
     box-sizing: border-box;
     border-radius: 10px;
 }
-#root{
+.boton-buscar{
+    background-color:rgba(99, 96, 96, 0.233);
+    background-image: url(img/pokelupa.svg);
+    width: 35px;
+    height: 40px;
+    background-repeat: no-repeat;
+    border-left: 1px solid rgb(155, 150, 150);
+    border-top:0px ;
+    border-right:0px;
+    border-bottom:0px;
+}
+#contenedor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+    width: 300px;
     margin: 0 auto;
-    width: 320px;
-    height: 530px;
-    border-radius: 5px;
-    background: rgba(0, 0, 0,.2);
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    margin-bottom: 10px;
+}
+#contenedor::-webkit-scrollbar{
+    width: 8px;     /* Tamaño del desplazamiento en vertical */
+    height: 8px;    /* Tamaño del desplazamiento en horizontal */
+}
+
+#contenedor::-webkit-srollbar-thumb{
+    background-color : rgb(134, 57, 57);
+    border-radius : 4px ;
+}
+.container::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.container::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+#contenedor::-webkit-scrollbar-track{
+    background-color: #c4c3c3;
+    border-radius: 6px;
+}
+.container::-webkit-scrollbar-track:hover,
+.container::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+.contenedorPokemon{
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;   
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.imgPokemon{
+    height: 60%;
 }
