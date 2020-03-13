@@ -8,6 +8,8 @@ body{
     background-image: url(img/fondo-pokemon_go_2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     height: 100vh;
 }
 
@@ -23,24 +25,21 @@ header img{
     height: 80%;
 }
 
-section{
-    width: 375px;
-    margin: 0 auto;
-}
-
-#root{
+main{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+}
+
+section{  
     width: 320px;
-    height: 530px;
-    margin: 0 auto;
     background-color: rgba(0, 0, 0, .2);
 }
 
 form{
-    margin-bottom: 15px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 h1{
@@ -51,7 +50,7 @@ h1{
 }
 
 input{
-    width: 296px;
+    width: 100%;
     height: 44px;
     text-align: center;
     font-family: KoHo;
@@ -65,11 +64,11 @@ input{
     justify-content: space-around;
     align-content: space-between;
     width: 300px;
-    margin: 0 auto;
-    padding: 0 20px 0 20px;
+    height: 300px;
+    margin: 20px auto;
+    padding: 0 20px;
     box-sizing: border-box;
     overflow: auto;
-    margin-bottom: 10px;
 }
 
 #contenedor::-webkit-scrollbar {
@@ -104,38 +103,65 @@ input{
 }
 
 aside{
+    width: 320px;
+    height: 240px;
     background-color: red;
+    margin-top: 15px;
 }
 
-@media (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 768px){
 
     section{
-        width: 830px;
-    }
-
-    #root{
         width: 740px;
     }
 
     #contenedor{
         width: 720px;
     }
+
+    aside{
+        width: 740px;
+    }
+
+    form{
+        width: 50%;
+        margin: 0 auto;
+    }
 }
 
-@media (min-width: 1025px){
+@media screen and (min-width: 1025px){
+    main{
+        flex-direction: row;
+        width: 90%;
+        height: 540px;
+        margin: 0 auto;
+        justify-content: space-between;
+    }
+
     section{
-        width: 60%;
+        width: 67%;
+        height: 100%;
+        margin: 0;
     }
 
     aside{
-        width: 40%;
-    }
-
-    #root{
-        width: 820px;
+        width: 30%;
+        height: 100%;
+        margin-top: 0;
     }
 
     #contenedor{
-        width: 800px;
+        width: 90%;
+        height: 400px;
+        box-sizing: border-box;
+    }
+
+    .selectores{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    form{
+        margin: 0;
     }
 }
