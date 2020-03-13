@@ -23,8 +23,8 @@ header img{
     height: 80%;
 }
 
-main{
-    max-width: 375px;
+section{
+    width: 375px;
     margin: 0 auto;
 }
 
@@ -101,4 +101,41 @@ input{
 
 .imgPokemon{
     height: 60%;
+}
+
+aside{
+    background-color: red;
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+    section{
+        width: 830px;
+    }
+
+    #root{
+        width: 740px;
+    }
+
+    #contenedor{
+        width: 720px;
+    }
+}
+
+@media (min-width: 1025px){
+    section{
+        width: 60%;
+    }
+
+    aside{
+        width: 40%;
+    }
+
+    #root{
+        width: 820px;
+    }
+
+    #contenedor{
+        width: 800px;
+    }
 }
