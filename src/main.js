@@ -27,21 +27,20 @@ listado.pokemon.forEach((element, index)=>{
     newDiv.appendChild(newImg);
     newDiv.appendChild(newName);
     
-    let currentDiv = document.getElementById('contenedor');
-    currentDiv.appendChild(newDiv);
+  const currentDiv = document.getElementById('contenedor');
+  currentDiv.appendChild(newDiv);
 });
 
 const formulario = document.querySelector('#buscar');
 const boton = document.querySelector('#botonBuscar');
 
-const busqueda = () =>{
-    const texto = formulario.value.toLowerCase();
-    for(let listado of pokemon){
-        let nombre = pokemon.name.toLowerCase();
-        if(nombre.indexOf(texto) !== -1){
-
-        }
+const busqueda = () => {
+  const texto = formulario.value.toLowerCase();
+  for(let listado of pokemon) {
+    let nombre = pokemon.name.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
     }
-}
+  }
+};
 
-boton.addEventListener('click',busqueda)
+boton.addEventListener('click', busqueda);
