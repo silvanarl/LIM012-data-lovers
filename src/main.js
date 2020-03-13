@@ -36,7 +36,7 @@ const boton = document.querySelector('#botonBuscar');
 
 const busqueda = () => {
   const texto = formulario.value.toLowerCase();
-  for(let listado of pokemon) {
+    for(let listado of pokemon) {
     let nombre = pokemon.name.toLowerCase();
     if(nombre.indexOf(texto) !== -1){
     }

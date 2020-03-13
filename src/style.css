@@ -39,32 +39,48 @@ main{
 }
 
 h1{
-    font-size: 22 px;
+    font-size: 19px;
     text-align: center;
     color: #FFFFFF;
     padding: 15px 0 15px 0;
+    font-weight: lighter;
 }
 
 #buscar{
     width: 250px;
     height: 44px;
-    left: 40px;
-    top: 176px;
     font-family: KoHo;
+    font-size: 15px;
     border: 2px solid #BDBDBD;
     box-sizing: border-box;
-    border-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0px;
+    
+}
+.formBuscar{
+    display: flex;
+    flex-direction: row; 
+    align-content: center; 
 }
 .boton-buscar{
-    background-color:rgba(99, 96, 96, 0.233);
+    background-color:rgba(255, 255, 255);
     background-image: url(img/pokelupa.svg);
-    width: 35px;
-    height: 40px;
+    background-position: center;
+    width: 30px;
+    height: 44px;
     background-repeat: no-repeat;
-    border-left: 1px solid rgb(155, 150, 150);
-    border-top:0px ;
-    border-right:0px;
-    border-bottom:0px;
+    border: 2px solid #BDBDBD;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    
 }
 #contenedor{
     display: flex;
@@ -77,29 +93,30 @@ h1{
     box-sizing: border-box;
     overflow: auto;
     margin-bottom: 10px;
+    margin-top: 15px;
 }
 #contenedor::-webkit-scrollbar{
     width: 8px;     /* Tamaño del desplazamiento en vertical */
     height: 8px;    /* Tamaño del desplazamiento en horizontal */
 }
 
-#contenedor::-webkit-srollbar-thumb{
-    background-color : rgb(134, 57, 57);
-    border-radius : 4px ;
+.contenedor::-webkit-srollbar-thumb{
+    background-color: rgb(134, 57, 57);
+    border-radius: 4px ;
 }
-.container::-webkit-scrollbar-thumb:hover {
+.contenedor::-webkit-scrollbar-thumb:hover {
     background: #b3b3b3;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
-.container::-webkit-scrollbar-thumb:active {
+.contenedor::-webkit-scrollbar-thumb:active {
     background-color: #999999;
 }
 #contenedor::-webkit-scrollbar-track{
     background-color: #c4c3c3;
     border-radius: 6px;
 }
-.container::-webkit-scrollbar-track:hover,
-.container::-webkit-scrollbar-track:active {
+.contenedor::-webkit-scrollbar-track:hover,
+.contenedor::-webkit-scrollbar-track:active {
   background: #d4d4d4;
 }
 .contenedorPokemon{
