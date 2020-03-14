@@ -34,3 +34,4 @@ listado.pokemon.forEach((element, index)=>{
 
 });
 
+const ingresoNombre = document.getElementById('buscador').value
