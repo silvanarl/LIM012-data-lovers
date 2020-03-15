@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=KoHo&display=swap" rel="stylesheet">
@@ -14,9 +15,10 @@
       <section>
           <h1>¡Averigua sobre tu pokemon!</h1>
           <div class="selectores">
-            <form>
-              <input type="text" placeholder="Ingresa nombre o número" id="buscador">
-            </form>
+        <form class="formBuscar">
+          <input id="buscador" type="text" placeholder="Ingresa nombre o número">
+          <button id="botonBuscar" class="boton-buscar" alt="pokelupa-buscador"></button>
+        </form>
           </div>
           <div id="contenedor"></div>
       </section>

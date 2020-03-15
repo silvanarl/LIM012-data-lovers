@@ -26,10 +26,39 @@ header img{
 }
 
 main{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-image: url(img/fondo-pokemon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'KoHo', sans-serif;
+    height: 100vh;
+}
+header{
+    margin: 0 auto;
+    max-width: 375px;
+    height: 120px;
+    text-align: center;
+    box-sizing: border-box;
+}
+header img{
+    height:80%;
+}
+main{
+    max-width: 375px;
+    margin: 0 auto;
+}
+#root{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    width: 320px;
+    height: 530px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, .2);
 }
 
 section{  
@@ -58,6 +87,54 @@ input{
     border: 2px solid #bdbdbd;
 }
 
+.formBuscar{
+    margin-bottom: 15px;
+}
+
+h1{
+    font-size: 19px;
+    text-align: center;
+    color: #FFFFFF;
+    padding: 15px 0 15px 0;
+    font-weight: lighter;
+}
+
+#buscar{
+    width: 250px;
+    height: 44px;
+    font-family: KoHo;
+    font-size: 15px;
+    border: 2px solid #BDBDBD;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0px;
+    
+}
+.formBuscar{
+    display: flex;
+    flex-direction: row; 
+    align-content: center; 
+}
+.boton-buscar{
+    background-color:rgba(255, 255, 255);
+    background-image: url(img/pokelupa.svg);
+    background-position: center;
+    width: 30px;
+    height: 44px;
+    background-repeat: no-repeat;
+    border: 2px solid #BDBDBD;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    
+}
 #contenedor{
     display: flex;
     flex-wrap: wrap;
@@ -86,6 +163,30 @@ input{
     border-radius: 4px;
 }
 
+#contenedor::-webkit-scrollbar{
+    width: 8px;     /* Tamaño del desplazamiento en vertical */
+    height: 8px;    /* Tamaño del desplazamiento en horizontal */
+}
+
+.contenedor::-webkit-srollbar-thumb{
+    background-color: rgb(134, 57, 57);
+    border-radius: 4px ;
+}
+.contenedor::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+.contenedor::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+#contenedor::-webkit-scrollbar-track{
+    background-color: #c4c3c3;
+    border-radius: 6px;
+}
+.contenedor::-webkit-scrollbar-track:hover,
+.contenedor::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
 .contenedorPokemon{
     display: flex;
     flex-direction: column;
