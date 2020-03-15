@@ -7,7 +7,6 @@ const listado = pokemon;
 
 //console.log(Object.keys(listado.pokemon));
 
-
 listado.pokemon.forEach((element, index)=>{
 
     const newDiv = document.createElement('div');
@@ -27,11 +26,13 @@ listado.pokemon.forEach((element, index)=>{
     newDiv.appendChild(newNumber);
     newDiv.appendChild(newImg);
     newDiv.appendChild(newName);
-    
+const formulario = document.querySelector('#buscador');
+const boton = document.querySelector('#botonBuscar');
 
-    let currentDiv = document.getElementById('contenedor');
-    currentDiv.appendChild(newDiv);
-
-});
-
-const ingresoNombre = document.getElementById('buscador').value
+const busqueda = () => {
+  const texto = formulario.value.toLowerCase();
+    for(let listado of pokemon) {
+    let nombre = pokemon.name.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+    }
+  }
