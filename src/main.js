@@ -26,12 +26,9 @@ listado.pokemon.forEach((element, index)=>{
     newDiv.appendChild(newNumber);
     newDiv.appendChild(newImg);
     newDiv.appendChild(newName);
-
-    let currentDiv = document.getElementById('contenedor');
-    currentDiv.appendChild(newDiv);
-
+    
+  const currentDiv = document.getElementById('contenedor');
+  currentDiv.appendChild(newDiv);
 });
-
 //const ingresoNombre = document.getElementById('buscador').value
 //para poder hacer el merge
-
