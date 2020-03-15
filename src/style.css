@@ -161,15 +161,15 @@ h1{
 }
 
 .contenedor::-webkit-srollbar-thumb{
-    background-color: rgb(134, 57, 57);
+    background-color: rgb(77, 75, 75);
     border-radius: 4px ;
 }
 .contenedor::-webkit-scrollbar-thumb:hover {
-    background: #b3b3b3;
+    background: #f1eeee;
     box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 }
 .contenedor::-webkit-scrollbar-thumb:active {
-    background-color: #999999;
+    background-color: #70a172;
 }
 #contenedor::-webkit-scrollbar-track{
     background-color: #c4c3c3;
@@ -177,7 +177,7 @@ h1{
 }
 .contenedor::-webkit-scrollbar-track:hover,
 .contenedor::-webkit-scrollbar-track:active {
-  background: #d4d4d4;
+  background: #915b5b;
 }
 .contenedorPokemon{
     display: flex;
