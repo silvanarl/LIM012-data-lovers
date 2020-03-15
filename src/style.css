@@ -29,6 +29,7 @@ main{
     margin: 0px;
     padding: 0px;
 }
+
 body{
     background-image: url(img/fondo-pokemon.jpg);
     background-repeat: no-repeat;
@@ -50,19 +51,10 @@ main{
     max-width: 375px;
     margin: 0 auto;
 }
-#root{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 320px;
-    height: 530px;
-    margin: 0 auto;
-    background-color: rgba(0, 0, 0, .2);
-}
 
 section{  
     width: 320px;
+    margin: 0 auto;
     background-color: rgba(0, 0, 0, .2);
 }
 
@@ -99,7 +91,7 @@ h1{
     font-weight: lighter;
 }
 
-#buscar{
+#buscador{
     width: 250px;
     height: 44px;
     font-family: KoHo;
@@ -208,9 +200,14 @@ aside{
     height: 240px;
     background-color: red;
     margin-top: 15px;
+    margin: 0 auto;
 }
 
 @media screen and (min-width: 768px){
+
+    main{
+        max-width: 750px;
+    }
 
     section{
         width: 740px;
@@ -232,8 +229,9 @@ aside{
 
 @media screen and (min-width: 1025px){
     main{
+        display: flex;
         flex-direction: row;
-        width: 90%;
+        max-width: 90%;
         height: 540px;
         margin: 0 auto;
         justify-content: space-between;
