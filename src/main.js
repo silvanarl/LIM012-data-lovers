@@ -26,12 +26,7 @@ listado.pokemon.forEach((element, index)=>{
     newDiv.appendChild(newNumber);
     newDiv.appendChild(newImg);
     newDiv.appendChild(newName);
-    
-  const currentDiv = document.getElementById('contenedor');
-  currentDiv.appendChild(newDiv);
-});
-
-const formulario = document.querySelector('#buscar');
+const formulario = document.querySelector('#buscador');
 const boton = document.querySelector('#botonBuscar');
 
 const busqueda = () => {
@@ -41,6 +36,3 @@ const busqueda = () => {
     if(nombre.indexOf(texto) !== -1){
     }
   }
-};
-
-boton.addEventListener('click', busqueda);
