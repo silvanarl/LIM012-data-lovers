@@ -31,4 +31,17 @@ listado.pokemon.forEach((element, index)=>{
   currentDiv.appendChild(newDiv);
 });
 //const ingresoNombre = document.getElementById('buscador').value
-//para poder hacer el merge
+
+const btnBuscar = document.getElementById('botonBuscar');
+
+btnBuscar.addEventListener('click', (validacion)=>{
+
+    validacion.preventDefault();
+    const pokemonBuscado = document.getElementById('buscador').value
+
+    const pokemonParecido = listado.pokemon.filter(pokemon => (pokemon.name === pokemonBuscado));
+    console.log(pokemonParecido);
+});
+
+
+
