@@ -23,6 +23,7 @@ listado.pokemon.forEach((element, index) => {
   const currentDiv = document.getElementById('contenedor');
   currentDiv.appendChild(newDiv);
 });
+
 const buscarPokemon = document.getElementById('botonBuscar');
 buscarPokemon.addEventListener('click', (validacion) => {
 
