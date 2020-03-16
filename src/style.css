@@ -10,6 +10,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    font-family: 'KoHo', sans-serif;
     height: 100vh;
 }
 
@@ -30,13 +31,9 @@ main{
     padding: 0px;
 }
 
-body{
-    background-image: url(img/fondo-pokemon.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'KoHo', sans-serif;
-    height: 100vh;
-}
+
+  /*  font-family: 'KoHo', sans-serif;*/
+
 header{
     margin: 0 auto;
     max-width: 375px;
