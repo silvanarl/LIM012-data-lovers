@@ -5,8 +5,6 @@ const listado = pokemon;
 //console.log(listado.pokemon[1].name);
 //console.log(listado.pokemon[1].type);
 
-//console.log(Object.keys(listado.pokemon));
-
 listado.pokemon.forEach((element, index)=>{
 
     const newDiv = document.createElement('div');
@@ -30,18 +28,19 @@ listado.pokemon.forEach((element, index)=>{
   const currentDiv = document.getElementById('contenedor');
   currentDiv.appendChild(newDiv);
 });
-//const ingresoNombre = document.getElementById('buscador').value
+
+//
+
 
 const btnBuscar = document.getElementById('botonBuscar');
 
-btnBuscar.addEventListener('click', (validacion)=>{
+btnBuscar.addEventListener('click',(validacion)=>{
 
-    validacion.preventDefault();
-    const pokemonBuscado = document.getElementById('buscador').value
+  validacion.preventDefault();
 
-    const pokemonParecido = listado.pokemon.filter(pokemon => (pokemon.name === pokemonBuscado));
-    console.log(pokemonParecido);
+  const nombrePokemon = document.getElementById('buscador').value;
+  console.log(nombrePokemon);
+
+  console.log(pokemon.name === nombrePokemon);
+  
 });
-
-
-
