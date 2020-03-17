@@ -24,7 +24,7 @@ arrObj.forEach((e, i) => {
 
   const currentDiv = document.getElementById('contenedor');
   currentDiv.appendChild(newDiv);
-}
+});
 
 let pokemonBuscado = document.getElementById('buscador');
 let buscarPokemon = document.getElementById('botonBuscar');
