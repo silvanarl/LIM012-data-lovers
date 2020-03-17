@@ -26,6 +26,9 @@ arrObj.forEach((e, i) => {
   currentDiv.appendChild(newDiv);
 });
 
+
+///
+
 let pokemonBuscado = document.getElementById('buscador');
 let buscarPokemon = document.getElementById('botonBuscar');
 let resultadoBuscador = document.getElementById('resultados');
@@ -33,17 +36,16 @@ let resultadoBuscador = document.getElementById('resultados');
 buscarPokemon.addEventListener('click', (validacion) => {
 
   validacion.preventDefault();
-  resultadoBuscador.innerHTML = '';
   const textoAlerta = document.getElementById('textoAlerta');
 
   let textoMin = pokemonBuscado.value.toLowerCase();
 
-  for(let i = 0; i < arrObj.length; i++){
+  for (let i = 0; i < arrObj.length; i++){
     let pokemonMin = arrObj[i].name.toLowerCase();
     if (pokemonMin.indexOf(textoMin) !== -1){
-      resultadoBuscador.innerHTML += '<li>' + arrObj[i].name + '</li>'
-    }
-    else{
+      resultadoBuscador.innerHTML += '<p>' + arrObj[i].name + '</p>'
+    } else {
+      resultadoBuscador.innerHTML = '';
       textoAlerta.textContent = "no hay coincidencias";
     }
   }
