@@ -1,20 +1,21 @@
 import { example } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
-const listado = pokemon;
+const arrObj = pokemon.pokemon;
 
-listado.pokemon.forEach((element, index) => {
-
+arrObj.forEach((e, i) => {
+  // console.log('elementos', e);
+  // console.log('indice', i);
   const newDiv = document.createElement('div');
   newDiv.setAttribute('class', 'contenedorPokemon');
   // img
   const newImg = document.createElement('img');
-  newImg.setAttribute('src', listado.pokemon[index].img);
+  newImg.setAttribute('src', arrObj[i].img);
   newImg.setAttribute('class', 'imgPokemon');
   // name
-  const newName = document.createTextNode(listado.pokemon[index].name);
+  const newName = document.createTextNode(arrObj[i].name);
   // numero
-  const newNumber = document.createTextNode(listado.pokemon[index].num);
+  const newNumber = document.createTextNode(arrObj[i].num);
 
   newDiv.appendChild(newNumber);
   newDiv.appendChild(newImg);
@@ -24,15 +25,25 @@ listado.pokemon.forEach((element, index) => {
   currentDiv.appendChild(newDiv);
 });
 
-const buscarPokemon = document.getElementById('botonBuscar');
+let pokemonBuscado = document.getElementById('buscador');
+let buscarPokemon = document.getElementById('botonBuscar');
+let resultadoBuscador = document.getElementById('resultados');
+
+
 buscarPokemon.addEventListener('click', (validacion) => {
 
   validacion.preventDefault();
-  const pokemonBuscado = document.getElementById('buscador').value;
-  console.log(pokemonBuscado); // guarda el valor ingresado
-  const pokemonEncontrado = listado.pokemon.filter(pokemon => (pokemon.name === pokemonBuscado));
-  console.log(pokemonEncontrado); // Esto trae toda la info del pokemon
-  const soloTresPropiedades = pokemonEncontrado.map(pokemon => [[pokemon.num], [pokemon.img], [pokemon.name]]);
-  console.log(soloTresPropiedades);
-  //const nuevoDivEnPantalla;
-});
+  resultadoBuscador.innerHTML = '';
+  const textoAlerta = document.getElementById('textoAlerta');
+
+  let textoMin = pokemonBuscado.value.toLowerCase();
+  for (let i = 0; i < arrObj.length; i++) {
+    let pokemonMin = arrObj[i].name.toLowerCase();
+    if (pokemonMin.indexOf(textoMin) !== -1){
+      resultadoBuscador.innerHTML += '<li>' +  arrObj[i].name + '</li>'
+    }
+    else{
+      textoAlerta.textContent = "no hay coincidencias";
+    }
+	}
+})
