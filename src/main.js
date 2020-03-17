@@ -3,28 +3,25 @@ import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
 
-arrObj.forEach((e, i) => {
-  // console.log('elementos', e);
-  // console.log('indice', i);
-  const newDiv = document.createElement('div');
-  newDiv.setAttribute('class', 'contenedorPokemon');
-  // img
-  const newImg = document.createElement('img');
-
-  newImg.setAttribute('src', arrObj[i].img);
-  newImg.setAttribute('class', 'imgPokemon');
-  // name
-  const newName = document.createTextNode(arrObj[i].name);
-  // numero
-  const newNumber = document.createTextNode(arrObj[i].num);
-
-  newDiv.appendChild(newNumber);
-  newDiv.appendChild(newImg);
-  newDiv.appendChild(newName);
-
-  const currentDiv = document.getElementById('contenedor');
-  currentDiv.appendChild(newDiv);
-});
+const showPokemon = (array) => {
+  for (let e = 0; e < array.length; e++) {
+    if (e <= array.length - 1) {
+      const newDiv = document.createElement('div');
+      newDiv.setAttribute('class', 'contenedorPokemon');
+      const newImg = document.createElement('img');
+      newImg.setAttribute('src', array[e].img);
+      newImg.setAttribute('class', 'imgPokemon');
+      const newName = document.createTextNode(array[e].name);
+      const newNumber = document.createTextNode(array[e].num);
+      newDiv.appendChild(newNumber);
+      newDiv.appendChild(newImg);
+      newDiv.appendChild(newName);
+      const currentDiv = document.getElementById('contenedor');
+      currentDiv.appendChild(newDiv);
+    }
+  }
+};
+showPokemon(arrObj);
 
 
 ///
@@ -32,6 +29,7 @@ arrObj.forEach((e, i) => {
 let pokemonBuscado = document.getElementById('buscador');
 let buscarPokemon = document.getElementById('botonBuscar');
 let resultadoBuscador = document.getElementById('resultados');
+
 
 buscarPokemon.addEventListener('click', (validacion) => {
 
@@ -50,4 +48,3 @@ buscarPokemon.addEventListener('click', (validacion) => {
     }
   }
 });
-
