@@ -10,6 +10,7 @@ arrObj.forEach((e, i) => {
   newDiv.setAttribute('class', 'contenedorPokemon');
   // img
   const newImg = document.createElement('img');
+
   newImg.setAttribute('src', arrObj[i].img);
   newImg.setAttribute('class', 'imgPokemon');
   // name
@@ -23,12 +24,11 @@ arrObj.forEach((e, i) => {
 
   const currentDiv = document.getElementById('contenedor');
   currentDiv.appendChild(newDiv);
-});
+}
 
 let pokemonBuscado = document.getElementById('buscador');
 let buscarPokemon = document.getElementById('botonBuscar');
 let resultadoBuscador = document.getElementById('resultados');
-
 
 buscarPokemon.addEventListener('click', (validacion) => {
 
@@ -37,13 +37,15 @@ buscarPokemon.addEventListener('click', (validacion) => {
   const textoAlerta = document.getElementById('textoAlerta');
 
   let textoMin = pokemonBuscado.value.toLowerCase();
-  for (let i = 0; i < arrObj.length; i++) {
+
+  for(let i = 0; i < arrObj.length; i++){
     let pokemonMin = arrObj[i].name.toLowerCase();
     if (pokemonMin.indexOf(textoMin) !== -1){
-      resultadoBuscador.innerHTML += '<li>' +  arrObj[i].name + '</li>'
+      resultadoBuscador.innerHTML += '<li>' + arrObj[i].name + '</li>'
     }
     else{
       textoAlerta.textContent = "no hay coincidencias";
     }
-	}
-})
+  }
+});
+
