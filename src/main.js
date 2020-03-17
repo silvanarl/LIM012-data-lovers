@@ -25,3 +25,28 @@ function agregarPokemon(e, i, array){
 }
 
 arrObj.forEach(agregarPokemon);
+
+///
+
+let pokemonBuscado = document.getElementById('buscador');
+let buscarPokemon = document.getElementById('botonBuscar');
+let resultadoBuscador = document.getElementById('resultados');
+
+buscarPokemon.addEventListener('click', function(validacion){
+
+  validacion.preventDefault();
+  resultadoBuscador.innerHTML = '';
+  const textAlert = document.getElementById('textoAlerta');
+
+  let textoMin = pokemonBuscado.value.toLowerCase();
+  
+  for(let i = 0; i < arrObj.length; i++){
+    let pokemonMin = arrObj[i].name.toLowerCase();
+    if (pokemonMin.indexOf(textoMin) !== -1){
+      resultadoBuscador.innerHTML += '<li>' + arrObj[i].name + '</li>'
+    }
+    else{
+      textAlert.textContent = "no hay coincidencias";
+    }
+  }
+});
