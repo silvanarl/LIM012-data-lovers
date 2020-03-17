@@ -36,7 +36,7 @@ buscarPokemon.addEventListener('click', function(validacion){
 
   validacion.preventDefault();
   resultadoBuscador.innerHTML = '';
-  const textAlert = document.getElementById('textoAlerta');
+  const textoAlerta = document.getElementById('textoAlerta');
 
   let textoMin = pokemonBuscado.value.toLowerCase();
   
@@ -46,7 +46,7 @@ buscarPokemon.addEventListener('click', function(validacion){
       resultadoBuscador.innerHTML += '<li>' + arrObj[i].name + '</li>'
     }
     else{
-      textAlert.textContent = "no hay coincidencias";
+      textoAlerta.textContent = "no hay coincidencias";
     }
   }
 });
