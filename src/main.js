@@ -3,8 +3,13 @@ import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
 
+// Esta función muestra los Pokemon, recorriendo un array con un for, con
+// la condicional de la longitud exacta del array. Luego crea un contenedor
+// donde se insertarán: el elemento imagen y los nodos de texto num y name
+// que fueron creados también, mediante el método appendchild() estos
+// son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
 const showPokemon = (array) => {
-  for (let e = 0; e < array.length; e++) {
+  for (let e = 0; e < array.length; e += 1) {
     if (e <= array.length - 1) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'contenedorPokemon');
@@ -22,29 +27,3 @@ const showPokemon = (array) => {
   }
 };
 showPokemon(arrObj);
-
-
-///
-
-let pokemonBuscado = document.getElementById('buscador');
-let buscarPokemon = document.getElementById('botonBuscar');
-let resultadoBuscador = document.getElementById('resultados');
-
-
-buscarPokemon.addEventListener('click', (validacion) => {
-
-  validacion.preventDefault();
-  const textoAlerta = document.getElementById('textoAlerta');
-
-  let textoMin = pokemonBuscado.value.toLowerCase();
-
-  for (let i = 0; i < arrObj.length; i++){
-    let pokemonMin = arrObj[i].name.toLowerCase();
-    if (pokemonMin.indexOf(textoMin) !== -1){
-      resultadoBuscador.innerHTML += '<p>' + arrObj[i].name + '</p>'
-    } else {
-      resultadoBuscador.innerHTML = '';
-      textoAlerta.textContent = "no hay coincidencias";
-    }
-  }
-});
