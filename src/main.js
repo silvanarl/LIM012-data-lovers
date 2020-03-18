@@ -9,7 +9,7 @@ const arrObj = pokemon.pokemon;
 // que fueron creados también, mediante el método appendchild() estos
 // son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
 const showPokemon = (array) => {
-  for (let e = 0; e < array.length; e++) {
+  for (let e = 0; e < array.length; e += 1) {
     if (e <= array.length - 1) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', 'contenedorPokemon');
@@ -27,7 +27,6 @@ const showPokemon = (array) => {
   }
 };
 showPokemon(arrObj);
-
 
 ///Esta función arroja coincidencias según el ingreso del usuario
 
@@ -53,10 +52,4 @@ buscarPokemon.addEventListener('click', (validacion) => {
   }
   console.log(arrCoincidencias);
 });
-
-
-
-
-
-
 
