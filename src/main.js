@@ -27,3 +27,29 @@ const showPokemon = (array) => {
   }
 };
 showPokemon(arrObj);
+
+///Esta función arroja coincidencias según el ingreso del usuario
+
+let pokemonBuscado = document.getElementById('buscador');
+let buscarPokemon = document.getElementById('botonBuscar');
+let arrCoincidencias = [];
+
+buscarPokemon.addEventListener('click', (validacion) => {
+
+  validacion.preventDefault();
+
+  let textoMin = pokemonBuscado.value.toLowerCase();
+
+  for(let i = 0; i < arrObj.length; i++){
+    let pokemonMin = arrObj[i].name.toLowerCase();
+    if (pokemonMin.indexOf(textoMin) !== -1){
+      arrCoincidencias.push(arrObj[i]);
+    }else{
+      //const textoAlerta = document.getElementById('textoAlerta');
+      //textoAlerta.classList.remove('ocultar');
+      //textoAlerta.textContent = "no hay coincidencias";
+    }
+  }
+  console.log(arrCoincidencias);
+});
+
