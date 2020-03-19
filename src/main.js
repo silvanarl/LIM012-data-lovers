@@ -11,57 +11,21 @@ const arrObj = pokemon.pokemon;
 const currentDiv = document.getElementById('contenedor');
 
 const showPokemon = (array) => {
-  for (let i = 0; i < array.length; i++){
-
-      let nombre = array[i].name;
-      let numero = array[i].num;
-      let imagen = array[i].img;
-
-      let whiteDiv = `
+  currentDiv.innerHTML = '';
+  let newDiv = '';
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i].num;
+    const name = array[i].name;
+    const img = array[i].img;
+    newDiv += `
       <div class="contenedorPokemon">
-        <p>${numero}</p>
-        <img class="imgPokemon" src="${imagen}">
-        <p>${nombre}</p>
+      <a href="">
+        <p class="enlace">${num}</p>
+        <img class="imgPokemon" src="${img}">
+        <p class="enlace">${name}</p></a>
       </div>
-      `
-      currentDiv.innerHTML += whiteDiv;
+      `;
   }
+  currentDiv.innerHTML = newDiv;
 };
-
 showPokemon(arrObj);
-
-////
-
-let pokemonBuscado = document.getElementById('buscador');
-let buscarPokemon = document.getElementById('botonBuscar');
-let arrCoincidencias = [];
-
-///Esta función arroja coincidencias según el ingreso del usuario
-buscarPokemon.addEventListener('click', (event) => {
-
-  event.preventDefault();
-
-  const coincidencias = (array) =>{
-
-  let textoMin = pokemonBuscado.value.toLowerCase();
-
-    for(let i = 0; i < array.length; i++){
-      let pokemonMin = array[i].name.toLowerCase();
-      if (pokemonMin.indexOf(textoMin) !== -1){
-        arrCoincidencias.push(array[i]);
-      }else{
-        //const textoAlerta = document.getElementById('textoAlerta');
-        //textoAlerta.classList.remove('ocultar');
-        //textoAlerta.textContent = "no hay coincidencias";
-      }
-    }
-    return arrCoincidencias;
-  }
-  console.log(coincidencias(arrObj));
-  console.log(showPokemon(coincidencias(arrObj)));
-});
-
-
-
-
-
