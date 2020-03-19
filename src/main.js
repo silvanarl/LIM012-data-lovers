@@ -19,10 +19,11 @@ const showPokemon = (array) => {
     const name = array[i].name;
     newDiv += `
       <div class = "contenedorPokemon">
-      <a href="">
+      <a href="" id="btnInfo">
        <p class ="enlace" > ${num} </p>
        <img class = "imgPokemon" src = ${img}>
-      <p class ="enlace">${name}</p></a>
+      <p class ="enlace">${name}</p>
+      </a>
       </div>
     `;
   }
@@ -55,4 +56,35 @@ buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
   currentDiv.innerHTML = '';
   showPokemon(coincidencias(arrObj));
+});
+
+const btnInfo = document.querySelector('#btnInfo');
+
+const showInfo = (array) => {
+  let infoPok = '';
+  for (let i = 0; i < array.length; i++) {
+
+    const num = array[i].num;
+    const img = array[i].img;
+    const name = array[i].name;
+    const height = array[i].size.height;
+    const weight = array[i].size.weight;
+    const generation = array[i].generation[name];
+    const type = array[i].type;
+    const maxCp = array[i].stats[max-cp];
+    const maxHp = array[i].stats[max-hp];
+    const resistant = array[i].resistant;
+    const weaknesses = array[i].weaknesses;
+    const evolution = array[i].evolution[i].next-evolution[name];
+  }
+
+};
+
+btnInfo.addEventListener('click', () => {
+  //let infoPok = '';
+//   for (let i = 0; i < array.length; i++) {
+//     const num = array[i].num;
+//     const img = array[i].img;
+//     const name = array[i].name;
+// }
 });
