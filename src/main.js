@@ -9,43 +9,51 @@ const arrObj = pokemon.pokemon;
 // que fueron creados también, mediante el método appendchild() estos
 // son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
 const currentDiv = document.getElementById('contenedor');
+
 const showPokemon = (array) => {
+  currentDiv.innerHTML = '';
+  let newDiv = '';
   for (let i = 0; i < array.length; i++) {
     const num = array[i].num;
     const img = array[i].img;
     const name = array[i].name;
-    const newDiv = `
-      <li class = "contenedorPokemon">
+    newDiv += `
+      <div class = "contenedorPokemon">
       <a href="">
-       <p> ${num} </p>
+       <p class ="enlace" > ${num} </p>
        <img class = "imgPokemon" src = ${img}>
-      <p>${name}</p></a>
-      </li>
+      <p class ="enlace">${name}</p></a>
+      </div>
     `;
-    currentDiv.innerHTML += newDiv;
   }
+  currentDiv.innerHTML = newDiv;
 };
 showPokemon(arrObj);
 
 // Esta función arroja coincidencias según el ingreso del usuario
 
+
 const pokemonBuscado = document.getElementById('buscador');
 const buscarPokemon = document.getElementById('botonBuscar');
 const arrCoincidencias = [];
 
+const coincidencias = (array) => {
+  const textoMin = pokemonBuscado.value.toLowerCase();
+  for (let i = 0; i < array.length; i++) {
+    const pokemonMin = array[i].name.toLowerCase();
+    if (pokemonMin.indexOf(textoMin) !== -1) {
+      arrCoincidencias.push(array[i]);
+    } else {
+    //   const textoAlerta = document.getElementById('textoAlerta');
+    //   textoAlerta.classList.remove('ocultar');
+    //   textoAlerta.textContent = 'no hay coincidencias';
+    }
+  }
+  return arrCoincidencias;
+};
+
 buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
-
-  const textoMin = pokemonBuscado.value.toLowerCase();
-  for (let i = 0; i < arrObj.length; i += 1) {
-    const pokemonMin = arrObj[i].name.toLowerCase();
-    if (pokemonMin.indexOf(textoMin) !== -1) {
-      arrCoincidencias.push(arrObj[i]);
-    } else {
-      // const textoAlerta = document.getElementById('textoAlerta');
-      // textoAlerta.classList.remove('ocultar');
-      // textoAlerta.textContent = "no hay coincidencias";
-    }
-    return arrCoincidencias;
-  }
+  currentDiv.innerHTML = '';
+  showPokemon(coincidencias(arrObj));
 });
