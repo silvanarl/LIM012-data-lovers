@@ -32,7 +32,6 @@ showPokemon(arrObj);
 
 // Esta función arroja coincidencias según el ingreso del usuario
 
-
 const pokemonBuscado = document.getElementById('buscador');
 const buscarPokemon = document.getElementById('botonBuscar');
 const arrCoincidencias = [];
