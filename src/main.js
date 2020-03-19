@@ -8,48 +8,44 @@ const arrObj = pokemon.pokemon;
 // donde se insertarán: el elemento imagen y los nodos de texto num y name
 // que fueron creados también, mediante el método appendchild() estos
 // son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
+const currentDiv = document.getElementById('contenedor');
 const showPokemon = (array) => {
-  for (let e = 0; e < array.length; e += 1) {
-    if (e <= array.length - 1) {
-      const newDiv = document.createElement('div');
-      newDiv.setAttribute('class', 'contenedorPokemon');
-      const newImg = document.createElement('img');
-      newImg.setAttribute('src', array[e].img);
-      newImg.setAttribute('class', 'imgPokemon');
-      const newName = document.createTextNode(array[e].name);
-      const newNumber = document.createTextNode(array[e].num);
-      newDiv.appendChild(newNumber);
-      newDiv.appendChild(newImg);
-      newDiv.appendChild(newName);
-      const currentDiv = document.getElementById('contenedor');
-      currentDiv.appendChild(newDiv);
-    }
+  for (let i = 0; i < array.length; i++) {
+    const num = array[i].num;
+    const img = array[i].img;
+    const name = array[i].name;
+    const newDiv = `
+      <li class = "contenedorPokemon">
+      <a href="">
+       <p> ${num} </p>
+       <img class = "imgPokemon" src = ${img}>
+      <p>${name}</p></a>
+      </li>
+    `;
+    currentDiv.innerHTML += newDiv;
   }
 };
 showPokemon(arrObj);
 
-///Esta función arroja coincidencias según el ingreso del usuario
+// Esta función arroja coincidencias según el ingreso del usuario
 
-let pokemonBuscado = document.getElementById('buscador');
-let buscarPokemon = document.getElementById('botonBuscar');
-let arrCoincidencias = [];
+const pokemonBuscado = document.getElementById('buscador');
+const buscarPokemon = document.getElementById('botonBuscar');
+const arrCoincidencias = [];
 
-buscarPokemon.addEventListener('click', (validacion) => {
+buscarPokemon.addEventListener('click', (event) => {
+  event.preventDefault();
 
-  validacion.preventDefault();
-
-  let textoMin = pokemonBuscado.value.toLowerCase();
-
-  for(let i = 0; i < arrObj.length; i++){
-    let pokemonMin = arrObj[i].name.toLowerCase();
-    if (pokemonMin.indexOf(textoMin) !== -1){
+  const textoMin = pokemonBuscado.value.toLowerCase();
+  for (let i = 0; i < arrObj.length; i += 1) {
+    const pokemonMin = arrObj[i].name.toLowerCase();
+    if (pokemonMin.indexOf(textoMin) !== -1) {
       arrCoincidencias.push(arrObj[i]);
-    }else{
-      //const textoAlerta = document.getElementById('textoAlerta');
-      //textoAlerta.classList.remove('ocultar');
-      //textoAlerta.textContent = "no hay coincidencias";
+    } else {
+      // const textoAlerta = document.getElementById('textoAlerta');
+      // textoAlerta.classList.remove('ocultar');
+      // textoAlerta.textContent = "no hay coincidencias";
     }
+    return arrCoincidencias;
   }
-  console.log(arrCoincidencias);
 });
-
