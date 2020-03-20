@@ -4,7 +4,11 @@
 }
 
 .ocultar{
-    display: none;
+	visibility: hidden;
+}
+
+.mostrar{
+	visibility: visible;
 }
 
 body{
@@ -201,10 +205,12 @@ a{
     box-sizing: border-box;
     width: 120px;
     height: 120px;
+    color: black;
 }
 
 a:link, a:visited, a:active{
     text-decoration: none;
+    color: black;
 }
 
 .enlace{
@@ -217,6 +223,89 @@ aside{
     background-color: red;
     margin-top: 15px;
     margin: 0 auto;
+}
+
+/* POKEDEX */
+
+.pokemon{
+	width: 120px;
+	height: 120px;
+	background-color: grey;
+}
+
+.overlay{
+	background: rgba(0, 0, 0, .3);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pokedex{
+	display: flex;
+	margin: 0 auto;
+	width: 566px;
+	height: 554px;
+    flex-direction: row;
+    animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+
+.pok_1{
+	width: 348px;
+	height: 554px;
+	background-color: #D10707;
+	border-radius: 40px 40px 0 40px;
+}
+
+.pok_2{
+	width: 75px;
+	height: 500px;
+	background-color: #D10707;
+	align-self: flex-end;
+}
+
+.pok_3{
+	width: 58px;
+	height: 500px;
+	align-self: flex-end;
+	flex-direction: column;
+}
+
+.pok_3_1{
+	width: 0;
+	height: 0;
+	border-right: 58px solid transparent;
+	border-bottom: 48px solid #D10707;
+}
+
+.pok_3_2{
+	width: 58px;
+	height: 452px;
+	background-color: #D10707;
+}
+
+
+.pok_4{
+	width: 85px;
+	height: 452px;
+	background-color: #D10707;
+	align-self: flex-end;
+	border-radius: 0 40px 40px 0;
+}
+
+.info{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: white;
+	color: black;
+	z-index: 1;
 }
 
 @media screen and (min-width: 768px){
