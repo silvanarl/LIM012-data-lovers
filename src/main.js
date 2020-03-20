@@ -18,12 +18,13 @@ const showPokemon = (array) => {
     const img = array[i].img;
     const name = array[i].name;
     newDiv += `
-      <div class = "contenedorPokemon">
-      <a href="">
+    <div class = "contenedorPokemon">
+      <a href="#" id="btnInfo">
        <p class ="enlace" > ${num} </p>
        <img class = "imgPokemon" src = ${img}>
-      <p class ="enlace">${name}</p></a>
-      </div>
+      <p class ="enlace">${name}</p>
+      </a>
+    </div>
     `;
   }
   currentDiv.innerHTML = newDiv;
@@ -55,4 +56,53 @@ buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
   currentDiv.innerHTML = '';
   showPokemon(coincidencias(arrObj));
+  pokemonBuscado.value = ''; //AGREGUÉ
+});
+
+// Mostrar la pokedex con la info del pokemon
+
+const btnInfo = document.querySelector('#btnInfo');
+const pokedex = document.querySelector('#overlay');
+
+const showInfo = () => {
+  let infoPok = '';
+
+  //for (let i = 0; i < array.length; i++)
+    // const num = array[i].num;
+    // const img = array[i].img;
+    // const name = array[i].name;
+    // const height = array[i].size.height;
+    // const weight = array[i].size.weight;
+    // const generation = array[i].generation[name];
+    // const type = array[i].type;
+    // const maxCp = array[i].stats[max-cp];
+    // const maxHp = array[i].stats[max-hp];
+    // const resistant = array[i].resistant;
+    // const weaknesses = array[i].weaknesses;
+    // const evolution = array[i].evolution[i].next-evolution[name];
+
+    infoPok += `
+    <div class="pokedex" id="popup">
+      <div class="pok_1"></div>
+      <div class="pok_2"></div>
+      <div class="pok_3">
+        <div class="pok_3_1"></div>
+        <div class="pok_3_2"></div>
+      </div>
+      <div class="pok_4"></div>
+      <div class="info">HOLA</div>
+    </div>
+    `;
+  pokedex.innerHTML = infoPok;
+};
+showInfo();
+
+btnInfo.addEventListener('click', (event) => {
+
+  event.preventDefault();
+  //const popup = document.getElementById('popup');
+
+  pokedex.classList.add('mostrar');
+  
+  showInfo();
 });
