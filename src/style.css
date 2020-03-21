@@ -327,8 +327,12 @@ aside{
     }
 
     form{
-        width: 50%;
+        justify-content: center;
         margin: 0 auto;
+    }
+    
+    input{
+        width: 338px;
     }
 }
 
