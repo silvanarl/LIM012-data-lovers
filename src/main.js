@@ -52,7 +52,6 @@ const pokedex = document.querySelector('#overlay');
 
 const showInfo = (array) => {
   let infoPok = '';
-
   for (let i = 0; i < array.length; i++) {
     const num = array[i].num;
     const img = array[i].img;
@@ -93,10 +92,9 @@ const showInfo = (array) => {
 showInfo(arrObj);
 
 btnInfo.addEventListener('click', (event) => {
-
   event.preventDefault();
-  //const popup = document.getElementById('popup');
-
+  // const popup = document.getElementById('popup');
   pokedex.classList.add('mostrar');
+  //
   showInfo();
 });
