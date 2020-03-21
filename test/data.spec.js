@@ -1,13 +1,13 @@
-import { example, anotherExample } from '../src/data.js';
+import { coincidencias, anotherExample } from '../src/data.js';
 
 
-describe('example', () => {
+describe('coincidencias', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof coincidencias).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('returns `coincidencias`', () => {
+    expect(coincidencias()).toBe('coincidencias');
   });
 });
 
