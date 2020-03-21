@@ -1,5 +1,3 @@
-// estas funciones son de ejemplo
-
 export const coincidencias = (array, string) => {
   const arrCoincidencias = [];
   for (let i = 0; i < array.length; i++) {

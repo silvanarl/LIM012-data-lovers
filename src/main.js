@@ -37,7 +37,6 @@ buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
   let pokemonBuscado = document.getElementById('buscador').value;
   if (pokemonBuscado !== '') {
-    console.log(pokemonBuscado);
     currentDiv.innerHTML = '';
     showPokemon(coincidencias(arrObj, pokemonBuscado));
     pokemonBuscado = '';
