@@ -103,5 +103,6 @@ btnInfo.addEventListener('click', (event) => {
   //const popup = document.getElementById('popup');
 
   pokedex.classList.add('mostrar');
+  //
   showInfo();
 });
