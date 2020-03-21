@@ -56,7 +56,7 @@ buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
   currentDiv.innerHTML = '';
   showPokemon(coincidencias(arrObj));
-  pokemonBuscado.value = ''; //AGREGUÉ
+  pokemonBuscado.value = ''; // AGREGUÉ
 });
 
 // Mostrar la pokedex con la info del pokemon
