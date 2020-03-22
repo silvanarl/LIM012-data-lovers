@@ -58,6 +58,8 @@ const showInfo = (array) => {
     const name = array[i].name;
     const weight = array[i].size.weight;
     const height = array[i].size.height;
+    const generation = array[i].generation.name;
+    const type = array[i].type;
 
     infoPok = `
     <div class="pokedex" id="popup">
@@ -81,19 +83,23 @@ const showInfo = (array) => {
             <p class="text18"> ${weight} </p>
           </div>
           <div class="height">
-            <img src = "img/weight.svg">
+            <img src = "img/height.svg">
             <p class="text18"> ${height} </p>
           </div>
-          <div class="generation"></div>
-          <div class="type"></div>
+          <div class="generation">
+            <img src = "img/rombo.svg">
+            <p class="text18"> ${generation} </p>
+          </div>
+          <div class="type">
+            <img src = "img/rombo.svg">
+            <p class="text18"> ${type} </p>
+          </div>
         </div>
         </div>
       </div>
     </div>
     `;
   }
-  // const generation = array[i].generation[name];
-  // const type = array[i].type;
   // const maxCp = array[i].stats[max-cp];
   // const maxHp = array[i].stats[max-hp];
   // const resistant = array[i].resistant;

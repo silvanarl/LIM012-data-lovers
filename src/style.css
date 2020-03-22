@@ -361,6 +361,9 @@ aside{
     height: 50%;
     box-sizing: border-box;
     flex-direction: row;
+    padding: 20px;
+    align-content: center;
+    justify-content: space-around;
 }
 
 .moreInfo img{
