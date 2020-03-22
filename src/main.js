@@ -60,6 +60,8 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
+    const maxCp = array[i].stats[0];
+    const maxHp = array[i].stats[1];
 
     infoPok = `
     <div class="pokedex" id="popup">
@@ -76,32 +78,38 @@ const showInfo = (array) => {
           <p class="text24"> ${num} </p>
         </div>
         <div class="secondRow">
-        <img class = "imgPokInfo" src = ${img}>
-        <div class="moreInfo">
-          <div class="weight">
-            <img src = "img/weight.svg">
-            <p class="text18"> ${weight} </p>
-          </div>
-          <div class="height">
-            <img src = "img/height.svg">
-            <p class="text18"> ${height} </p>
-          </div>
-          <div class="generation">
-            <img src = "img/rombo.svg">
-            <p class="text18"> ${generation} </p>
-          </div>
-          <div class="type">
-            <img src = "img/rombo.svg">
-            <p class="text18"> ${type} </p>
+          <img class = "imgPokInfo" src = ${img}>
+          <div class="moreInfo">
+            <div class="weight">
+              <img src = "img/weight.svg">
+              <p class="text18"> ${weight} </p>
+            </div>
+            <div class="height">
+              <img src = "img/height.svg">
+              <p class="text18"> ${height} </p>
+            </div>
+            <div class="generation">
+              <img src = "img/rombo.svg">
+              <p class="text18"> ${generation} </p>
+            </div>
+            <div class="type">
+              <img src = "img/rombo.svg">
+              <p class="text18"> ${type} </p>
+            </div>
           </div>
         </div>
+        <div class="thirdRow">
+          <p class="text18">Máx</p>
+          <img src = "img/glove.svg">
+          <p class="text18"> ${maxCp} </p>
+          <img src = "img/heart.svg">
+          <p class="text18"> ${maxHp} </p>
         </div>
       </div>
     </div>
     `;
   }
-  // const maxCp = array[i].stats[max-cp];
-  // const maxHp = array[i].stats[max-hp];
+
   // const resistant = array[i].resistant;
   // const weaknesses = array[i].weaknesses;
   // const evolution = array[i].evolution[i].next-evolution[name];

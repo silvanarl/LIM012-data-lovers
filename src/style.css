@@ -336,6 +336,7 @@ aside{
 .text18{
     font-size: 18px;
     color: white;
+    font-weight: 500;
 }
 
 .text14{
@@ -345,6 +346,7 @@ aside{
 .secondRow{
     display: flex;
     flex-direction: row;
+    margin-bottom: 20px;
 }
 
 .moreInfo{
@@ -367,6 +369,25 @@ aside{
 }
 
 .moreInfo img{
+    width: 35px;
+    height: 35px;
+}
+
+.thirdRow{
+    width: 340px;
+    height: 50px;
+    background-color: black;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.thirdRow img{
     width: 35px;
     height: 35px;
 }
