@@ -56,8 +56,10 @@ const showInfo = (array) => {
     const num = array[i].num;
     const img = array[i].img;
     const name = array[i].name;
+    const weight = array[i].size.weight;
+    const height = array[i].size.height;
 
-    infoPok += `
+    infoPok = `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
@@ -67,25 +69,36 @@ const showInfo = (array) => {
       </div>
       <div class="pok_4"></div>
       <div class="info">
-      <p> ${name}</p>
-      <p> ${num}</p>
-      <img class = "imgPokemon" src = ${img}>
+        <div class="nameAndNum">
+          <p class="text24"> ${name} </p>
+          <p class="text24"> ${num} </p>
+        </div>
+        <div class="secondRow">
+        <img class = "imgPokInfo" src = ${img}>
+        <div class="moreInfo">
+          <div class="weight">
+            <img src = "img/weight.svg">
+            <p class="text18"> ${weight} </p>
+          </div>
+          <div class="height">
+            <img src = "img/weight.svg">
+            <p class="text18"> ${height} </p>
+          </div>
+          <div class="generation"></div>
+          <div class="type"></div>
+        </div>
+        </div>
       </div>
     </div>
     `;
   }
-    // const num = array[i].num;
-    // const img = array[i].img;
-    // const name = array[i].name;
-    // const height = array[i].size.height;
-    // const weight = array[i].size.weight;
-    // const generation = array[i].generation[name];
-    // const type = array[i].type;
-    // const maxCp = array[i].stats[max-cp];
-    // const maxHp = array[i].stats[max-hp];
-    // const resistant = array[i].resistant;
-    // const weaknesses = array[i].weaknesses;
-    // const evolution = array[i].evolution[i].next-evolution[name];
+  // const generation = array[i].generation[name];
+  // const type = array[i].type;
+  // const maxCp = array[i].stats[max-cp];
+  // const maxHp = array[i].stats[max-hp];
+  // const resistant = array[i].resistant;
+  // const weaknesses = array[i].weaknesses;
+  // const evolution = array[i].evolution[i].next-evolution[name];
 
   pokedex.innerHTML = infoPok;
 };
