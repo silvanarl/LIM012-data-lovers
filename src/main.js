@@ -52,7 +52,6 @@ const pokedex = document.querySelector('#overlay');
 
 const showInfo = (array) => {
   let infoPok = '';
-
   for (let i = 0; i < array.length; i += 1) {
     const num = array[i].num;
     const img = array[i].img;
@@ -61,22 +60,29 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
+    const tipos = (arr) => {
+      let newType = '';
+      for (i = 0; i < arr.length; i += 1) {
+        newType += `
+        <div class="tipos">${arr[i]}<div>`;
+      }
+      return newType;
+    };
     const maxCp = array[i].stats;
     const maxHp = array[i].stats;
     const resistant = array[i].resistant;
     const weaknesses = array[i].weaknesses;
-
-    const dividir = (array) => {
+    const dividir = (arr) => {
       let newDiv2 = '';
-      for (let i = 0; i < array.length; i += 1) {
+      for (i = 0; i < arr.length; i += 1) {
         newDiv2 += `
-          <div class="tipos">${array[i]}</div>
+          <div class="tipos">${arr[i]}</div>
         `;
       }
       return newDiv2;
     };
 
-    infoPok = `
+    infoPok += `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
