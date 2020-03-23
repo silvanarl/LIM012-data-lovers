@@ -365,12 +365,17 @@ aside{
     flex-direction: row;
     padding: 20px;
     align-content: center;
-    justify-content: space-around;
 }
 
-.moreInfo img{
+.icono{
     width: 35px;
     height: 35px;
+    margin-right: 10px;
+}
+
+.rombo{
+    width: 10px;
+    margin-right: 10px;
 }
 
 .thirdRow{

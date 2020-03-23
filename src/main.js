@@ -61,16 +61,16 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
-    const maxCp = array[i].stats;
-    const maxHp = array[i].stats;
+    const maxCp = array[i].stats[i];
+    const maxHp = array[i].stats[i];
     const resistant = array[i].resistant;
     const weaknesses = array[i].weaknesses;
 
-    const dividir = (array) => {
+    const dividir = (arr) => {
       let newDiv2 = '';
-      for (let i = 0; i < array.length; i += 1) {
+      for (let i = 0; i < arr.length; i += 1) {
         newDiv2 += `
-          <div class="tipos">${array[i]}</div>
+          <div class="tipos">${arr[i]}</div>
         `;
       }
       return newDiv2;
@@ -94,19 +94,19 @@ const showInfo = (array) => {
           <img class = "imgPokInfo" src = ${img}>
           <div class="moreInfo">
             <div class="weight">
-              <img src = "img/weight.svg">
+              <img class="icono" src = "img/weight.svg">
               <p class="text18"> ${weight} </p>
             </div>
             <div class="height">
-              <img src = "img/height.svg">
+              <img class="icono" src = "img/height.svg">
               <p class="text18"> ${height} </p>
             </div>
             <div class="generation">
-              <img src = "img/rombo.svg">
+              <img class="rombo" src = "img/rombo.svg">
               <p class="text18"> ${generation} </p>
             </div>
             <div class="type">
-              <img src = "img/rombo.svg">
+              <img class="rombo" src = "img/rombo.svg">
               <p class="text18"> ${type} </p>
             </div>
           </div>
@@ -143,7 +143,6 @@ showInfo(arrObj);
 btnInfo.addEventListener('click', (event) => {
   event.preventDefault();
   // const popup = document.getElementById('popup');
-
   pokedex.classList.add('mostrar');
   showInfo();
 });
