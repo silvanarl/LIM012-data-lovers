@@ -146,3 +146,4 @@ btnInfo.addEventListener('click', (event) => {
   pokedex.classList.add('mostrar');
   showInfo();
 });
+//
