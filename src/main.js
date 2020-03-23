@@ -41,7 +41,7 @@ buscarPokemon.addEventListener('click', (event) => {
     showPokemon(coincidencias(arrObj, pokemonBuscado));
     pokemonBuscado = '';
   } else {
-    alert('No se encontraron coincidencias');
+    currentDiv.innerHTML = 'No se encontraron coincidencias';
   }
 });
 
