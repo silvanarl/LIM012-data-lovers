@@ -61,20 +61,22 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
-    const tipos = (arr) => {
-      let newType = '';
-      for (i = 0; i < arr.length; i += 1) {
-        newType += `
-        <div>${type[i]}<div>`;
+    const maxCp = array[i].stats;
+    const maxHp = array[i].stats;
+    const resistant = array[i].resistant;
+    const weaknesses = array[i].weaknesses;
+
+    const dividir = (array) => {
+      let newDiv2 = '';
+      for (let i = 0; i < array.length; i += 1) {
+        newDiv2 += `
+          <div class="tipos">${array[i]}</div>
+        `;
       }
-      return newType;
+      return newDiv2;
     };
-    // const objStats = array[i].stats;
-    // const maxCp = objStats.["max-cp"];
-    // console.log(maxCp);
-    // const maxHp = objStats.["max-hp"];
-    // console.log(maxHp);
-    infoPok += `
+
+    infoPok = `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
@@ -115,6 +117,16 @@ const showInfo = (array) => {
           <p class="text18">  </p>
           <img src = "img/heart.svg">
           <p class="text18"> </p>
+        </div>
+        <div class="fourthRow">
+          <div class="resistant">
+            <p class="text18">Resistencia</p>
+            <div class="separar">${dividir(resistant)}</div>
+          </div>
+          <div class="weaknesses">
+            <p class="text18">Debilidad</p>
+            <div class="separar">${dividir(weaknesses)}</div>
+          </div>
         </div>
       </div>
     </div>
