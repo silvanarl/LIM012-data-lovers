@@ -107,16 +107,16 @@ const showInfo = (array) => {
             </div>
             <div class="type">
               <img src = "img/rombo.svg">
-              <p class="text18"> ${type} </p>
+              <p class="text18">${tipos(type)}</p>
             </div>
           </div>
         </div>
         <div class="thirdRow">
           <p class="text18">Máx</p>
           <img src = "img/glove.svg">
-          <p class="text18"> ${maxCp} </p>
+          <p class="text18">  </p>
           <img src = "img/heart.svg">
-          <p class="text18"> ${maxHp} </p>
+          <p class="text18"> </p>
         </div>
         <div class="fourthRow">
           <div class="resistant">
