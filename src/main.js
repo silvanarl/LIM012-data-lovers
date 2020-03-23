@@ -52,7 +52,6 @@ const pokedex = document.querySelector('#overlay');
 
 const showInfo = (array) => {
   let infoPok = '';
-
   for (let i = 0; i < array.length; i += 1) {
     const num = array[i].num;
     const img = array[i].img;
@@ -76,7 +75,7 @@ const showInfo = (array) => {
       return newDiv2;
     };
 
-    infoPok = `
+    infoPok += `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
