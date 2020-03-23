@@ -301,11 +301,95 @@ aside{
 
 .info{
 	position: absolute;
-	width: 100px;
-	height: 100px;
-	background: white;
+	width: 566px;
+	height: 554px;
 	color: black;
-	z-index: 1;
+    z-index: 1;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.imgPokInfo{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.nameAndNum{
+    width: 290px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.text24{
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+}
+
+.text18{
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+}
+
+.text14{
+    font-size: 14px;
+}
+
+.secondRow{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.moreInfo{
+    width: 300px;
+    height: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.weight, .height, .generation, .type{
+    display: flex;
+    width: 50%;
+    height: 50%;
+    box-sizing: border-box;
+    flex-direction: row;
+    padding: 20px;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.moreInfo img{
+    width: 35px;
+    height: 35px;
+}
+
+.thirdRow{
+    width: 340px;
+    height: 50px;
+    background-color: black;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+}
+
+.thirdRow img{
+    width: 35px;
+    height: 35px;
 }
 
 @media screen and (min-width: 768px){

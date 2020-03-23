@@ -57,8 +57,14 @@ const showInfo = (array) => {
     const num = array[i].num;
     const img = array[i].img;
     const name = array[i].name;
+    const weight = array[i].size.weight;
+    const height = array[i].size.height;
+    const generation = array[i].generation.name;
+    const type = array[i].type;
+    const maxCp = array[i].stats[0];
+    const maxHp = array[i].stats[1];
 
-    infoPok += `
+    infoPok = `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
@@ -68,19 +74,42 @@ const showInfo = (array) => {
       </div>
       <div class="pok_4"></div>
       <div class="info">
-      <p> ${name}</p>
-      <p> ${num}</p>
-      <img class = "imgPokemon" src = ${img}>
+        <div class="nameAndNum">
+          <p class="text24"> ${name} </p>
+          <p class="text24"> ${num} </p>
+        </div>
+        <div class="secondRow">
+          <img class = "imgPokInfo" src = ${img}>
+          <div class="moreInfo">
+            <div class="weight">
+              <img src = "img/weight.svg">
+              <p class="text18"> ${weight} </p>
+            </div>
+            <div class="height">
+              <img src = "img/height.svg">
+              <p class="text18"> ${height} </p>
+            </div>
+            <div class="generation">
+              <img src = "img/rombo.svg">
+              <p class="text18"> ${generation} </p>
+            </div>
+            <div class="type">
+              <img src = "img/rombo.svg">
+              <p class="text18"> ${type} </p>
+            </div>
+          </div>
+        </div>
+        <div class="thirdRow">
+          <p class="text18">Máx</p>
+          <img src = "img/glove.svg">
+          <p class="text18"> ${maxCp} </p>
+          <img src = "img/heart.svg">
+          <p class="text18"> ${maxHp} </p>
+        </div>
       </div>
     </div>
     `;
   }
-  // const height = array[i].size.height;
-  // const weight = array[i].size.weight;
-  // const generation = array[i].generation[name];
-  // const type = array[i].type;
-  // const maxCp = array[i].stats[max-cp];
-  // const maxHp = array[i].stats[max-hp];
   // const resistant = array[i].resistant;
   // const weaknesses = array[i].weaknesses;
   // const evolution = array[i].evolution[i].next-evolution[name];
