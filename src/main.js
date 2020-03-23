@@ -61,10 +61,20 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
-    const maxCp = array[i].stats[0];
-    const maxHp = array[i].stats[1];
-
-    infoPok = `
+    const tipos = (arr) => {
+      let newType = '';
+      for (i = 0; i < arr.length; i += 1) {
+        newType += `
+        <div>${type[i]}<div>`;
+      }
+      return newType;
+    };
+    // const objStats = array[i].stats;
+    // const maxCp = objStats.["max-cp"];
+    // console.log(maxCp);
+    // const maxHp = objStats.["max-hp"];
+    // console.log(maxHp);
+    infoPok += `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
@@ -95,16 +105,16 @@ const showInfo = (array) => {
             </div>
             <div class="type">
               <img src = "img/rombo.svg">
-              <p class="text18"> ${type} </p>
+              <p class="text18">${tipos(type)}</p>
             </div>
           </div>
         </div>
         <div class="thirdRow">
           <p class="text18">Máx</p>
           <img src = "img/glove.svg">
-          <p class="text18"> ${maxCp} </p>
+          <p class="text18">  </p>
           <img src = "img/heart.svg">
-          <p class="text18"> ${maxHp} </p>
+          <p class="text18"> </p>
         </div>
       </div>
     </div>
