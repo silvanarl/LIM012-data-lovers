@@ -248,7 +248,7 @@ aside{
 .pokedex{
 	display: flex;
 	margin: 0 auto;
-	width: 566px;
+	width: 596px;
 	height: 554px;
     flex-direction: row;
     animation: animatezoom 0.6s;
@@ -428,6 +428,15 @@ aside{
     height: 20px;
     background-color: white;
     border-radius: 10px;
+}
+
+#boton-exit{
+    background-image: url(img/exit.svg);
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
 }
 
 @media screen and (min-width: 768px){

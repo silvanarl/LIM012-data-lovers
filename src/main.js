@@ -75,7 +75,7 @@ const showInfo = (array) => {
       return newDiv2;
     };
 
-    infoPok += `
+    infoPok = `
     <div class="pokedex" id="popup">
       <div class="pok_1"></div>
       <div class="pok_2"></div>
@@ -128,13 +128,10 @@ const showInfo = (array) => {
           </div>
         </div>
       </div>
+      <button id="boton-exit"></button>
     </div>
     `;
   }
-  // const resistant = array[i].resistant;
-  // const weaknesses = array[i].weaknesses;
-  // const evolution = array[i].evolution[i].next-evolution[name];
-
   pokedex.innerHTML = infoPok;
 };
 showInfo(arrObj);
@@ -144,4 +141,9 @@ btnInfo.addEventListener('click', (event) => {
   // const popup = document.getElementById('popup');
   pokedex.classList.add('mostrar');
   showInfo();
+});
+
+const botonExit = document.getElementById('boton-exit');
+botonExit.addEventListener('click', () => {
+  pokedex.classList.remove('mostrar');
 });
