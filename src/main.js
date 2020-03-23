@@ -13,7 +13,7 @@ const currentDiv = document.getElementById('contenedor');
 const showPokemon = (array) => {
   currentDiv.innerHTML = '';
   let newDiv = '';
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i += 1) {
     const num = array[i].num;
     const img = array[i].img;
     const name = array[i].name;
@@ -52,7 +52,8 @@ const pokedex = document.querySelector('#overlay');
 
 const showInfo = (array) => {
   let infoPok = '';
-  for (let i = 0; i < array.length; i++) {
+
+  for (let i = 0; i < array.length; i += 1) {
     const num = array[i].num;
     const img = array[i].img;
     const name = array[i].name;
@@ -109,7 +110,6 @@ const showInfo = (array) => {
     </div>
     `;
   }
-
   // const resistant = array[i].resistant;
   // const weaknesses = array[i].weaknesses;
   // const evolution = array[i].evolution[i].next-evolution[name];
@@ -121,7 +121,7 @@ showInfo(arrObj);
 btnInfo.addEventListener('click', (event) => {
   event.preventDefault();
   // const popup = document.getElementById('popup');
+
   pokedex.classList.add('mostrar');
-  //
   showInfo();
 });
