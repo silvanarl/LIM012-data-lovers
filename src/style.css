@@ -248,7 +248,7 @@ aside{
 .pokedex{
 	display: flex;
 	margin: 0 auto;
-	width: 596px;
+	width: 566px;
 	height: 554px;
     flex-direction: row;
     animation: animatezoom 0.6s;
@@ -374,8 +374,9 @@ aside{
 }
 
 .rombo{
-    width: 10px;
-    margin-right: 10px;
+    width: 14px;
+    margin-right: 14px;
+    align-content: center;
 }
 
 .thirdRow{
@@ -428,16 +429,42 @@ aside{
     height: 20px;
     background-color: white;
     border-radius: 10px;
+    align-content: center;
 }
 
 #boton-exit{
-    background-image: url(img/exit.svg);
+    background-image: url(img/cancel.svg);
     background-repeat: no-repeat;
     background-color: transparent;
+    position: relative;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+    right: -30px;
+    top: -70px;
+    z-index: 1;
 }
+
+.typePokemonSteel{background-color: LightGrey;}
+.typePokemonWater{background-color: RoyalBlue;}
+.typePokemonBug{background-color: YellowGreen;}
+.typePokemonDragon{background-color: MediumSlateBlue;}
+.typePokemonElectric{background-color: Yellow;}
+.typePokemonGhost{background-color: Purple;}
+.typePokemonFire{background-color: Crimson;}
+.typePokemonFairy{background-color: rgb (255, 136, 238);}
+.typePokemonIce{background-color: AquaMarine;}
+.typePokemonNormal{background-color: Lavender;}
+.typePokemonGrass{background-color: Lime;}
+.typePokemonPsychic{background-color: Violet;}
+.typePokemonRoca{background-color: Peru;}
+.typePokemonNormal{background-color: Lavender;}
+.typePokemonSinister{background-color: SlateGray;}
+.typePokemonEarth{background-color: BurlyWood;}
+.typePokemonPoison{background-color: Mediumpurple;}
+/* .typePokemonFlying{background-color: ;}
+.typePokemonFighting{background-color: ;}
+.typePokemonGround{background-color: ;} */
 
 @media screen and (min-width: 768px){
 

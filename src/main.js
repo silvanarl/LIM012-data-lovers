@@ -22,7 +22,7 @@ const showPokemon = (array) => {
       <a href="#" id="btnInfo">
        <p class ="enlace" > ${num} </p>
        <img class = "imgPokemon" src = ${img}>
-      <p class ="enlace">${name}</p>
+      <p class ="enlace">${name[0].toUpperCase()}${name.substring(1)}</p>
       </a>
     </div>
     `;
@@ -60,8 +60,18 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
-    const maxCp = array[i].stats[i];
-    const maxHp = array[i].stats[i];
+
+    const separarTipo = (arr) => {
+      let tipo1 = '';
+      for (let i = 0; i < arr.length; i += 1) {
+        tipo1 += `
+          <div class="text18">${arr[i]}</div>
+        `;
+      }
+      return tipo1;
+    };
+    const maxCp = array[i].stats['max-cp'];
+    const maxHp = array[i].stats['max-hp'];
     const resistant = array[i].resistant;
     const weaknesses = array[i].weaknesses;
 
@@ -69,7 +79,7 @@ const showInfo = (array) => {
       let newDiv2 = '';
       for (let i = 0; i < arr.length; i += 1) {
         newDiv2 += `
-          <div class="tipos">${arr[i]}</div>
+          <span class="tipos">${arr[i]}</span>
         `;
       }
       return newDiv2;
@@ -83,10 +93,12 @@ const showInfo = (array) => {
         <div class="pok_3_1"></div>
         <div class="pok_3_2"></div>
       </div>
-      <div class="pok_4"></div>
+      <div class="pok_4">
+        <button id="boton-exit"></button>
+      </div>
       <div class="info">
         <div class="nameAndNum">
-          <p class="text24"> ${name} </p>
+          <p class="text24"> ${name[0].toUpperCase()}${name.substring(1)} </p>
           <p class="text24"> ${num} </p>
         </div>
         <div class="secondRow">
@@ -102,11 +114,11 @@ const showInfo = (array) => {
             </div>
             <div class="generation">
               <img class="rombo" src = "img/rombo.svg">
-              <p class="text18"> ${generation} </p>
+              <span class="text18"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
             </div>
             <div class="type">
               <img class="rombo" src = "img/rombo.svg">
-              <p class="text18"> ${type} </p>
+              <span class="text18"> ${separarTipo(type)} </span>
             </div>
           </div>
         </div>
@@ -128,7 +140,6 @@ const showInfo = (array) => {
           </div>
         </div>
       </div>
-      <button id="boton-exit"></button>
     </div>
     `;
   }
