@@ -3,13 +3,9 @@
     padding: 0;
 }
 
-.ocultar{
-	visibility: hidden;
-}
+.ocultar{visibility: hidden;}
 
-.mostrar{
-	visibility: visible;
-}
+.mostrar{visibility: visible;}
 
 body{
     font-family: 'KoHo', sans-serif;
@@ -30,17 +26,12 @@ header{
     box-sizing: border-box
 }
 
-header img{
-    height: 80%;
-}
+header img{height: 80%;}
 
 main{
     margin: 0px;
     padding: 0px;
 }
-
-
-  /*  font-family: 'KoHo', sans-serif;*/
 
 header{
     margin: 0 auto;
@@ -136,7 +127,7 @@ h1{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-content: space-between;
+    /*align-content: space-between;*/
     width: 300px;
     height: 300px;
     margin: 20px auto;
@@ -367,6 +358,10 @@ aside{
     align-content: center;
 }
 
+.type{
+    text-align: center;
+}
+
 .icono{
     width: 35px;
     height: 35px;
@@ -412,7 +407,7 @@ aside{
 
 .weaknesses{
     width: 50%;
-    text-align: center;
+    text-align: center; 
 }
 
 .separar{
@@ -421,50 +416,52 @@ aside{
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-around;
-    height: 60px;
+    height: 66px;
 }
 
 .tipos{
+    font-size: 16px;
     width: 75px;
-    height: 20px;
-    background-color: white;
+    height: 24px;
+    /*border: 2px solid white;*/
     border-radius: 10px;
-    align-content: center;
+    color: white;
+    font-weight: 500;
+    box-shadow: 4px 8px 8px rgb(117, 4, 4);
 }
 
 #boton-exit{
-    background-image: url(img/cancel.svg);
+    background-image: url(img/boton.svg);
     background-repeat: no-repeat;
     background-color: transparent;
     position: relative;
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     right: -30px;
     top: -70px;
-    z-index: 1;
+    z-index: 2;
 }
 
-.typePokemonSteel{background-color: LightGrey;}
-.typePokemonWater{background-color: RoyalBlue;}
-.typePokemonBug{background-color: YellowGreen;}
-.typePokemonDragon{background-color: MediumSlateBlue;}
-.typePokemonElectric{background-color: Yellow;}
-.typePokemonGhost{background-color: Purple;}
-.typePokemonFire{background-color: Crimson;}
-.typePokemonFairy{background-color: rgb (255, 136, 238);}
-.typePokemonIce{background-color: AquaMarine;}
-.typePokemonNormal{background-color: Lavender;}
-.typePokemonGrass{background-color: Lime;}
-.typePokemonPsychic{background-color: Violet;}
-.typePokemonRoca{background-color: Peru;}
-.typePokemonNormal{background-color: Lavender;}
-.typePokemonSinister{background-color: SlateGray;}
-.typePokemonEarth{background-color: BurlyWood;}
-.typePokemonPoison{background-color: Mediumpurple;}
-/* .typePokemonFlying{background-color: ;}
-.typePokemonFighting{background-color: ;}
-.typePokemonGround{background-color: ;} */
+.pok_type_normal{background-color:#a8a878}
+.pok_type_fire{background-color:#f08030}
+.pok_type_water{background-color:#6890f0}
+.pok_type_grass{background-color:#78c850}
+.pok_type_poison{background-color:#a040a0}
+.pok_type_electric{background-color:#f8d030}
+.pok_type_ground{background-color:#e0c068}
+.pok_type_psychic{background-color:#f85888}
+.pok_type_rock{background-color:#b8a038}
+.pok_type_ice{background-color:#98d8d8}
+.pok_type_bug{background-color:#a8b820}
+.pok_type_dragon{background-color:#7038f8}
+.pok_type_ghost{background-color:#705898}
+.pok_type_steel{background-color:#b8b8d0}
+.pok_type_fairy{background-color:#ee99ac}
+.pok_type_dark{background-color:#705848}
+.pok_type_flying{background-color:#a890f0}
+.pok_type_fighting{background-color:#c02038}
+
 
 @media screen and (min-width: 768px){
 

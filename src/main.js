@@ -60,16 +60,6 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
-
-    const separarTipo = (arr) => {
-      let tipo1 = '';
-      for (let i = 0; i < arr.length; i += 1) {
-        tipo1 += `
-          <div class="text18">${arr[i]}</div>
-        `;
-      }
-      return tipo1;
-    };
     const maxCp = array[i].stats['max-cp'];
     const maxHp = array[i].stats['max-hp'];
     const resistant = array[i].resistant;
@@ -79,7 +69,7 @@ const showInfo = (array) => {
       let newDiv2 = '';
       for (let i = 0; i < arr.length; i += 1) {
         newDiv2 += `
-          <span class="tipos">${arr[i]}</span>
+          <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
         `;
       }
       return newDiv2;
@@ -118,7 +108,7 @@ const showInfo = (array) => {
             </div>
             <div class="type">
               <img class="rombo" src = "img/rombo.svg">
-              <span class="text18"> ${separarTipo(type)} </span>
+              <div class="separar">${dividir(type)}</div>
             </div>
           </div>
         </div>
