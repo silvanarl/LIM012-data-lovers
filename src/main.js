@@ -69,7 +69,7 @@ const showInfo = (array) => {
       let newDiv2 = '';
       for (let i = 0; i < arr.length; i += 1) {
         newDiv2 += `
-          <div class="tipos">${arr[i]}</div>
+          <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
         `;
       }
       return newDiv2;
@@ -108,7 +108,7 @@ const showInfo = (array) => {
             </div>
             <div class="type">
               <img class="rombo" src = "img/rombo.svg">
-              <p class="text18"> ${dividir(type)} </p>
+              <div class="separar">${dividir(type)}</div>
             </div>
           </div>
         </div>
