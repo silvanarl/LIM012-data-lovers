@@ -22,7 +22,7 @@ const showPokemon = (array) => {
       <a href="#" id="btnInfo">
        <p class ="enlace" > ${num} </p>
        <img class = "imgPokemon" src = ${img}>
-      <p class ="enlace">${name}</p>
+      <p class ="enlace">${name[0].toUpperCase()}${name.substring(1)}</p>
       </a>
     </div>
     `;
@@ -88,7 +88,7 @@ const showInfo = (array) => {
       </div>
       <div class="info">
         <div class="nameAndNum">
-          <p class="text24"> ${name} </p>
+          <p class="text24"> ${name[0].toUpperCase()}${name.substring(1)} </p>
           <p class="text24"> ${num} </p>
         </div>
         <div class="secondRow">
@@ -104,7 +104,7 @@ const showInfo = (array) => {
             </div>
             <div class="generation">
               <img class="rombo" src = "img/rombo.svg">
-              <p class="text18"> ${generation} </p>
+              <span class="text18"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
             </div>
             <div class="type">
               <img class="rombo" src = "img/rombo.svg">
@@ -130,7 +130,6 @@ const showInfo = (array) => {
           </div>
         </div>
       </div>
-      
     </div>
     `;
   }

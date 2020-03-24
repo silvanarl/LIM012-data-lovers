@@ -369,8 +369,9 @@ aside{
 }
 
 .rombo{
-    width: 10px;
-    margin-right: 10px;
+    width: 14px;
+    margin-right: 14px;
+    align-content: center;
 }
 
 .thirdRow{
@@ -460,6 +461,7 @@ aside{
 .pok_type_dark{background-color:#705848}
 .pok_type_flying{background-color:#a890f0}
 .pok_type_fighting{background-color:#c02038}
+
 
 @media screen and (min-width: 768px){
 
