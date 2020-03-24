@@ -72,9 +72,9 @@ const showInfo2 = (elemento) => {
           </div>
           <div class="thirdRow">
             <p class="text18">Máx</p>
-            <img src = "img/glove.svg">
+            <img class="icono" src = "img/glove.svg">
             <p class="text18"> ${maxCp} </p>
-            <img src = "img/heart.svg">
+            <img class="icono" src = "img/heart.svg">
             <p class="text18"> ${maxHp} </p>
           </div>
           <div class="fourthRow">
