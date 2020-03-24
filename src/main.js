@@ -1,4 +1,4 @@
-import { coincidencias } from './data.js';
+import { coincidencias, arrFilter } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
@@ -9,76 +9,33 @@ const arrObj = pokemon.pokemon;
 // que fueron creados también, mediante el método appendchild() estos
 // son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
 const currentDiv = document.getElementById('contenedor');
-
-const showPokemon = (array) => {
-  currentDiv.innerHTML = '';
-  let newDiv = '';
-  for (let i = 0; i < array.length; i += 1) {
-    const num = array[i].num;
-    const img = array[i].img;
-    const name = array[i].name;
-    newDiv += `
-    <div class = "contenedorPokemon">
-      <a href="#" id="btnInfo">
-       <p class ="enlace" > ${num} </p>
-       <img class = "imgPokemon" src = ${img}>
-      <p class ="enlace">${name[0].toUpperCase()}${name.substring(1)}</p>
-      </a>
-    </div>
-    `;
-  }
-  currentDiv.innerHTML = newDiv;
-};
-showPokemon(arrObj);
-
-const buscarPokemon = document.getElementById('botonBuscar');
-
-buscarPokemon.addEventListener('click', (event) => {
-  event.preventDefault();
-  let pokemonBuscado = document.getElementById('buscador').value;
-  if (pokemonBuscado !== '') {
-    currentDiv.innerHTML = '';
-    showPokemon(coincidencias(arrObj, pokemonBuscado));
-    pokemonBuscado = '';
-  } else {
-    currentDiv.innerHTML = 'No se encontraron coincidencias';
-  }
-});
-
-// Mostrar la pokedex con la info del pokemon
-
-const btnInfo = document.querySelector('#btnInfo');
 const pokedex = document.querySelector('#overlay');
 
-const showInfo = (array) => {
-  let infoPok = '';
-  for (let i = 0; i < array.length; i += 1) {
-    let divPokemon = document.getElementsByClassName('imgPokemon');
-    console.log(divPokemon);
-    if (divPokemon === array[i].img) {
-      const num = array[i].num;
-      const img = array[i].img;
-      const name = array[i].name;
-      const weight = array[i].size.weight;
-      const height = array[i].size.height;
-      const generation = array[i].generation.name;
-      const type = array[i].type;
-      const maxCp = array[i].stats['max-cp'];
-      const maxHp = array[i].stats['max-hp'];
-      const resistant = array[i].resistant;
-      const weaknesses = array[i].weaknesses;
+const showInfo2 = (elemento) => {
+  const infoPok = document.createElement('div');
+  infoPok.setAttribute('class', 'pokedex');
+  const num = elemento.num;
+  const img = elemento.img;
+  const name = elemento.name;
+  const weight = elemento.size.weight;
+  const height = elemento.size.height;
+  const generation = elemento.generation.name;
+  const type = elemento.type;
+  const maxCp = elemento.stats['max-cp'];
+  const maxHp = elemento.stats['max-hp'];
+  const resistant = elemento.resistant;
+  const weaknesses = elemento.weaknesses;
 
-      const dividir = (arr) => {
-        let newDiv2 = '';
-        for (let i = 0; i < arr.length; i += 1) {
-          newDiv2 += `
-            <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
-          `;
-        }
-        return newDiv2;
-      };
-      infoPok += `
-      <div class="pokedex" id="popup">
+  const dividir = (arr) => {
+    let newDiv2 = '';
+    for (let i = 0; i < arr.length; i += 1) {
+      newDiv2 += `
+        <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
+      `;
+    }
+    return newDiv2;
+  };
+  infoPok.innerHTML = `
         <div class="pok_1"></div>
         <div class="pok_2"></div>
         <div class="pok_3">
@@ -131,22 +88,58 @@ const showInfo = (array) => {
             </div>
           </div>
         </div>
-      </div>
-      `;
-    }
-  }
-  pokedex.innerHTML = infoPok;
+    `;
+  return infoPok;
 };
-showInfo(arrObj);
 
-btnInfo.addEventListener('click', (event) => {
+const showPokemon = (array) => {
+  currentDiv.innerHTML = '';
+  for (let i = 0; i < array.length; i += 1) {
+    const divElement = document.createElement('div');
+    divElement.setAttribute('class', 'contenedorPokemon');
+    const num = array[i].num;
+    const img = array[i].img;
+    const name = array[i].name;
+    divElement.innerHTML = `
+      <a href="#" id="btnInfo">
+       <p class ="enlace" > ${num} </p>
+       <img class = "imgPokemon" src = ${img}>
+      <p class ="enlace">${name[0].toUpperCase()}${name.substring(1)}</p>
+      </a>
+    `;
+    divElement.addEventListener('click', (event) => {
+      event.preventDefault();
+      pokedex.classList.add('mostrar');
+      pokedex.appendChild(showInfo2(array[i]));
+      const botonExit = document.getElementById('boton-exit');
+      botonExit.addEventListener('click', () => {
+        pokedex.innerHTML = '';
+        pokedex.classList.remove('mostrar');
+      });
+    });
+    currentDiv.appendChild(divElement);
+  }
+};
+showPokemon(arrObj);
+
+const buscarPokemon = document.getElementById('botonBuscar');
+
+buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
-  // const popup = document.getElementById('popup');
-  pokedex.classList.add('mostrar');
-  showInfo();
+  let pokemonBuscado = document.getElementById('buscador').value;
+  if (pokemonBuscado !== '') {
+    currentDiv.innerHTML = '';
+    showPokemon(coincidencias(arrObj, pokemonBuscado));
+    pokemonBuscado = '';
+  } else {
+    currentDiv.innerHTML = 'No se encontraron coincidencias';
+  }
 });
 
-const botonExit = document.getElementById('boton-exit');
-botonExit.addEventListener('click', () => {
-  pokedex.classList.remove('mostrar');
-});
+// const selectType = document.getElementsById('selectType');
+// selectType.addEventListener('change', () => {
+//   const valueSelect = selectType.value;
+//   if (valueSelect !== '') {
+//     currentDiv.innerHTML = showPokemon(arrFilter(arrObj, valueSelect));
+//   }
+// });
