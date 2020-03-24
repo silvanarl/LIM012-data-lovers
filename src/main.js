@@ -53,85 +53,87 @@ const pokedex = document.querySelector('#overlay');
 const showInfo = (array) => {
   let infoPok = '';
   for (let i = 0; i < array.length; i += 1) {
-    const num = array[i].num;
-    const img = array[i].img;
-    const name = array[i].name;
-    const weight = array[i].size.weight;
-    const height = array[i].size.height;
-    const generation = array[i].generation.name;
-    const type = array[i].type;
-    const maxCp = array[i].stats['max-cp'];
-    const maxHp = array[i].stats['max-hp'];
-    const resistant = array[i].resistant;
-    const weaknesses = array[i].weaknesses;
+    let divPokemon = document.getElementsByClassName('imgPokemon');
+    console.log(divPokemon);
+    if (divPokemon === array[i].img) {
+      const num = array[i].num;
+      const img = array[i].img;
+      const name = array[i].name;
+      const weight = array[i].size.weight;
+      const height = array[i].size.height;
+      const generation = array[i].generation.name;
+      const type = array[i].type;
+      const maxCp = array[i].stats['max-cp'];
+      const maxHp = array[i].stats['max-hp'];
+      const resistant = array[i].resistant;
+      const weaknesses = array[i].weaknesses;
 
-    const dividir = (arr) => {
-      let newDiv2 = '';
-      for (let i = 0; i < arr.length; i += 1) {
-        newDiv2 += `
-          <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
-        `;
-      }
-      return newDiv2;
-    };
-
-    infoPok = `
-    <div class="pokedex" id="popup">
-      <div class="pok_1"></div>
-      <div class="pok_2"></div>
-      <div class="pok_3">
-        <div class="pok_3_1"></div>
-        <div class="pok_3_2"></div>
-      </div>
-      <div class="pok_4">
-        <button id="boton-exit"></button>
-      </div>
-      <div class="info">
-        <div class="nameAndNum">
-          <p class="text24"> ${name[0].toUpperCase()}${name.substring(1)} </p>
-          <p class="text24"> ${num} </p>
+      const dividir = (arr) => {
+        let newDiv2 = '';
+        for (let i = 0; i < arr.length; i += 1) {
+          newDiv2 += `
+            <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
+          `;
+        }
+        return newDiv2;
+      };
+      infoPok += `
+      <div class="pokedex" id="popup">
+        <div class="pok_1"></div>
+        <div class="pok_2"></div>
+        <div class="pok_3">
+          <div class="pok_3_1"></div>
+          <div class="pok_3_2"></div>
         </div>
-        <div class="secondRow">
-          <img class = "imgPokInfo" src = ${img}>
-          <div class="moreInfo">
-            <div class="weight">
-              <img class="icono" src = "img/weight.svg">
-              <p class="text18"> ${weight} </p>
+        <div class="pok_4">
+          <button id="boton-exit"></button>
+        </div>
+        <div class="info">
+          <div class="nameAndNum">
+            <p class="text24"> ${name[0].toUpperCase()}${name.substring(1)} </p>
+            <p class="text24"> ${num} </p>
+          </div>
+          <div class="secondRow">
+            <img class = "imgPokInfo" src = ${img}>
+            <div class="moreInfo">
+              <div class="weight">
+                <img class="icono" src = "img/weight.svg">
+                <p class="text18"> ${weight} </p>
+              </div>
+              <div class="height">
+                <img class="icono" src = "img/height.svg">
+                <p class="text18"> ${height} </p>
+              </div>
+              <div class="generation">
+                <img class="region" src = "img/pointer.svg">
+                <span class="text18"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
+              </div>
+              <div class="type">         
+                <div class="separar">${dividir(type)}</div>
+              </div>
             </div>
-            <div class="height">
-              <img class="icono" src = "img/height.svg">
-              <p class="text18"> ${height} </p>
+          </div>
+          <div class="thirdRow">
+            <p class="text18">Máx</p>
+            <img src = "img/glove.svg">
+            <p class="text18"> ${maxCp} </p>
+            <img src = "img/heart.svg">
+            <p class="text18"> ${maxHp} </p>
+          </div>
+          <div class="fourthRow">
+            <div class="resistant">
+              <p class="text18">Resistencia</p>
+              <div class="separar">${dividir(resistant)}</div>
             </div>
-            <div class="generation">
-              <img class="rombo" src = "img/rombo.svg">
-              <span class="text18"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
-            </div>
-            <div class="type">
-              <img class="rombo" src = "img/rombo.svg">
-              <div class="separar">${dividir(type)}</div>
+            <div class="weaknesses">
+              <p class="text18">Debilidad</p>
+              <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>
         </div>
-        <div class="thirdRow">
-          <p class="text18">Máx</p>
-          <img src = "img/glove.svg">
-          <p class="text18"> ${maxCp} </p>
-          <img src = "img/heart.svg">
-          <p class="text18"> ${maxHp} </p>
-        </div>
-        <div class="fourthRow">
-          <div class="resistant">
-            <p class="text18">Resistencia</p>
-            <div class="separar">${dividir(resistant)}</div>
-          </div>
-          <div class="weaknesses">
-            <p class="text18">Debilidad</p>
-            <div class="separar">${dividir(weaknesses)}</div>
-          </div>
-        </div>
       </div>
-    </div>
-    `;
+      `;
+    }
   }
   pokedex.innerHTML = infoPok;
 };
