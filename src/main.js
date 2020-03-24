@@ -60,8 +60,8 @@ const showInfo = (array) => {
     const height = array[i].size.height;
     const generation = array[i].generation.name;
     const type = array[i].type;
-    const maxCp = array[i].stats[i];
-    const maxHp = array[i].stats[i];
+    const maxCp = array[i].stats['max-cp'];
+    const maxHp = array[i].stats['max-hp'];
     const resistant = array[i].resistant;
     const weaknesses = array[i].weaknesses;
 
@@ -83,7 +83,9 @@ const showInfo = (array) => {
         <div class="pok_3_1"></div>
         <div class="pok_3_2"></div>
       </div>
-      <div class="pok_4"></div>
+      <div class="pok_4">
+        <button id="boton-exit"></button>
+      </div>
       <div class="info">
         <div class="nameAndNum">
           <p class="text24"> ${name} </p>
@@ -106,7 +108,7 @@ const showInfo = (array) => {
             </div>
             <div class="type">
               <img class="rombo" src = "img/rombo.svg">
-              <p class="text18"> ${type} </p>
+              <p class="text18"> ${dividir(type)} </p>
             </div>
           </div>
         </div>
@@ -128,7 +130,7 @@ const showInfo = (array) => {
           </div>
         </div>
       </div>
-      <button id="boton-exit"></button>
+      
     </div>
     `;
   }
