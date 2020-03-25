@@ -16,15 +16,20 @@
           <h1>¡Averigua sobre tu pokemon!</h1>
           <div class="selectores">
             <form class="formBuscar" name="formulario">
-              <input type="text" id="buscador" placeholder="Nombre o número" autocomplete="off">
-              <button id="botonBuscar" class="boton-buscar"></button>
-              <select name="select" id="selectOrder" class="filter_type" onchange="cambiarSeleccion()">
-                <option value="type">Type</option>
-                <option value="alfabetic">Alfabetic</option>
-                <option value="maxCP">MX CP</option>                 
-              </select>
-              <select name="selection" id="selectType" class="cambios"> 
-              </select>
+              <div class="busqueda">
+                <input type="text" id="buscador" placeholder="Nombre o número" autocomplete="off">
+                <button id="botonBuscar" class="boton-buscar"></button>
+              </div>
+              <div class="filtros">
+                <h2>Filtrar por: </h2>
+                <select name="select" id="selectOrder" class="filter_type" onchange="cambiarSeleccion()">
+                  <option value="type">Type</option>
+                  <option value="alfabetic">Alfabetic</option>
+                  <option value="maxCP">MX CP</option>                 
+                </select>
+                <select name="selection" id="selectType" class="cambios"> 
+                </select>
+              </div>
             </form>
         </div>
           <div id="contenedor"></div>
