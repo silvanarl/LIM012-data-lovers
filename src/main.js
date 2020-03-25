@@ -3,15 +3,10 @@ import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
 
-// Esta función muestra los Pokemon, recorriendo un array con un for, con
-// la condicional de la longitud exacta del array. Luego crea un contenedor
-// donde se insertarán: el elemento imagen y los nodos de texto num y name
-// que fueron creados también, mediante el método appendchild() estos
-// son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
 const currentDiv = document.getElementById('contenedor');
 const pokedex = document.querySelector('#overlay');
 
-const showInfo2 = (elemento) => {
+const showInfo = (elemento) => {
   const infoPok = document.createElement('div');
   infoPok.setAttribute('class', 'pokedex');
   const num = elemento.num;
@@ -111,7 +106,7 @@ const showPokemon = (array) => {
     divElement.addEventListener('click', (event) => {
       event.preventDefault();
       pokedex.classList.add('mostrar');
-      pokedex.appendChild(showInfo2(array[i]));
+      pokedex.appendChild(showInfo(array[i]));
       const botonExit = document.getElementById('boton-exit');
       botonExit.addEventListener('click', () => {
         pokedex.innerHTML = '';
@@ -143,3 +138,24 @@ selectType.addEventListener('change', () => {
   const tipoSeleccionado = selectType.value;
   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
 });
+
+// cons cambiarSeleccion = document.querySelector('#selecOrder');
+const cambiarSeleccion = () => {
+  const typeOrder = document.formulario.select[document.formulario.select.selectedIndex].value;
+  const cambioAZ = document.querySelector('#selectType');
+  const pokemonOrden1 = ['Normal', 'Electric', 'Fighting', 'Flying', 'Poison', 'Ground',
+    'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Psychic', 'Ice', 'Dragon',
+    'Dark', 'Fairy'];
+  const pokemonOrden2 = ['Mayor a Menor', 'Menor a Mayor'];
+  const pokemonOrden3 = ['A-Z', 'Z-A'];
+
+  const pokemonOrderAll = [
+    [], pokemonOrden1,
+    pokemonOrden2,
+    pokemonOrden3,
+  ];
+
+  if (typeOrder === 'alfabetic') {
+  }
+
+};
