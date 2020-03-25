@@ -154,35 +154,16 @@ h1{
     border-radius: 4px;
 }
 
-#contenedor::-webkit-scrollbar-track {
-    background: #7e7d7d;
-    border-radius: 4px;
-}
-
 #contenedor::-webkit-scrollbar{
     width: 8px;     /* Tamaño del desplazamiento en vertical */
     height: 8px;    /* Tamaño del desplazamiento en horizontal */
 }
 
-.contenedor::-webkit-srollbar-thumb{
-    background-color: rgb(77, 75, 75);
-    border-radius: 4px ;
-}
-.contenedor::-webkit-scrollbar-thumb:hover {
-    background: #ec4444;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-.contenedor::-webkit-scrollbar-thumb:active {
-    background-color: #70a172;
-}
 #contenedor::-webkit-scrollbar-track{
     background-color: #e9e7e7;
     border-radius: 6px;
 }
-.contenedor::-webkit-scrollbar-track:hover,
-.contenedor::-webkit-scrollbar-track:active {
-  background: #915b5b;
-}
+
 .contenedorPokemon{
     display: flex;
     flex-direction: column;
@@ -464,7 +445,6 @@ aside{
     font-size: 15px;
     width: 68px;
     height: 24px;
-    /*border: 2px solid white;*/
     border-radius: 10px;
     color: white;
     font-weight: 500;
@@ -482,6 +462,7 @@ aside{
     right: -30px;
     top: -70px;
     z-index: 2;
+    cursor: pointer;
 }
 
 
@@ -531,6 +512,7 @@ aside{
     input{
         width: 338px;
     }
+
 }
 
 @media screen and (min-width: 1025px){

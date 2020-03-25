@@ -1,17 +1,12 @@
-import { coincidencias, arrFilter } from './data.js';
+import { coincidencias, typeFilter } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
 
-// Esta función muestra los Pokemon, recorriendo un array con un for, con
-// la condicional de la longitud exacta del array. Luego crea un contenedor
-// donde se insertarán: el elemento imagen y los nodos de texto num y name
-// que fueron creados también, mediante el método appendchild() estos
-// son agregados al contenedor de cada pokemon. Esta funcion puede ser reutilizada.
 const currentDiv = document.getElementById('contenedor');
 const pokedex = document.querySelector('#overlay');
 
-const showInfo2 = (elemento) => {
+const showInfo = (elemento) => {
   const infoPok = document.createElement('div');
   infoPok.setAttribute('class', 'pokedex');
   const num = elemento.num;
@@ -72,9 +67,9 @@ const showInfo2 = (elemento) => {
           </div>
           <div class="thirdRow">
             <p class="text18">Máx</p>
-            <img src = "img/glove.svg">
+            <img class = "icono" src = "img/glove.svg">
             <p class="text18"> ${maxCp} </p>
-            <img src = "img/heart.svg">
+            <img class = "icono" src = "img/heart.svg">
             <p class="text18"> ${maxHp} </p>
           </div>
           <div class="fourthRow">
@@ -110,7 +105,7 @@ const showPokemon = (array) => {
     divElement.addEventListener('click', (event) => {
       event.preventDefault();
       pokedex.classList.add('mostrar');
-      pokedex.appendChild(showInfo2(array[i]));
+      pokedex.appendChild(showInfo(array[i]));
       const botonExit = document.getElementById('boton-exit');
       botonExit.addEventListener('click', () => {
         pokedex.innerHTML = '';
@@ -136,10 +131,9 @@ buscarPokemon.addEventListener('click', (event) => {
   }
 });
 
-// const selectType = document.getElementsById('selectType');
-// selectType.addEventListener('change', () => {
-//   const valueSelect = selectType.value;
-//   if (valueSelect !== '') {
-//     currentDiv.innerHTML = showPokemon(arrFilter(arrObj, valueSelect));
-//   }
-// });
+// Funcion para filtrar por tipo, recibe 3 arg (data, propiedad y value seleccionado).
+const selectType = document.querySelector('#selectType');
+selectType.addEventListener('change', () => {
+  const tipoSeleccionado = selectType.value;
+  showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+});
