@@ -137,3 +137,24 @@ selectType.addEventListener('change', () => {
   const tipoSeleccionado = selectType.value;
   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
 });
+
+// cons cambiarSeleccion = document.querySelector('#selecOrder');
+const cambiarSeleccion = () => {
+  const typeOrder = document.formulario.select[document.formulario.select.selectedIndex].value    document.formulario.select.value;
+  const cambioAZ = document.querySelector('#selectType');
+  const pokemonOrden1 = ['Normal', 'Electric', 'Fighting', 'Flying', 'Poison', 'Ground',
+    'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Psychic', 'Ice', 'Dragon',
+    'Dark', 'Fairy'];
+  const pokemonOrden2 = ['Mayor a Menor', 'Menor a Mayor'];
+  const pokemonOrden3 = ['A-Z', 'Z-A'];
+
+  const pokemonOrderAll = [
+    [], pokemonOrden1,
+    pokemonOrden2,
+    pokemonOrden3,
+  ];
+
+  if (typeOrder === 'alfabetic') {
+  }
+
+};

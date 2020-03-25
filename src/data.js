@@ -19,5 +19,5 @@ export const typeFilter = (arr, property, condition) => {
 };
 
 export const anotherExample = () => {
-  
+
 };
