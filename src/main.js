@@ -1,4 +1,4 @@
-import { coincidencias, arrFilter } from './data.js';
+import { coincidencias, typeFilter } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
@@ -72,9 +72,10 @@ const showInfo2 = (elemento) => {
           </div>
           <div class="thirdRow">
             <p class="text18">Máx</p>
-            <img class="icono" src = "img/glove.svg">
+            <img class="icono2" src = "img/glove.svg">
             <p class="text18"> ${maxCp} </p>
-            <img class="icono" src = "img/heart.svg">
+            <p class="text18">|</p>
+            <img class="icono2" src = "img/heart.svg">
             <p class="text18"> ${maxHp} </p>
           </div>
           <div class="fourthRow">
@@ -136,10 +137,9 @@ buscarPokemon.addEventListener('click', (event) => {
   }
 });
 
-// const selectType = document.getElementsById('selectType');
-// selectType.addEventListener('change', () => {
-//   const valueSelect = selectType.value;
-//   if (valueSelect !== '') {
-//     currentDiv.innerHTML = showPokemon(arrFilter(arrObj, valueSelect));
-//   }
-// });
+// Funcion para filtrar por tipo, recibe 3 arg (data, propiedad y value seleccionado).
+const selectType = document.querySelector('#selectType');
+selectType.addEventListener('change', () => {
+  const tipoSeleccionado = selectType.value;
+  showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+});

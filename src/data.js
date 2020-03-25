@@ -12,16 +12,10 @@ export const coincidencias = (array, string) => {
   return arrCoincidencias;
 };
 
-export const arrFilter = (array, condition) => {
-  const pokemonFiltrado = [];
-  for (let i = 0; i < array.length; i += 1) {
-    const tipoDePokemon = array[i].type;
-    if (tipoDePokemon.indexOf(condition) !== -1) {
-      pokemonFiltrado.push(array[i]);
-      console.log(pokemonFiltrado);
-    }
-  }
-  return pokemonFiltrado;
+export const typeFilter = (arr, property, condition) => {
+  const filtrado = arr.filter(element => (element[property][0] === condition
+  || element[property][1] === condition));
+  return filtrado;
 };
 
 export const anotherExample = () => 'OMG';

@@ -14,23 +14,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    font-family: 'KoHo', sans-serif;
     height: 100vh;
-}
-
-header{
-    max-width: 375px;
-    height: 120px;
-    margin: 0 auto;
-    text-align: center;
-    box-sizing: border-box
-}
-
-header img{height: 80%;}
-
-main{
-    margin: 0px;
-    padding: 0px;
 }
 
 header{
@@ -40,9 +24,14 @@ header{
     text-align: center;
     box-sizing: border-box;
 }
-header img{
-    height:80%;
+
+header img{height: 80%}
+
+main{
+    margin: 0px;
+    padding: 0px;
 }
+
 main{
     max-width: 375px;
     margin: 0 auto;
@@ -52,18 +41,7 @@ section{
     width: 320px;
     margin: 0 auto;
     background-color: rgba(0, 0, 0, .2);
-}
-
-form{
-    width: 90%;
-    margin: 0 auto;
-}
-
-h1{
-    font-size: 22px;
-    text-align: center;
-    color: white;
-    padding: 15px 0 15px 0;
+    border-radius: 10px;
 }
 
 input{
@@ -75,16 +53,23 @@ input{
     border: 2px solid #bdbdbd;
 }
 
-.formBuscar{
-    margin-bottom: 15px;
-}
-
 h1{
-    font-size: 19px;
+    font-size: 20px;
     text-align: center;
     color: #FFFFFF;
     padding: 15px 0 15px 0;
-    font-weight: lighter;
+    font-weight: 400;
+}
+
+.busqueda{
+    width: 280px;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
 }
 
 #buscador{
@@ -103,9 +88,20 @@ h1{
 }
 .formBuscar{
     display: flex;
-    flex-direction: row; 
-    align-content: center; 
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column; 
+    align-items: center;
+    margin-bottom: 15px;
 }
+
+.formBuscar h2{
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
 .boton-buscar{
     background-color:rgba(255, 255, 255);
     background-image: url(img/pokelupa.svg);
@@ -120,22 +116,23 @@ h1{
     border-bottom-right-radius: 10px;
     border-left: 0px;
     margin-left: 0px;
-    margin-top: 0px;
-    
+    margin-top: 0px; 
 }
+
 .filter_type{
-  border: 2px solid #BDBDBD;
-  border-radius: 10px;  
-  font-family: Koho;
-  font-size: 15px;
-  padding-left: 10px;
-  margin-left: 15px;
+    width: 240px;
+    height: 36px;
+    border: 2px solid #BDBDBD;
+    border-radius: 10px;  
+    font-family: Koho;
+    font-size: 16px;
+    padding-left: 10px;
 }
+
 #contenedor{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    /*align-content: space-between;*/
     width: 300px;
     height: 300px;
     margin: 20px auto;
@@ -154,35 +151,16 @@ h1{
     border-radius: 4px;
 }
 
-#contenedor::-webkit-scrollbar-track {
-    background: #7e7d7d;
-    border-radius: 4px;
-}
-
 #contenedor::-webkit-scrollbar{
     width: 8px;     /* Tamaño del desplazamiento en vertical */
     height: 8px;    /* Tamaño del desplazamiento en horizontal */
 }
 
-.contenedor::-webkit-srollbar-thumb{
-    background-color: rgb(77, 75, 75);
-    border-radius: 4px ;
-}
-.contenedor::-webkit-scrollbar-thumb:hover {
-    background: #ec4444;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
-}
-.contenedor::-webkit-scrollbar-thumb:active {
-    background-color: #70a172;
-}
 #contenedor::-webkit-scrollbar-track{
     background-color: #e9e7e7;
     border-radius: 6px;
 }
-.contenedor::-webkit-scrollbar-track:hover,
-.contenedor::-webkit-scrollbar-track:active {
-  background: #915b5b;
-}
+
 .contenedorPokemon{
     display: flex;
     flex-direction: column;
@@ -195,9 +173,7 @@ h1{
     margin-bottom: 5px;
     text-align: center;
 }
-.imgPokemon{
-    height: 60%;
-}
+.imgPokemon{height: 60%}
 
 a{
     padding: 10px 0;
@@ -212,9 +188,7 @@ a:link, a:visited, a:active{
     color: black;
 }
 
-.enlace{
-    font-size: 14px;
-}
+.enlace{font-size: 14px}
 
 aside{
     width: 320px;
@@ -224,13 +198,13 @@ aside{
     margin: 0 auto;
 }
 
-/* POKEDEX */
+/*///////////////// POKEDEX MOBILE //////////////////*/
 
-.pokemon{
+/*.pokemon{
 	width: 120px;
 	height: 120px;
 	background-color: grey;
-}
+}*/
 
 .overlay{
 	background: rgba(0, 0, 0, .3);
@@ -247,8 +221,8 @@ aside{
 .pokedex{
 	display: flex;
 	margin: 0 auto;
-	width: 566px;
-	height: 554px;
+	width: 348px;
+	height: 450px;
     flex-direction: row;
     animation: animatezoom 0.6s;
 }
@@ -256,22 +230,22 @@ aside{
 @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
 
 .pok_1{
-	width: 348px;
-	height: 554px;
+	width: 145px;
+	height: 450px;
 	background-color: #D10707;
-	border-radius: 40px 40px 0 40px;
+	border-radius: 25px 25px 0 25px;
 }
 
 .pok_2{
-	width: 75px;
-	height: 500px;
+	width: 66px;
+	height: 418px;
 	background-color: #D10707;
 	align-self: flex-end;
 }
 
 .pok_3{
 	width: 58px;
-	height: 500px;
+	height: 418px;
 	align-self: flex-end;
 	flex-direction: column;
 }
@@ -280,77 +254,77 @@ aside{
 	width: 0;
 	height: 0;
 	border-right: 58px solid transparent;
-	border-bottom: 48px solid #D10707;
+	border-bottom: 50px solid #D10707;
 }
 
 .pok_3_2{
 	width: 58px;
-	height: 452px;
+	height: 368px;
 	background-color: #D10707;
 }
 
 
 .pok_4{
-	width: 85px;
-	height: 452px;
+	width: 79px;
+	height: 368px;
 	background-color: #D10707;
 	align-self: flex-end;
-	border-radius: 0 40px 40px 0;
+	border-radius: 0 25px 25px 0;
 }
+
+/*////////// INFORMACIÓN /////////////*/
 
 .info{
 	position: absolute;
-	width: 566px;
-	height: 554px;
+	width: 348px;
+	height: 450px;
 	color: black;
     z-index: 1;
-    padding: 30px;
+    padding: 15px;
     box-sizing: border-box;
 }
 
 .imgPokInfo{
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 90px;
     display: flex;
     box-sizing: border-box;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 0;
 }
 
 .nameAndNum{
-    width: 290px;
+    width: 135px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
 .text24{
-    font-size: 24px;
+    font-size: 20px;
     color: white;
     font-weight: 600;
 }
 
 .text18{
-    font-size: 18px;
+    font-size: 14px;
     color: white;
     font-weight: 500;
 }
 
-.text14{
-    font-size: 14px;
-}
+.text14{font-size: 14px}
 
 .secondRow{
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .moreInfo{
     width: 300px;
-    height: 150px;
+    height: 100px;
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
@@ -366,6 +340,7 @@ aside{
     align-content: center;
     align-items: center;
 }
+
 .height{
     display: flex;
     width: 40%;
@@ -375,16 +350,18 @@ aside{
     align-content: center;
     align-items: center;
 }
+
 .generation{
     display: flex;
     width: 50%;
     height: 50%;
     box-sizing: border-box;
     flex-direction: row;
-    padding: 20px;
+    padding-left: 20px;
     align-content: center;
     align-items: center;
 }
+
 .type{
     text-align: center;
     box-sizing: border-box;
@@ -392,26 +369,30 @@ aside{
     width: 50%;
     height: 50%;
     flex-direction: row;
-    padding: 20px;
     align-content: center;
     align-items: center;
 }
 
 .icono{
-    width: 35px;
-    height: 35px;
+    width: 25px;
+    height: 25px;
     margin-right: 10px;
 }
 
+.icono2{
+    width: 25px;
+    height: 25px;
+}
+
 .region{
-    height: 42px;
+    height: 32px;
     margin-right: 10px;
     align-content: center;
 }
 
 .thirdRow{
-    width: 340px;
-    height: 50px;
+    width: 260px;
+    height: 35px;
     background-color: black;
     margin: 0 auto 10px auto;
     border-radius: 20px;
@@ -420,7 +401,7 @@ aside{
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    padding: 0 30px;
+    padding: 0 20px;
 }
 
 .heart{
@@ -428,15 +409,14 @@ aside{
     height: 35px;
 }
 
-.glove{
-    height: 35px;
-}
+.glove{height: 35px}
 
 .fourthRow{
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     box-sizing: border-box;
+    justify-content: space-between;
 }
 
 .resistant{
@@ -447,7 +427,6 @@ aside{
 .weaknesses{
     width: 45%;
     text-align: center; 
-    padding-left: 35px;
 }
 
 .separar{
@@ -456,15 +435,13 @@ aside{
     flex-wrap: wrap;
     justify-content: space-evenly;
     align-content: space-around;
-    height: 80px;
-    
+    height: 70px;
 }
 
 .tipos{
-    font-size: 15px;
-    width: 68px;
-    height: 24px;
-    /*border: 2px solid white;*/
+    font-size: 13px;
+    width: 55px;
+    height: 18px;
     border-radius: 10px;
     color: white;
     font-weight: 500;
@@ -483,7 +460,6 @@ aside{
     top: -70px;
     z-index: 2;
 }
-
 
 .pok_type_normal{background-color:#a8a878}
 .pok_type_fire{background-color:#f08030}
@@ -507,52 +483,166 @@ aside{
 
 @media screen and (min-width: 768px){
 
-    main{
-        max-width: 750px;
-    }
+    main{max-width: 750px}
 
-    section{
-        width: 740px;
-    }
+    section{width: 740px}
 
-    #contenedor{
-        width: 720px;
-    }
+    #contenedor{width: 720px}
 
-    aside{
-        width: 740px;
-    }
+    aside{width: 740px}
 
     form{
         justify-content: center;
         margin: 0 auto;
     }
+
+    .filtros{
+        width: 70%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .filter_type{width: 180px}
+
+    .formBuscar h2{margin: 0}
     
-    input{
-        width: 338px;
+    input{width: 338px}
+
+    /* ////////////////////// POKEDEX //////////////////////// */
+
+    .pokedex{
+        width: 566px;
+        height: 554px;
+    }
+
+    @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+
+    .pok_1{
+        width: 348px;
+        height: 554px;
+        border-radius: 40px 40px 0 40px;
+    }
+
+    .pok_2{
+        width: 75px;
+        height: 500px;
+    }
+
+    .pok_3{
+        width: 58px;
+        height: 500px;
+    }
+
+    .pok_3_1{
+        width: 0;
+        height: 0;
+        border-right: 58px solid transparent;
+        border-bottom: 48px solid #D10707;
+    }
+
+    .pok_3_2{
+        width: 58px;
+        height: 452px;
+    }
+
+
+    .pok_4{
+        width: 85px;
+        height: 452px;
+        border-radius: 0 40px 40px 0;
+    }
+
+    .info{
+        width: 566px;
+        height: 554px;
+        padding: 30px;
+    }
+
+    .imgPokInfo{
+        width: 150px;
+        height: 150px;
+        padding: 20px;
+    }
+
+    .nameAndNum{
+        width: 290px;
+        flex-direction: row;
+    }
+
+    .text24{font-size: 24px}
+
+    .text18{font-size: 18px}
+
+    .text14{font-size: 14px}
+
+    .secondRow{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+    }
+
+    .moreInfo{height: 150px}
+
+    .icono{
+        width: 35px;
+        height: 35px;
+    }
+
+    .icono2{
+        width: 35px;
+        height: 35px;
+    }
+
+    .region{height: 42px}
+
+    .generation{width: 50%}
+
+    .type{width: 40%}
+
+    .thirdRow{
+        width: 340px;
+        height: 50px;
+        padding: 0 30px;
+    }
+
+    .heart{
+        width: 35px;
+        height: 35px;
+    }
+
+    .glove{height: 35px}
+
+    .fourthRow{margin-bottom: 20px}
+
+    .separar{height: 80px}
+
+    .tipos{
+        font-size: 15px;
+        width: 68px;
+        height: 24px;
     }
 }
 
-@media screen and (min-width: 1025px){
+@media screen and (min-width: 1250px){
     main{
         display: flex;
         flex-direction: row;
-        max-width: 90%;
+        max-width: 1300px;
         height: 540px;
         margin: 0 auto;
         justify-content: space-between;
     }
 
     section{
-        width: 67%;
+        width: 900px;
         height: 100%;
         margin: 0;
     }
 
     aside{
-        width: 30%;
+        width: 300px;
         height: 100%;
-        margin-top: 0;
     }
 
     #contenedor{
@@ -562,11 +652,15 @@ aside{
     }
 
     .selectores{
-        width: 90%;
+        width: 84%;
         margin: 0 auto;
     }
 
-    form{
+    .formBuscar{
+        width: 100%;
         margin: 0;
+        flex-direction: row;
     }
+
+    .busqueda{margin: 0}
 }
