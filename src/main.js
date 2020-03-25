@@ -47,23 +47,23 @@ const showInfo2 = (elemento) => {
         </div>
         <div class="info">
           <div class="nameAndNum">
-            <p class="text24"> ${name[0].toUpperCase()}${name.substring(1)} </p>
-            <p class="text24"> ${num} </p>
+            <p class="text1"> ${name[0].toUpperCase()}${name.substring(1)} </p>
+            <p class="text1"> ${num} </p>
           </div>
           <div class="secondRow">
             <img class = "imgPokInfo" src = ${img}>
             <div class="moreInfo">
               <div class="weight">
                 <img class="icono" src = "img/weight.svg">
-                <p class="text18"> ${weight} </p>
+                <p class="text2"> ${weight} </p>
               </div>
               <div class="height">
                 <img class="icono" src = "img/height.svg">
-                <p class="text18"> ${height} </p>
+                <p class="text2"> ${height} </p>
               </div>
               <div class="generation">
                 <img class="region" src = "img/pointer.svg">
-                <span class="text18"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
+                <span class="text2"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
               </div>
               <div class="type">         
                 <div class="separar">${dividir(type)}</div>
@@ -71,20 +71,20 @@ const showInfo2 = (elemento) => {
             </div>
           </div>
           <div class="thirdRow">
-            <p class="text18">Máx</p>
+            <p class="text2">Máx</p>
             <img class="icono2" src = "img/glove.svg">
-            <p class="text18"> ${maxCp} </p>
-            <p class="text18">|</p>
+            <p class="text2"> ${maxCp} </p>
+            <p class="text2">|</p>
             <img class="icono2" src = "img/heart.svg">
-            <p class="text18"> ${maxHp} </p>
+            <p class="text2"> ${maxHp} </p>
           </div>
           <div class="fourthRow">
             <div class="resistant">
-              <p class="text18">Resistencia</p>
+              <p class="text2">Resistencia</p>
               <div class="separar">${dividir(resistant)}</div>
             </div>
             <div class="weaknesses">
-              <p class="text18">Debilidad</p>
+              <p class="text2">Debilidad</p>
               <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>
