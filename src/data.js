@@ -18,6 +18,26 @@ export const typeFilter = (arr, property, condition) => {
   return filtrado;
 };
 
+export const orderAZ = (data, property, condition) => {
+  let result;
+  if (condition === 'a-z') {
+    result = data.sort((a, b) => {
+      if (a[property] > b[property]) {
+        return 1;
+      }
+      return -1;
+    });
+  } else {
+    result = data.sort((a, b) => {
+      if (a[property] < b[property]) {
+        return 1;
+      }
+      return -1;
+    });
+  }
+  return result;
+};
+
 export const anotherExample = () => {
 
 };

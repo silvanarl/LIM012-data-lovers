@@ -1,4 +1,4 @@
-import { coincidencias, typeFilter } from './data.js';
+import { coincidencias, orderAZ } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
@@ -132,30 +132,127 @@ buscarPokemon.addEventListener('click', (event) => {
   }
 });
 
-// Funcion para filtrar por tipo, recibe 3 arg (data, propiedad y value seleccionado).
+////
+
+const cambiarSeleccion = document.getElementById('selectOrder');
+const nuevoMenu = document.querySelector('#selectType');
+nuevoMenu.setAttribute('class', 'ocultar2');
+
+const typeOrder = document.formulario.select[document.formulario.select.selectedIndex].value;
+
+cambiarSeleccion.addEventListener('change', () => {
+  nuevoMenu.setAttribute('class', 'mostrar2 filter_type');
+
+  // if (typeOrder === 'type') {
+  //   nuevoMenu.innerHTML = `
+  //         <option value="normal">Normal</option>
+  //         <option value="electric">Electric</option>
+  //         <option value="fighting">Fighting</option>
+  //         <option value="flying">Flying</option>
+  //         <option value="poison">Poison</option>
+  //         <option value="ground">Ground</option>
+  //         <option value="rock">Rock</option>
+  //         <option value="bug">Bug</option>
+  //         <option value="ghost">Ghost</option>
+  //         <option value="steel">Steel</option>
+  //         <option value="fire">Fire</option> 
+  //         <option value="water">Water</option> 
+  //         <option value="grass">Grass</option> 
+  //         <option value="psychic">Psychic</option> 
+  //         <option value="ice">Ice</option> 
+  //         <option value="dragon">Dragon</option> 
+  //         <option value="dark">Dark</option>
+  //         <option value="fairy">Fairy</option>
+  //       `;
+  // } else if (typeOrder === 'alfabetic') {
+  //   nuevoMenu.innerHTML = `
+  //         <option value="">A-Z</option>
+  //         <option value="">Z-A</option>
+  //       `;
+  // } else if (typeOrder === 'maxCP') {
+  //   nuevoMenu.innerHTML = `
+  //         <option value="">Mayor a Menor</option>
+  //         <option value="">Menor a Mayor</option>
+  //       `;
+  // } else {
+  //   console.log('Hola');
+  // }
+
+  switch (typeOrder) {
+    case 'type':
+      nuevoMenu.innerHTML = `
+          <option value="normal">Normal</option>
+          <option value="electric">Electric</option>
+          <option value="fighting">Fighting</option>
+          <option value="flying">Flying</option>
+          <option value="poison">Poison</option>
+          <option value="ground">Ground</option>
+          <option value="rock">Rock</option>
+          <option value="bug">Bug</option>
+          <option value="ghost">Ghost</option>
+          <option value="steel">Steel</option>
+          <option value="fire">Fire</option> 
+          <option value="water">Water</option> 
+          <option value="grass">Grass</option> 
+          <option value="psychic">Psychic</option> 
+          <option value="ice">Ice</option> 
+          <option value="dragon">Dragon</option> 
+          <option value="dark">Dark</option>
+          <option value="fairy">Fairy</option>
+        `;
+      //break;
+    case 'alfabetic':
+      nuevoMenu.innerHTML = `
+          <option value="">a-z</option>
+          <option value="">z-a</option>
+        `;
+      break;
+    case 'maxCP':
+      nuevoMenu.innerHTML = `
+          <option value="">Mayor a Menor</option>
+          <option value="">Menor a Mayor</option>
+        `;
+      break;
+    default:
+      console.log('Hola');
+      break;
+  }
+});
 const selectType = document.querySelector('#selectType');
+const tipoSeleccionado = selectType.value;
 selectType.addEventListener('change', () => {
-  const tipoSeleccionado = selectType.value;
-  showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+  showPokemon(orderAZ(arrObj, 'name', tipoSeleccionado));
 });
 
-// cons cambiarSeleccion = document.querySelector('#selecOrder');
-const cambiarSeleccion = () => {
-  const typeOrder = document.formulario.select[document.formulario.select.selectedIndex].value;
-  const cambioAZ = document.querySelector('#selectType');
-  const pokemonOrden1 = ['Normal', 'Electric', 'Fighting', 'Flying', 'Poison', 'Ground',
-    'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Psychic', 'Ice', 'Dragon',
-    'Dark', 'Fairy'];
-  const pokemonOrden2 = ['Mayor a Menor', 'Menor a Mayor'];
-  const pokemonOrden3 = ['A-Z', 'Z-A'];
 
-  const pokemonOrderAll = [
-    [], pokemonOrden1,
-    pokemonOrden2,
-    pokemonOrden3,
-  ];
 
-  if (typeOrder === 'alfabetic') {
-  }
+// // Funcion para filtrar por tipo, recibe 3 arg (data, propiedad y value seleccionado).
+// const selectType = document.querySelector('#selectType');
+// selectType.addEventListener('change', () => {
+//   const tipoSeleccionado = selectType.value;
+//   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+// });
 
-};
+
+
+
+// // cons cambiarSeleccion = document.querySelector('#selecOrder');
+// const cambiarSeleccion = () => {
+//   const typeOrder = document.formulario.select[document.formulario.select.selectedIndex].value;
+//   const cambioAZ = document.querySelector('#selectType');
+//   const pokemonOrden1 = ['Normal', 'Electric', 'Fighting', 'Flying', 'Poison', 'Ground',
+//     'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Psychic', 'Ice', 'Dragon',
+//     'Dark', 'Fairy'];
+//   const pokemonOrden2 = ['Mayor a Menor', 'Menor a Mayor'];
+//   const pokemonOrden3 = ['A-Z', 'Z-A'];
+
+//   const pokemonOrderAll = [
+//     [], pokemonOrden1,
+//     pokemonOrden2,
+//     pokemonOrden3,
+//   ];
+
+//   if (typeOrder === 'alfabetic') {
+//   }
+
+// };
