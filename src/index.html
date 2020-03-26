@@ -22,13 +22,15 @@
               </div>
               <div class="filtros">
                 <h2>Filtrar por: </h2>
-                <select name="select" id="selectOrder" class="filter_type" onchange="cambiarSeleccion()">
-                  <option value="type">Type</option>
-                  <option value="alfabetic">Alfabetic</option>
-                  <option value="maxCP">MX CP</option>                 
+                <select name="select" id="selectOrder" class="filter_type">
+                    <option value="0" selected>Seleccione
+                    <option value="1">Tipo
+                    <option value="2">Alfabetic
+                    <option value="3">Max CP              
                 </select>
-                <select name="selection" id="selectType" class="cambios"> 
-                </select>
+                <select name=otroSelect class="filter_type" onchange="cambiaOrden()"> 
+                  <option value="-">- 
+                </select> 
               </div>
             </form>
         </div>

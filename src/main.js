@@ -1,4 +1,4 @@
-import { coincidencias, typeFilter } from './data.js';
+import { coincidencias, typeFilter, orderAZ } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
@@ -83,6 +83,11 @@ const showInfo = (elemento) => {
               <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>
+          <div class = "fiveRow">
+            <div>
+              <p></p>
+            </div>
+          </div>
         </div>
     `;
   return infoPok;
@@ -133,29 +138,62 @@ buscarPokemon.addEventListener('click', (event) => {
 });
 
 // Funcion para filtrar por tipo, recibe 3 arg (data, propiedad y value seleccionado).
-const selectType = document.querySelector('#selectType');
-selectType.addEventListener('change', () => {
-  const tipoSeleccionado = selectType.value;
-  showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
-});
+// const selectType = document.querySelector('#selectType');
+// const tipoSeleccionado = selectType.value;
 
-// cons cambiarSeleccion = document.querySelector('#selecOrder');
-const cambiarSeleccion = () => {
-  const typeOrder = document.formulario.select[document.formulario.select.selectedIndex].value;
-  const cambioAZ = document.querySelector('#selectType');
-  const pokemonOrden1 = ['Normal', 'Electric', 'Fighting', 'Flying', 'Poison', 'Ground',
-    'Rock', 'Bug', 'Ghost', 'Steel', 'Fire', 'Water', 'Grass', 'Psychic', 'Ice', 'Dragon',
-    'Dark', 'Fairy'];
-  const pokemonOrden2 = ['Mayor a Menor', 'Menor a Mayor'];
-  const pokemonOrden3 = ['A-Z', 'Z-A'];
+// selectType.addEventListener('change', () => {
+//   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+// });
 
-  const pokemonOrderAll = [
-    [], pokemonOrden1,
-    pokemonOrden2,
-    pokemonOrden3,
-  ];
+// // const ordenAZ = document.querySelector('#selectType');
+// selectType.addEventListener('change', () => {
+//   showPokemon(orderAZ(arrObj, 'name', tipoSeleccionado));
+// });
 
-  if (typeOrder === 'alfabetic') {
+// // cons cambiarSeleccion = document.querySelector('#selecOrder');
+// const cambiarSeleccion = document.getElementById('selectOrder');
+// const nuevoMenu = document.querySelector('#selectType');
+// nuevoMenu.setAttribute('class', 'ocultar');
+
+const orden1 = ['normal', 'electric', 'flying', 'poison', 'ground', 'rock',
+  'bug', 'ghost', 'steel', 'firewater', 'grass', 'psychic', 'fighting', 'dragon',
+  'ice', 'dragon', 'fairy', 'dark'];
+const orden2 = ['a-z', 'z-a'];
+const orden3 = ['mayor a menor', 'menor a mayor'];
+
+const allOrders = [
+  [],
+  orden1,
+  orden2,
+  orden3,
+];
+
+const cambiaOrden = () => {
+  // tomo el valor del select del pais elegido
+  const select = document.formulario.select[document.formulario.select.selectedIndex].value;
+  // miro a ver si el pais está definido
+  if (select !== 0) {
+    // si estaba definido, entonces coloco las opciones de la provincia correspondiente.
+    // selecciono el array de provincia adecuado
+    let mis_orders = allOrders[select];
+    console.log(mis_orders);
+    // calculo el numero de provincias
+    let num_orders = mis_orders.length;
+    // marco el número de provincias en el select
+    document.formulario.otroSelect.length = num_orders;
+    // para cada provincia del array, la introduzco en el select
+    for (let i = 0; i < num_orders; i += 1) {
+      console.log(i);
+      document.formulario.otroSelect.options[i].value = mis_orders[i];
+      document.formulario.otroSelect.options[i].text = mis_orders[i];
+    }
+  } else {
+    // si no había provincia seleccionada, elimino las provincias del select
+    document.formulario.otroSelect.length = 1;
+    // coloco un guión en la única opción que he dejado
+    document.formulario.otroSelect.options[0].value = '-';
+    document.formulario.otroSelect.options[0].text = '-';
   }
-
+  // marco como seleccionada la opción primera de provincia
+  document.formulario.otroSelect.options[0].selected = true;
 };
