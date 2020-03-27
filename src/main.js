@@ -1,4 +1,9 @@
-import { coincidencias, typeFilter, orderAZ } from './data.js';
+import {
+  coincidencias,
+  typeFilter,
+  orderAZ,
+  orderMxCP,
+} from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
@@ -20,7 +25,15 @@ const showInfo = (elemento) => {
   const maxHp = elemento.stats['max-hp'];
   const resistant = elemento.resistant;
   const weaknesses = elemento.weaknesses;
-
+  const evolutions = elemento.evolution;
+  console.log(evolutions);
+  const nextE = evolutions['next-evolution'];
+  if (nextE === undefined) {
+    
+  }
+  console.log(nextE);
+  const prevE = evolutions['prev-evolution'];
+  console.log(prevE);
   const dividir = (arr) => {
     let newDiv2 = '';
     for (let i = 0; i < arr.length; i += 1) {
@@ -85,7 +98,7 @@ const showInfo = (elemento) => {
           </div>
           <div class = "fiveRow">
             <div>
-              <p></p>
+              <span>${evolutions}</span>
             </div>
           </div>
         </div>
@@ -137,63 +150,21 @@ buscarPokemon.addEventListener('click', (event) => {
   }
 });
 
-// Funcion para filtrar por tipo, recibe 3 arg (data, propiedad y value seleccionado).
-// const selectType = document.querySelector('#selectType');
-// const tipoSeleccionado = selectType.value;
-
-// selectType.addEventListener('change', () => {
-//   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
-// });
-
-// // const ordenAZ = document.querySelector('#selectType');
-// selectType.addEventListener('change', () => {
-//   showPokemon(orderAZ(arrObj, 'name', tipoSeleccionado));
-// });
-
-// // cons cambiarSeleccion = document.querySelector('#selecOrder');
-// const cambiarSeleccion = document.getElementById('selectOrder');
-// const nuevoMenu = document.querySelector('#selectType');
-// nuevoMenu.setAttribute('class', 'ocultar');
-
-const orden1 = ['normal', 'electric', 'flying', 'poison', 'ground', 'rock',
-  'bug', 'ghost', 'steel', 'firewater', 'grass', 'psychic', 'fighting', 'dragon',
-  'ice', 'dragon', 'fairy', 'dark'];
-const orden2 = ['a-z', 'z-a'];
-const orden3 = ['mayor a menor', 'menor a mayor'];
-
-const allOrders = [
-  [],
-  orden1,
-  orden2,
-  orden3,
-];
-
-const cambiaOrden = () => {
-  // tomo el valor del select del pais elegido
-  const select = document.formulario.select[document.formulario.select.selectedIndex].value;
-  // miro a ver si el pais está definido
-  if (select !== 0) {
-    // si estaba definido, entonces coloco las opciones de la provincia correspondiente.
-    // selecciono el array de provincia adecuado
-    let mis_orders = allOrders[select];
-    console.log(mis_orders);
-    // calculo el numero de provincias
-    let num_orders = mis_orders.length;
-    // marco el número de provincias en el select
-    document.formulario.otroSelect.length = num_orders;
-    // para cada provincia del array, la introduzco en el select
-    for (let i = 0; i < num_orders; i += 1) {
-      console.log(i);
-      document.formulario.otroSelect.options[i].value = mis_orders[i];
-      document.formulario.otroSelect.options[i].text = mis_orders[i];
-    }
-  } else {
-    // si no había provincia seleccionada, elimino las provincias del select
-    document.formulario.otroSelect.length = 1;
-    // coloco un guión en la única opción que he dejado
-    document.formulario.otroSelect.options[0].value = '-';
-    document.formulario.otroSelect.options[0].text = '-';
-  }
-  // marco como seleccionada la opción primera de provincia
-  document.formulario.otroSelect.options[0].selected = true;
-};
+// Filtro
+const menuTipo = document.getElementById('selectType');
+let tipoSeleccionado;
+menuTipo.addEventListener('change', () => {
+  tipoSeleccionado = menuTipo.value;
+  showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+});
+// Orden
+const orderPokemon = document.getElementById('orderPokemon');
+orderPokemon.addEventListener('change', () => {
+  tipoSeleccionado = orderPokemon.value;
+  showPokemon(orderAZ(arrObj, 'name', tipoSeleccionado));
+});
+const orderMaxPC = document.getElementById('maxPC');
+orderMaxPC.addEventListener('change', () => {
+  tipoSeleccionado = orderMaxPC.value;
+  showPokemon(orderMxCP(arrObj, tipoSeleccionado));
+});

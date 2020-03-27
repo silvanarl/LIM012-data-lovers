@@ -7,6 +7,10 @@
 
 .mostrar{visibility: visible;}
 
+.ocultar2{display: none;}
+
+.mostrar2{display: block;}
+
 body{
     font-family: 'KoHo', sans-serif;
     background-image: url(img/fondo-pokemon_go_2.jpg);

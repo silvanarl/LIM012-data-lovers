@@ -18,17 +18,17 @@ export const typeFilter = (arr, property, condition) => {
   return filtrado;
 };
 
-export const orderAZ = (data, property, condition) => {
+export const orderAZ = (arr, property, condition) => {
   let result;
   if (condition === 'a-z') {
-    result = data.sort((a, b) => {
+    result = arr.sort((a, b) => {
       if (a[property] > b[property]) {
         return 1;
       }
       return -1;
     });
   } else {
-    result = data.sort((a, b) => {
+    result = arr.sort((a, b) => {
       if (a[property] < b[property]) {
         return 1;
       }
@@ -36,4 +36,14 @@ export const orderAZ = (data, property, condition) => {
     });
   }
   return result;
+};
+
+export const orderMxCP = (arr, condition) => {
+  let orden = [];
+  if (condition === 'mayor-menor') {
+    orden = arr.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
+  } else if (condition === 'menor-mayor') {
+    orden = arr.sort((a, b) => a.stats['max-cp'] - b.stats['max-cp']);
+  }
+  return orden;
 };
