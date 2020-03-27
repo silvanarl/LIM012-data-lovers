@@ -1,4 +1,9 @@
-import { coincidencias, orderAZ, typeFilter, orderMxCP} from './data.js';
+import {
+  coincidencias,
+  typeFilter,
+  orderAZ,
+  orderMxCP,
+} from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
@@ -22,7 +27,15 @@ const showInfo = (elemento) => {
   const maxHp = elemento.stats['max-hp'];
   const resistant = elemento.resistant;
   const weaknesses = elemento.weaknesses;
-
+  const evolutions = elemento.evolution;
+  console.log(evolutions);
+  const nextE = evolutions['next-evolution'];
+  if (nextE === undefined) {
+    
+  }
+  console.log(nextE);
+  const prevE = evolutions['prev-evolution'];
+  console.log(prevE);
   const dividir = (arr) => {
     let newDiv2 = '';
     for (let i = 0; i < arr.length; i += 1) {
@@ -83,6 +96,11 @@ const showInfo = (elemento) => {
             <div class="weaknesses">
               <p class="text2">Debilidad</p>
               <div class="separar">${dividir(weaknesses)}</div>
+            </div>
+          </div>
+          <div class = "fiveRow">
+            <div>
+              <span>${evolutions}</span>
             </div>
           </div>
         </div>
