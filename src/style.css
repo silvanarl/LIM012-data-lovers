@@ -7,10 +7,6 @@
 
 .mostrar{visibility: visible;}
 
-.ocultar2{display: none;}
-
-.mostrar2{display: block;}
-
 body{
     font-family: 'KoHo', sans-serif;
     background-image: url(img/fondo-pokemon_go_2.jpg);
@@ -132,7 +128,6 @@ h1{
     font-family: Koho;
     font-size: 16px;
     padding-left: 10px;
-    margin-bottom: 10px;
 }
 
 #contenedor{
@@ -460,14 +455,6 @@ aside{
     right: -30px;
     top: -70px;
     z-index: 2;
-}
-
-.fiveRow{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    justify-content: space-between;
 }
 
 .pok_type_normal{background-color:#a8a878}
