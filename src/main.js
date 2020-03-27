@@ -100,7 +100,7 @@ const showInfo = (elemento) => {
           </div>
           <div class = "fiveRow">
             <div>
-              <span>${evolutions}</span>
+              <span></span>
             </div>
           </div>
         </div>
