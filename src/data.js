@@ -12,6 +12,8 @@ export const coincidencias = (array, string) => {
   return arrCoincidencias;
 };
 
+//
+
 export const typeFilter = (arr, property, condition) => {
   const filtrado = arr.filter(element => (element[property][0] === condition
   || element[property][1] === condition));

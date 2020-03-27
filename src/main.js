@@ -11,6 +11,8 @@ const arrObj = pokemon.pokemon;
 const currentDiv = document.getElementById('contenedor');
 const pokedex = document.querySelector('#overlay');
 
+// Pokedex
+
 const showInfo = (elemento) => {
   const infoPok = document.createElement('div');
   infoPok.setAttribute('class', 'pokedex');
@@ -106,6 +108,8 @@ const showInfo = (elemento) => {
   return infoPok;
 };
 
+// Mostrar pokemon
+
 const showPokemon = (array) => {
   currentDiv.innerHTML = '';
   for (let i = 0; i < array.length; i += 1) {
@@ -135,6 +139,8 @@ const showPokemon = (array) => {
   }
 };
 showPokemon(arrObj);
+
+// Coincidencias
 
 const buscarPokemon = document.getElementById('botonBuscar');
 

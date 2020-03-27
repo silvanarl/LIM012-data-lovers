@@ -74,6 +74,7 @@ h1{
 .filtros{
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 #buscador{
@@ -505,13 +506,13 @@ aside{
     }
 
     .filtros{
-        width: 70%;
+        width: 100%;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
     }
 
-    .filter_type{width: 180px}
+    .filter_type{width: 150px}
 
     .formBuscar h2{margin: 0}
     
@@ -654,7 +655,7 @@ aside{
 
     #contenedor{
         width: 90%;
-        height: 400px;
+        height: 340px;
         box-sizing: border-box;
     }
 
@@ -665,10 +666,11 @@ aside{
 
     .formBuscar{
         width: 100%;
-        margin: 0;
-        flex-direction: row;
+        /*flex-direction: row;*/
     }
 
-    .busqueda{margin: 0}
+    #selectType{
+        width: 180px;
+    }
 }
 
