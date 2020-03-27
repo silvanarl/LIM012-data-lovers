@@ -12,11 +12,15 @@ export const coincidencias = (array, string) => {
   return arrCoincidencias;
 };
 
+//
+
 export const typeFilter = (arr, property, condition) => {
   const filtrado = arr.filter(element => (element[property][0] === condition
   || element[property][1] === condition));
   return filtrado;
 };
+
+//
 
 export const orderAZ = (data, property, condition) => {
   let result;
@@ -38,6 +42,14 @@ export const orderAZ = (data, property, condition) => {
   return result;
 };
 
-export const anotherExample = () => {
+//
 
+export const orderMxCP = (arr, condition) => {
+  let orden = [];
+  if (condition === 'mayor-menor') {
+    orden = arr.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
+  } else if (condition === 'menor-mayor') {
+    orden = arr.sort((a, b) => a.stats['max-cp'] - b.stats['max-cp']);
+  }
+  return orden;
 };

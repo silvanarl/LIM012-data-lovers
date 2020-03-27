@@ -7,10 +7,6 @@
 
 .mostrar{visibility: visible;}
 
-.ocultar2{display: none}
-
-.mostrar2{display: block}
-
 body{
     font-family: 'KoHo', sans-serif;
     background-image: url(img/fondo-pokemon_go_2.jpg);
@@ -497,13 +493,13 @@ aside{
     }
 
     .filtros{
-        width: 75%;
+        width: 100%;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
     }
 
-    .filter_type{width: 180px}
+    .filter_type{width: 150px}
 
     .formBuscar h2{margin: 0}
     
@@ -646,7 +642,7 @@ aside{
 
     #contenedor{
         width: 90%;
-        height: 400px;
+        height: 340px;
         box-sizing: border-box;
     }
 
@@ -657,15 +653,11 @@ aside{
 
     .formBuscar{
         width: 100%;
-        margin: 0;
-        flex-direction: row;
+        /*flex-direction: row;*/
     }
 
-    .busqueda{margin: 0}
-
-    .filter_type{
-        width: 160px;
-
+    #selectType{
+        width: 180px;
     }
 }
 
