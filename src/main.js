@@ -27,15 +27,7 @@ const showInfo = (elemento) => {
   const maxHp = elemento.stats['max-hp'];
   const resistant = elemento.resistant;
   const weaknesses = elemento.weaknesses;
-  const evolutions = elemento.evolution;
-  console.log(evolutions);
-  const nextE = evolutions['next-evolution'];
-  if (nextE === undefined) {
-    
-  }
-  console.log(nextE);
-  const prevE = evolutions['prev-evolution'];
-  console.log(prevE);
+
   const dividir = (arr) => {
     let newDiv2 = '';
     for (let i = 0; i < arr.length; i += 1) {
@@ -45,6 +37,34 @@ const showInfo = (elemento) => {
     }
     return newDiv2;
   };
+
+  const evolutions = elemento.evolution;
+  const nextE = evolutions['next-evolution'];
+  const prevE = evolutions['prev-evolution'];
+  let evolutionPokemon = '';
+  if (nextE === undefined && prevE === undefined) {
+    evolutionPokemon += `
+      <p class="">Este pokemon no tiene evolución</p>    
+  `;
+  }
+  if (prevE !== undefined) {
+    evolutionPokemon += `
+    <div class="prevEvolution">
+    <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevE[0].num}.png"/>
+    <p class="">${prevE[0].name}</p>
+    </div>
+    `;
+  }
+  if (nextE !== undefined) {
+    evolutionPokemon += `
+    <div class="nextEvolution">
+    <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextE[0].num}.png"/>
+    <p class="">${nextE[0].name}</p>
+    </div>  
+  `;
+  }
+
+
   infoPok.innerHTML = `
         <div class="pok_1"></div>
         <div class="pok_2"></div>
@@ -58,7 +78,7 @@ const showInfo = (elemento) => {
         <div class="info">
           <div class="nameAndNum">
             <p class="text1"> ${name[0].toUpperCase()}${name.substring(1)} </p>
-            <p class="text1"> ${num} </p>
+            <p class="text1"> #${num} </p>
           </div>
           <div class="secondRow">
             <img class = "imgPokInfo" src = ${img}>
@@ -98,11 +118,7 @@ const showInfo = (elemento) => {
               <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>
-          <div class = "fiveRow">
-            <div>
-              <span></span>
-            </div>
-          </div>
+          <div class = "fiveRow">${evolutionPokemon}</div>
         </div>
     `;
   return infoPok;

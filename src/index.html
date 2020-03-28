@@ -6,6 +6,7 @@
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=KoHo:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=KoHo:400,600|Mogra&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -60,7 +61,25 @@
           <div id="contenedor"></div>
           <div class="overlay ocultar" id="overlay"></div>
       </section>
-      <aside></aside>
+      <aside>
+        <div class="aside-back">
+        </div>
+        <p>¡AVERIGUA QUÉ SET DE MOVIMIENTOS HACE <br>MÁS DAÑO A TU OPONENTE!</p>
+        <form class="formBuscarSet" name="formulario"></form>
+          <div class="busquedaSet">
+            <input type="text" id="buscadorSet" placeholder="Nombre o número" autocomplete="off">
+            <button id="botonBuscarSet" class="boton-buscar"></button>
+          </div>
+          <div class="filtrosSet">
+            <select id="selectQM" class="filter_type_Set">
+              <option value="">Quick Move</option>
+            </select>
+            <select id="selectSA" class="filter_type_Set">
+              <option value="">Special Attack</option>
+            </select>
+          </div>
+        </form>
+      </aside>
     </main>
     <footer>
     </footer>

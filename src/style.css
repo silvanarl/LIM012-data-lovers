@@ -7,9 +7,6 @@
 
 .mostrar{visibility: visible;}
 
-.ocultar2{display: none;}
-
-.mostrar2{display: block;}
 
 body{
     font-family: 'KoHo', sans-serif;
@@ -18,6 +15,8 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    font-family: 'Mogra', cursive;
+    font-family: 'KoHo', sans-serif;
     height: 100vh;
 }
 
@@ -193,12 +192,66 @@ a:link, a:visited, a:active{
 
 aside{
     width: 320px;
-    height: 240px;
+    height: 500px;
     background-color: red;
     margin-top: 15px;
     margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.aside-back{
+    background-image:url(img/batalla-pokemon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 280px;
+    height: 140px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+aside p{
+    font-family: 'Mogra', cursive;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+.formBuscarSet{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 15px;
+}
+.busquedaSet{
+    width: 260px;
+    display: flex;
+    margin-bottom: 10px;
+}
+.filter_type_Set{
+    width: 130px;
+    height: 36px;
+    border: 2px solid #BDBDBD;
+    border-radius: 10px;  
+    font-family: Koho;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.filter_type_Set{
+    width: 120px;
+    height: 36px;
+    border: 2px solid #BDBDBD;
+    border-radius: 10px;  
+    font-family: Koho;
+    font-size: 14px;
+    padding-left: 10px;
+}
 /*///////////////// POKEDEX MOBILE //////////////////*/
 
 /*.pokemon{
@@ -468,8 +521,38 @@ aside{
     margin-bottom: 10px;
     box-sizing: border-box;
     justify-content: space-between;
+    padding: 10px;
 }
 
+.nextEvolution{
+    /* width: 70px;
+    height: 60px; */
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 12px;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    margin-bottom: 5px;
+    align-content: space-around;
+}
+
+.prevEvolution{
+    /* width: 70px;
+    height: 60px; */
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 12px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+.imgEvolution{
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    border: 4px solid;
+}
 .pok_type_normal{background-color:#a8a878}
 .pok_type_fire{background-color:#f08030}
 .pok_type_water{background-color:#6890f0}
@@ -649,8 +732,9 @@ aside{
     }
 
     aside{
-        width: 300px;
+        width: 360px;
         height: 100%;
+        margin-top: 0px;
     }
 
     #contenedor{
