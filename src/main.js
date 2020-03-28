@@ -174,3 +174,58 @@ orderMaxPC.addEventListener('change', () => {
   tipoSeleccionado = orderMaxPC.value;
   showPokemon(orderMxCP(arrObj, tipoSeleccionado));
 });
+
+// SET DE MOVIMiENTOS
+// busqueda con menú desplegable
+
+const inputSet = document.getElementById('buscadorSet');
+const listaSet = document.getElementById('listaSet');
+
+const showList = (array) => {
+  listaSet.innerHTML = '';
+  for (let i = 0; i < array.length; i += 1) {
+    //
+    inputSet.addEventListener('keyup', (event) => {
+      event.preventDefault();
+      const pokemonSet = document.getElementById('buscadorSet').value;
+      const name = array[i].name;
+      listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+      if (pokemonSet !== name) {
+        listaSet.innerHTML += `
+           <li class="cadaPok">${name}</li>
+       `;
+      } else {
+        listaSet.innerHTML = 'No se encontraron coincidencias';
+      }
+    });
+    //
+  }
+};
+showList(arrObj);
+
+// const pokemonSet = document.getElementById('buscador').value;
+
+// const showList = (array) => {
+//   listaSet.innerHTML = '';
+//   for (let i = 0; i < array.length; i += 1) {
+//     const name = array[i].name;
+//     listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+//     if (pokemonSet === name[i]) {
+//       listaSet.innerHTML += `
+//           <li class="cadaPok">${name}</li>
+//       `;
+//     } else {
+//       listaSet.innerHTML = 'No se encontraron coincidencias';
+//     }
+//   }
+// };
+
+// inputSet.addEventListener('keyup', (event) => {
+//   event.preventDefault();
+//   if (pokemonSet !== '') {
+//     listaSet.innerHTML = '';
+//     showList(coincidencias(arrObj, pokemonSet));
+//   } else {
+//     currentDiv.innerHTML = 'No se encontraron coincidencias';
+//   }
+// });

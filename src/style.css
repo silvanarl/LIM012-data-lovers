@@ -7,7 +7,15 @@
 
 .mostrar{visibility: visible;}
 
+.ocultar2{
+    display: none;
+}
+.mostrar2{
+    display: block;
+}
+
 body{
+    font-family: 'Mogra', cursive;
     font-family: 'KoHo', sans-serif;
     background-image: url(img/fondo-pokemon_go_2.jpg);
     background-size: cover;
@@ -23,6 +31,7 @@ header{
     height: 120px;
     text-align: center;
     box-sizing: border-box;
+    margin-top: 20px;
 }
 
 header img{height: 80%}
@@ -84,9 +93,9 @@ h1{
     border-bottom-left-radius: 10px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    border-right: 0px;
-    
+    border-right: 0px; 
 }
+
 .formBuscar{
     display: flex;
     width: 90%;
@@ -185,14 +194,6 @@ a:link, a:visited, a:active{
 }
 
 .enlace{font-size: 14px}
-
-aside{
-    width: 320px;
-    height: 240px;
-    background-color: red;
-    margin-top: 15px;
-    margin: 0 auto;
-}
 
 /*///////////////// POKEDEX MOBILE //////////////////*/
 
@@ -476,6 +477,151 @@ aside{
 .pok_type_flying{background-color:#a890f0}
 .pok_type_fighting{background-color:#c02038}
 
+/*SET DE MOVIMIENTOS*/
+
+aside{
+    width: 320px;
+    height: 510px;
+    display: flex;
+    background-color: red;
+    margin-top: 15px;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.imagenBatalla{
+    width: 280px;
+    height: 140px;
+    background-image: url(img/batalla-pokemon.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+aside p{
+    font-size: 20px;
+    font-family: Mogra;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.formBuscarSet{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.busquedaSet{
+    width: 260px;
+    display: flex;
+    /*margin-bottom: 15px;*/
+}
+
+#buscadorSet{
+    width: 250px;
+    height: 44px;
+    font-family: KoHo;
+    font-size: 15px;
+    border: 2px solid #BDBDBD;
+    box-sizing: border-box;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-right: 0px; 
+}
+
+.filtrosSet{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-bottom: 15px;
+    justify-content: space-evenly;
+}
+
+.filter_type_Set{
+    width: 130px;
+    height: 36px;
+    border: 2px solid #BDBDBD;
+    border-radius: 10px;  
+    font-family: Koho;
+    font-size: 14px;
+    padding-left: 10px;
+}
+
+.botonCalculo{
+    width: 50px;
+    height: 36px;
+    background-color: #FFFFFF;
+    border: 2px solid #BDBDBD;
+    border-radius: 10px;  
+    font-family: Koho;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.resultado{
+    width: 200px;
+    height: 36px;
+    background-color: black;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+form h3{
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+.listaSetPok{
+    width: 260px;
+    height: 120px;
+    font-size: 12px;
+    overflow: auto;
+}
+
+.listaSetPok::-webkit-scrollbar-thumb {
+    background: rgb(231, 117, 117);
+    border-radius: 4px;
+}
+
+.listaSetPok::-webkit-scrollbar{
+    width: 8px;     /* Tamaño del desplazamiento en vertical */
+    height: 8px;    /* Tamaño del desplazamiento en horizontal */
+}
+
+.listaSetPok::-webkit-scrollbar-track{
+    background-color: #e9e7e7;
+    border-radius: 6px;
+}
+
+.cadaPok{
+    width: 260px;
+    height: 30px;
+    background-color: white;
+    border: 1px black;
+}
+
+footer{
+    width: 100%;
+    height: 30px;
+    padding: 20px 0;
+}
+
+footer p{
+    text-align: center;
+    color: white;
+}
+
 
 @media screen and (min-width: 768px){
 
@@ -636,8 +782,9 @@ aside{
     }
 
     aside{
-        width: 300px;
+        width: 360px;
         height: 100%;
+        margin-top: 0;
     }
 
     #contenedor{

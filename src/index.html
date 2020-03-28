@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=KoHo:400,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=KoHo:400,600|Mogra&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
@@ -60,9 +60,31 @@
           <div id="contenedor"></div>
           <div class="overlay ocultar" id="overlay"></div>
       </section>
-      <aside></aside>
+      <aside>
+        <div class="imagenBatalla"></div>
+        <p>¡AVERIGUA QUÉ SET DE MOVIMIENTOS HACE<br>MÁS DAÑO A TU OPONENTE!</p>
+        <form class="formBuscarSet" name="formulario">
+          <div class="busquedaSet">
+            <input type="text" id="buscadorSet" placeholder="Nombre o número" autocomplete="off">
+            <button id="botonBuscarSet" class="boton-buscar"></button> 
+          </div>
+          <ul id="listaSet" class="ocultar2"></ul>
+          <div class="filtrosSet">
+            <select id="selectQM" class="filter_type_Set">
+              <option value="">Quick Move</option>
+            </select>
+            <select id="selectSA" class="filter_type_Set">
+              <option value="">Special Attack</option>
+            </select>
+          </div>
+          <button class="botonCalculo" id="btnCalculo">Go!</button>
+          <div class="resultado"></div>
+          <h3>DPS combinado</h3>
+        </form>
+      </aside>
     </main>
     <footer>
+      <p>Derechos Reservados Pokemón Go</p>
     </footer>
     <script src="main.js" type="module"></script>
   </body>
