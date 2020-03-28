@@ -143,16 +143,20 @@ showPokemon(arrObj);
 // Coincidencias
 
 const buscarPokemon = document.getElementById('botonBuscar');
+const msjAlerta = document.getElementById('msjAlerta');
 
 buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
   let pokemonBuscado = document.getElementById('buscador').value;
   if (pokemonBuscado !== '') {
+    msjAlerta.innerHTML = '';
     currentDiv.innerHTML = '';
     showPokemon(coincidencias(arrObj, pokemonBuscado));
     pokemonBuscado = '';
   } else {
-    currentDiv.innerHTML = 'No se encontraron coincidencias';
+    // msjAlerta.classList.remove('ocultar');
+    // msjAlerta.innerHTML = 'No se encontraron coincidencias';
+    showPokemon(arrObj);
   }
 });
 
@@ -178,54 +182,25 @@ orderMaxPC.addEventListener('change', () => {
 // SET DE MOVIMiENTOS
 // busqueda con menú desplegable
 
-const inputSet = document.getElementById('buscadorSet');
 const listaSet = document.getElementById('listaSet');
-
 const showList = (array) => {
-  listaSet.innerHTML = '';
   for (let i = 0; i < array.length; i += 1) {
-    //
-    inputSet.addEventListener('keyup', (event) => {
-      event.preventDefault();
-      const pokemonSet = document.getElementById('buscadorSet').value;
-      const name = array[i].name;
-      listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-      if (pokemonSet !== name) {
-        listaSet.innerHTML += `
+    listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+    const name = array[i].name;
+    listaSet.innerHTML += `
            <li class="cadaPok">${name}</li>
        `;
-      } else {
-        listaSet.innerHTML = 'No se encontraron coincidencias';
-      }
-    });
-    //
   }
 };
-showList(arrObj);
 
-// const pokemonSet = document.getElementById('buscador').value;
-
-// const showList = (array) => {
-//   listaSet.innerHTML = '';
-//   for (let i = 0; i < array.length; i += 1) {
-//     const name = array[i].name;
-//     listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-//     if (pokemonSet === name[i]) {
-//       listaSet.innerHTML += `
-//           <li class="cadaPok">${name}</li>
-//       `;
-//     } else {
-//       listaSet.innerHTML = 'No se encontraron coincidencias';
-//     }
-//   }
-// };
-
-// inputSet.addEventListener('keyup', (event) => {
-//   event.preventDefault();
-//   if (pokemonSet !== '') {
-//     listaSet.innerHTML = '';
-//     showList(coincidencias(arrObj, pokemonSet));
-//   } else {
-//     currentDiv.innerHTML = 'No se encontraron coincidencias';
-//   }
-// });
+const inputSet = document.getElementById('buscadorSet');
+inputSet.addEventListener('keyup', (event) => {
+  event.preventDefault();
+  const pokemonSet = inputSet.value;
+  if (pokemonSet !== '') {
+    listaSet.innerHTML = '';
+    showList(coincidencias(arrObj, pokemonSet));
+  } else {
+    listaSet.setAttribute('class', 'ocultar2');
+  }
+});

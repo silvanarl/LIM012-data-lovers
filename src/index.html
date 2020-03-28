@@ -20,6 +20,7 @@
                 <input type="text" id="buscador" placeholder="Nombre o número" autocomplete="off">
                 <button id="botonBuscar" class="boton-buscar"></button>
               </div>
+              <p class="ocultar msjAlerta" id="msjAlerta"></p>
               <div class="filtros">
                 <h2>Filtrar por: </h2>
                 <select id="selectType" class="filter_type">
@@ -66,9 +67,10 @@
         <form class="formBuscarSet" name="formulario">
           <div class="busquedaSet">
             <input type="text" id="buscadorSet" placeholder="Nombre o número" autocomplete="off">
-            <button id="botonBuscarSet" class="boton-buscar"></button> 
+            <button id="botonBuscarSet" class="boton-buscar"></button>
+            <ul id="listaSet" class="ocultar2"></ul>
           </div>
-          <ul id="listaSet" class="ocultar2"></ul>
+          
           <div class="filtrosSet">
             <select id="selectQM" class="filter_type_Set">
               <option value="">Quick Move</option>
