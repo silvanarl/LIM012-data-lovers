@@ -154,8 +154,8 @@ buscarPokemon.addEventListener('click', (event) => {
     showPokemon(coincidencias(arrObj, pokemonBuscado));
     pokemonBuscado = '';
   } else {
-    // msjAlerta.classList.remove('ocultar');
-    // msjAlerta.innerHTML = 'No se encontraron coincidencias';
+    msjAlerta.classList.remove('ocultar');
+    msjAlerta.innerHTML = 'No se encontraron coincidencias';
     showPokemon(arrObj);
   }
 });
