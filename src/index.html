@@ -62,13 +62,16 @@
           <div class="overlay ocultar" id="overlay"></div>
       </section>
       <aside>
-        <div class="imagenBatalla"></div>
-        <p>¡AVERIGUA QUÉ SET DE MOVIMIENTOS HACE<br>MÁS DAÑO A TU OPONENTE!</p>
+        <div class="fotoTextoSet">
+          <div class="imagenBatalla"></div>
+          <p>¡AVERIGUA QUÉ<br>SET DE MOVIMIENTOS HACE MÁS DAÑO A TU OPONENTE!</p>
+        </div>
         <form class="formBuscarSet" name="formulario">
-          <div>
+          <div class="busquedaSet">
             <input type="text" id="buscadorSet" placeholder="Nombre o número" autocomplete="off">
-            <ul id="listaSet" class="ocultar2"></ul>
+            <button id="botonBuscarSet" class="boton-buscar"></button> 
           </div>
+          <ul id="listaSet" class="ocultar2"></ul>
           <div class="filtrosSet">
             <select id="selectQM" class="filter_type_Set">
               <option value="">Quick Move</option>
@@ -77,9 +80,11 @@
               <option value="">Special Attack</option>
             </select>
           </div>
-          <button class="botonCalculo" id="btnCalculo">Go!</button>
-          <div class="resultado"></div>
-          <h3>DPS combinado</h3>
+          <div class="contenedorResultado">
+            <button class="botonCalculo" id="btnCalculo">Go!</button>
+            <div class="resultado"></div>
+            <h3>DPS combinado</h3>
+          </div>
         </form>
       </aside>
     </main>
