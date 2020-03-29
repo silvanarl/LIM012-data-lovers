@@ -5,14 +5,12 @@ export const coincidencias = (array, string) => {
     const pokemonNum = array[i].num;
     if (pokemonMin.startsWith(string)) {
       arrCoincidencias.push(array[i]);
-    } else if (pokemonNum.startsWith(string)) {
+    } else if (pokemonNum.indexOf(string) !== -1) {
       arrCoincidencias.push(array[i]);
     }
   }
   return arrCoincidencias;
 };
-
-//
 
 export const typeFilter = (arr, property, condition) => {
   const filtrado = arr.filter(element => (element[property][0] === condition

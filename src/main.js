@@ -190,3 +190,29 @@ orderMaxPC.addEventListener('change', () => {
   tipoSeleccionado = orderMaxPC.value;
   showPokemon(orderMxCP(arrObj, tipoSeleccionado));
 });
+
+// SET DE MOVIMiENTOS
+// busqueda con menú desplegable
+
+const listaSet = document.getElementById('listaSet');
+const showList = (array) => {
+  for (let i = 0; i < array.length; i += 1) {
+    listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+    const name = array[i].name;
+    listaSet.innerHTML += `
+           <li class="cadaPok">${name}</li>
+       `;
+  }
+};
+
+const inputSet = document.getElementById('buscadorSet');
+inputSet.addEventListener('keyup', (event) => {
+  event.preventDefault();
+  const pokemonSet = inputSet.value;
+  if (pokemonSet !== '') {
+    listaSet.innerHTML = '';
+    showList(coincidencias(arrObj, pokemonSet));
+  } else {
+    listaSet.setAttribute('class', 'ocultar2');
+  }
+});
