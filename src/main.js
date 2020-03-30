@@ -209,7 +209,8 @@ const showList = (array) => {
 
     listaSet.addEventListener('click', (event) => {
       event.preventDefault();
-      const quickMove = array[i].name;
+      const quickMove = array['quick-move'];
+      console.log(quickMove);
       selectQM.innerHMTL = '';
       selectQM.innerHTML = `
         <option value="">Quick Move</option>
