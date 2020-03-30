@@ -191,7 +191,7 @@ orderMaxPC.addEventListener('change', () => {
   showPokemon(orderMxCP(arrObj, tipoSeleccionado));
 });
 
-// SET DE MOVIMiENTOS
+// SET DE MOVIMIENTOS
 // busqueda con menú desplegable
 
 const listaSet = document.getElementById('listaSet');
@@ -200,8 +200,8 @@ const showList = (array) => {
     listaSet.setAttribute('class', 'mostrar2 listaSetPok');
     const name = array[i].name;
     listaSet.innerHTML += `
-           <li class="cadaPok">${name}</li>
-       `;
+      <li class="cadaPok">${name}</li>
+    `;
   }
 };
 
