@@ -183,7 +183,7 @@ menuTipo.addEventListener('change', () => {
 const orderPokemon = document.getElementById('orderPokemon');
 orderPokemon.addEventListener('change', () => {
   tipoSeleccionado = orderPokemon.value;
-  showPokemon(orderAZ(arrObj, 'name', tipoSeleccionado));
+  showPokemon(orderAZ(arrObj, tipoSeleccionado));
 });
 const orderMaxPC = document.getElementById('maxPC');
 orderMaxPC.addEventListener('change', () => {
