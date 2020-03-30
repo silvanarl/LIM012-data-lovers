@@ -36,6 +36,8 @@ const showInfo = (elemento) => {
   console.log(nextE);
   const prevE = evolutions['prev-evolution'];
   console.log(prevE);
+
+  //
   const dividir = (arr) => {
     let newDiv2 = '';
     for (let i = 0; i < arr.length; i += 1) {
@@ -171,7 +173,7 @@ menuTipo.addEventListener('change', () => {
 const orderPokemon = document.getElementById('orderPokemon');
 orderPokemon.addEventListener('change', () => {
   tipoSeleccionado = orderPokemon.value;
-  showPokemon(orderAZ(arrObj, 'name', tipoSeleccionado));
+  showPokemon(orderAZ(arrObj, tipoSeleccionado));
 });
 const orderMaxPC = document.getElementById('maxPC');
 orderMaxPC.addEventListener('change', () => {
@@ -179,23 +181,56 @@ orderMaxPC.addEventListener('change', () => {
   showPokemon(orderMxCP(arrObj, tipoSeleccionado));
 });
 
-// SET DE MOVIMiENTOS
+// SET DE MOVIMIENTOS
 // busqueda con menú desplegable
 
+const dividir2 = (arr) => {
+  let newDiv2 = '';
+  for (let i = 0; i < arr.length; i += 1) {
+    newDiv2 += `
+      <option">${arr[i]}</option>
+    `;
+  }
+  return newDiv2;
+};
+
+//
+
 const listaSet = document.getElementById('listaSet');
+const selectQM = document.getElementById('selectQM');
+
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
-    listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-    const name = array[i].name;
+    const namePok = array[i].name;
     listaSet.innerHTML += `
-           <li class="cadaPok">${name}</li>
-       `;
+      <li class="cadaPok">${namePok}</li>
+     `;
+    //listaSet.innerHTML = '';
+
+    listaSet.addEventListener('click', (event) => {
+      event.preventDefault();
+      const quickMove = array[i].name;
+      selectQM.innerHMTL = '';
+      selectQM.innerHTML = `
+        <option value="">Quick Move</option>
+        <option id="cadaMove">${quickMove}</option>
+      `;
+      listaSet.setAttribute('class', 'ocultar2');
+      listaSet.innerHTML = '';
+    });
+
+    // const cadaMove = document.getElementById('cadaMove');
+    // cadaMove.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    // });
   }
 };
+//showList(arrObj);
 
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
+  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
     listaSet.innerHTML = '';
