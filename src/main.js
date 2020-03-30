@@ -27,7 +27,6 @@ const showInfo = (elemento) => {
   const maxHp = elemento.stats['max-hp'];
   const resistant = elemento.resistant;
   const weaknesses = elemento.weaknesses;
-
   const dividir = (arr) => {
     let newDiv2 = '';
     for (let i = 0; i < arr.length; i += 1) {
@@ -159,16 +158,20 @@ showPokemon(arrObj);
 // Coincidencias
 
 const buscarPokemon = document.getElementById('botonBuscar');
+const msjAlerta = document.getElementById('msjAlerta');
 
 buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
   let pokemonBuscado = document.getElementById('buscador').value;
   if (pokemonBuscado !== '') {
+    msjAlerta.innerHTML = '';
     currentDiv.innerHTML = '';
     showPokemon(coincidencias(arrObj, pokemonBuscado));
     pokemonBuscado = '';
   } else {
-    currentDiv.innerHTML = 'No se encontraron coincidencias';
+    msjAlerta.classList.remove('ocultar');
+    msjAlerta.innerHTML = 'No se encontraron coincidencias';
+    showPokemon(arrObj);
   }
 });
 
@@ -194,20 +197,55 @@ orderMaxPC.addEventListener('change', () => {
 // SET DE MOVIMIENTOS
 // busqueda con menú desplegable
 
-const listaSet = document.getElementById('listaSet');
-const showList = (array) => {
-  for (let i = 0; i < array.length; i += 1) {
-    listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-    const name = array[i].name;
-    listaSet.innerHTML += `
-      <li class="cadaPok">${name}</li>
+const dividir2 = (arr) => {
+  let newDiv2 = '';
+  for (let i = 0; i < arr.length; i += 1) {
+    newDiv2 += `
+      <option">${arr[i]}</option>
     `;
   }
+  return newDiv2;
 };
+
+//
+
+const listaSet = document.getElementById('listaSet');
+const selectQM = document.getElementById('selectQM');
+
+const showList = (array) => {
+  for (let i = 0; i < array.length; i += 1) {
+    const namePok = array[i].name;
+    listaSet.innerHTML += `
+      <li class="cadaPok">${namePok}</li>
+     `;
+    //listaSet.innerHTML = '';
+
+    listaSet.addEventListener('click', (event) => {
+      event.preventDefault();
+      const quickMove = array['quick-move'];
+      console.log(quickMove);
+      selectQM.innerHMTL = '';
+      selectQM.innerHTML = `
+        <option value="">Quick Move</option>
+        <option id="cadaMove">${quickMove}</option>
+      `;
+      listaSet.setAttribute('class', 'ocultar2');
+      listaSet.innerHTML = '';
+    });
+
+    // const cadaMove = document.getElementById('cadaMove');
+    // cadaMove.addEventListener('click', (event) => {
+    //   event.preventDefault();
+    // });
+  }
+};
+//showList(arrObj);
 
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
+  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+  
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
     listaSet.innerHTML = '';
