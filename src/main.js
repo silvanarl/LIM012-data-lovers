@@ -218,7 +218,7 @@ const showList = (array) => {
     listaSet.innerHTML += `
       <li class="cadaPok">${namePok}</li>
      `;
-    //listaSet.innerHTML = '';
+    // listaSet.innerHTML = '';
 
     listaSet.addEventListener('click', (event) => {
       event.preventDefault();
@@ -239,13 +239,13 @@ const showList = (array) => {
     // });
   }
 };
-//showList(arrObj);
+// showList(arrObj);
 
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
   listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-  
+
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
     listaSet.innerHTML = '';
