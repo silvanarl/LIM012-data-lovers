@@ -211,24 +211,25 @@ const showList = (array) => {
       ${namePok}
     `;
     listaSet.appendChild(onePokList);
+
     //
-    const dividir2 = (arr) => {
-      const newDivSet = '';
-      newDivSet.innerHMTL += `
-        <span>${arr[i]}</span>
-      `;
-    };
+    // const dividir2 = (arr) => {
+    //   const newDivSet = '';
+    //   newDivSet.innerHMTL += `
+    //     <span>${arr[i]}</span>
+    //   `;
+    // };
     //
 
     onePokList.addEventListener('click', (event) => {
       event.preventDefault();
-      const quickMove = array[i].num;
+      const quickMove = array['quick-move'];
       console.log(quickMove);
       const specialAttack = array[i].name;
 
       selectQM.innerHTML = `
         <option value="">Quick Move</option>
-        <option id="cadaMove">${dividir2(quickMove)}</option>
+        <option id="cadaMove">${quickMove}</option>
       `;
 
       selectSA.innerHMTL = `
@@ -240,6 +241,7 @@ const showList = (array) => {
     });
   }
 };
+showList(arrObj);
 
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
