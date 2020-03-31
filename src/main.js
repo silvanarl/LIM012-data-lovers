@@ -2,6 +2,7 @@ import {
   coincidencias,
   typeFilter,
   orderAZ,
+  orderZA,
   orderMxCP,
 } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
@@ -181,12 +182,17 @@ menuTipo.addEventListener('change', () => {
   tipoSeleccionado = menuTipo.value;
   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
 });
-// Orden
-const orderPokemon = document.getElementById('orderPokemon');
-orderPokemon.addEventListener('change', () => {
-  tipoSeleccionado = orderPokemon.value;
-  showPokemon(orderAZ(arrObj, tipoSeleccionado));
+// Orden AZ
+const orderPokemonAZ = document.getElementById('orderPokemon');
+orderPokemonAZ.addEventListener('change', () => {
+  tipoSeleccionado = orderPokemonAZ.value;
+  if (tipoSeleccionado === 'a-z') {
+    showPokemon(orderAZ(arrObj));
+  } else if (tipoSeleccionado === 'z-a') {
+    showPokemon(orderZA(arrObj));
+  }
 });
+
 const orderMaxPC = document.getElementById('maxPC');
 orderMaxPC.addEventListener('change', () => {
   tipoSeleccionado = orderMaxPC.value;
@@ -226,7 +232,6 @@ const showList = (array) => {
       const quickMove = array['quick-move'];
       console.log(quickMove);
       const specialAttack = array[i].name;
-
       selectQM.innerHTML = `
         <option value="">Quick Move</option>
         <option id="cadaMove">${quickMove}</option>
