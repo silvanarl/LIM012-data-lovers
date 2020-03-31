@@ -2,6 +2,7 @@ import {
   coincidencias,
   typeFilter,
   orderAZ,
+  orderZA,
   orderMxCP,
 } from '../src/data.js';
 
@@ -3516,15 +3517,20 @@ describe('orderAZ', () => {
   it('Debería retornar un array con todos los elementos ordenados de la a a la z.', () => {
     expect(orderAZ(data, 'a-z')).toEqual(output5);
   });
+});
 
+describe('orderZA', () => {
+  it('is a function', () => {
+    expect(typeof orderZA).toBe('function');
+  });
   it('Debería retornar un array con todos los elementos ordenados de la z a la z.', () => {
-    expect(orderAZ(data, 'z-a')).toEqual(output6);
+    expect(orderZA(data, 'z-a')).toEqual(output6);
   });
 });
 
 describe('orderMxCP', () => {
   it('is a function', () => {
-    expect(typeof orderAZ).toBe('function');
+    expect(typeof orderMxCP).toBe('function');
   });
 
   it('Debería retornar un array con todos los elementos ordenados de mayor a menor por max PC.', () => {

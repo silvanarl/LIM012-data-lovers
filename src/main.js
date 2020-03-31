@@ -2,6 +2,7 @@ import {
   coincidencias,
   typeFilter,
   orderAZ,
+  orderZA,
   orderMxCP,
 } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
@@ -182,12 +183,17 @@ menuTipo.addEventListener('change', () => {
   tipoSeleccionado = menuTipo.value;
   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
 });
-// Orden
-const orderPokemon = document.getElementById('orderPokemon');
-orderPokemon.addEventListener('change', () => {
-  tipoSeleccionado = orderPokemon.value;
-  showPokemon(orderAZ(arrObj, tipoSeleccionado));
+// Orden AZ
+const orderPokemonAZ = document.getElementById('orderPokemon');
+orderPokemonAZ.addEventListener('change', () => {
+  tipoSeleccionado = orderPokemonAZ.value;
+  if (tipoSeleccionado === 'a-z') {
+    showPokemon(orderAZ(arrObj));
+  } else if (tipoSeleccionado === 'z-a') {
+    showPokemon(orderZA(arrObj));
+  }
 });
+
 const orderMaxPC = document.getElementById('maxPC');
 orderMaxPC.addEventListener('change', () => {
   tipoSeleccionado = orderMaxPC.value;
@@ -197,15 +203,15 @@ orderMaxPC.addEventListener('change', () => {
 // SET DE MOVIMIENTOS
 // busqueda con menú desplegable
 
-const dividir2 = (arr) => {
-  let newDiv2 = '';
-  for (let i = 0; i < arr.length; i += 1) {
-    newDiv2 += `
-      <option">${arr[i]}</option>
-    `;
-  }
-  return newDiv2;
-};
+// const dividir2 = (arr) => {
+//   let newDiv2 = '';
+//   for (let i = 0; i < arr.length; i += 1) {
+//     newDiv2 += `
+//       <option">${arr[i]}</option>
+//     `;
+//   }
+//   return newDiv2;
+// };
 
 //
 
@@ -223,7 +229,7 @@ const showList = (array) => {
     listaSet.addEventListener('click', (event) => {
       event.preventDefault();
       const quickMove = array['quick-move'];
-      console.log(quickMove);
+      // console.log(quickMove);
       selectQM.innerHMTL = '';
       selectQM.innerHTML = `
         <option value="">Quick Move</option>
