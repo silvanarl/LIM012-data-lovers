@@ -64,7 +64,6 @@ const showInfo = (elemento) => {
   `;
   }
 
-
   infoPok.innerHTML = `
         <div class="pok_1"></div>
         <div class="pok_2"></div>
@@ -203,55 +202,56 @@ orderMaxPC.addEventListener('change', () => {
 // SET DE MOVIMIENTOS
 // busqueda con menú desplegable
 
-// const dividir2 = (arr) => {
-//   let newDiv2 = '';
-//   for (let i = 0; i < arr.length; i += 1) {
-//     newDiv2 += `
-//       <option">${arr[i]}</option>
-//     `;
-//   }
-//   return newDiv2;
-// };
-
-//
-
 const listaSet = document.getElementById('listaSet');
 const selectQM = document.getElementById('selectQM');
+const selectSA = document.getElementById('selectSA');
 
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     const namePok = array[i].name;
-    listaSet.innerHTML += `
-      <li class="cadaPok">${namePok}</li>
-     `;
-    // listaSet.innerHTML = '';
+    const numPok = array[i].num;
+    const onePokList = document.createElement('li');
+    onePokList.setAttribute('data-search-num-pokemon', numPok);
+    onePokList.setAttribute('class', 'cadaPok');
+    onePokList.textContent = `
+      ${namePok}
+    `;
+    listaSet.appendChild(onePokList);
 
-    listaSet.addEventListener('click', (event) => {
+    //
+    // const dividir2 = (arr) => {
+    //   const newDivSet = '';
+    //   newDivSet.innerHMTL += `
+    //     <span>${arr[i]}</span>
+    //   `;
+    // };
+    //
+
+    onePokList.addEventListener('click', (event) => {
       event.preventDefault();
       const quickMove = array['quick-move'];
-      // console.log(quickMove);
-      selectQM.innerHMTL = '';
+      console.log(quickMove);
+      const specialAttack = array[i].name;
       selectQM.innerHTML = `
         <option value="">Quick Move</option>
         <option id="cadaMove">${quickMove}</option>
       `;
+
+      selectSA.innerHMTL = `
+        <option value="">Special Attack</option>
+        <option id="cadaSpecial">${specialAttack}</option>
+      `;
       listaSet.setAttribute('class', 'ocultar2');
       listaSet.innerHTML = '';
     });
-
-    // const cadaMove = document.getElementById('cadaMove');
-    // cadaMove.addEventListener('click', (event) => {
-    //   event.preventDefault();
-    // });
   }
 };
-// showList(arrObj);
+showList(arrObj);
 
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
   listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
     listaSet.innerHTML = '';
