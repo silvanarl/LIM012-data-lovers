@@ -235,7 +235,7 @@ const showList = (array) => {
       inputSet.value = '';
 
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
-      pokemonNameSet.innerHTML = `Pokemon ${namePok}`;
+      pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
 
       const filtrosQM = document.querySelector('#filtrosQM');
       const filtrosSA = document.querySelector('#filtrosSA');
@@ -246,7 +246,7 @@ const showList = (array) => {
         <p class="tituloSetMov">Quick Move</p>
         <select class="filter_type_Set">`;
       quickMove.forEach((element) => {
-        optionQM += `<option>` + element.name + `</option>`;
+        optionQM += `<option>${element.name}</option>`;
       });
       optionQM += `</select>`;
 
@@ -254,7 +254,7 @@ const showList = (array) => {
         <p class="tituloSetMov">Special Attack</p>
         <select class="filter_type_Set">`;
       specialAttack.forEach((element) => {
-        optionSA += `<option>` + element.name + `</option>`;
+        optionSA += `<option>${element.name}</option>`;
       });
       optionSA += `</select>`;
 
