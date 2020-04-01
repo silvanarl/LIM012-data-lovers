@@ -527,7 +527,7 @@ a:link, a:visited, a:active{
 
 aside{
     width: 320px;
-    height: 510px;
+    height: 530px;
     display: flex;
     background-color: red;
     margin-top: 15px;
@@ -551,11 +551,11 @@ aside{
 }
 
 aside p{
-    font-size: 20px;
+    font-size: 16px;
     font-family: Mogra;
     text-align: center;
     color: white;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .formBuscarSet{
@@ -570,29 +570,43 @@ aside p{
     width: 260px;
     display: flex;
     padding: 0 10px;
+    flex-direction: column;
     /*margin-bottom: 15px;*/
 }
 
 #buscadorSet{
-    width: 250px;
+    width: 100%;
     height: 44px;
     font-family: KoHo;
     font-size: 15px;
     border: 2px solid #BDBDBD;
     box-sizing: border-box;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border-right: 0px; 
+    text-align: center; 
 }
 
 .filtrosSet{
     display: flex;
-    width: 100%;
     flex-direction: row;
-    margin: 15px 0;
     justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tituloSetMov{
+    text-align: center;
+    font-family: KoHo;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pokemonNameSet, .subtitulo{
+    text-align: center;
+    font-family: KoHo;
+    color: white;
+    font-size: 16px;
+    margin: 5px 0;
 }
 
 .filter_type_Set{
@@ -609,6 +623,7 @@ aside p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
 }
 
 .botonCalculo{
@@ -633,6 +648,7 @@ aside p{
 form h3{
     font-size: 14px;
     color: #FFFFFF;
+    text-align: center;
 }
 
 .listaSetPok{
@@ -829,6 +845,10 @@ footer p{
         align-items: center;
     }
 
+    aside p{
+        font-size: 20px;
+    }
+
     .fotoTextoSet{
         display: flex;
         flex-direction: column;
@@ -910,6 +930,17 @@ footer p{
 
     .formBuscarSet{
         width: 100%;
+    }
+
+    .contenedorResultado{
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        padding: 0 40px;
+    }
+
+    .resultado{
+        width: 150px;
     }
 }
 
