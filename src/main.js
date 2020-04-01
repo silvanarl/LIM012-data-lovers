@@ -203,8 +203,8 @@ orderMaxPC.addEventListener('change', () => {
 // busqueda con menú desplegable
 
 const listaSet = document.getElementById('listaSet');
-const selectQM = document.getElementById('selectQM');
-const selectSA = document.getElementById('selectSA');
+const selectQM = document.querySelector('#selectQM');
+const selectSA = document.querySelector('#selectSA');
 
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
@@ -218,31 +218,38 @@ const showList = (array) => {
     `;
     listaSet.appendChild(onePokList);
 
-    //
-    // const dividir2 = (arr) => {
-    //   const newDivSet = '';
-    //   newDivSet.innerHMTL += `
-    //     <span>${arr[i]}</span>
-    //   `;
-    // };
-    //
-
     onePokList.addEventListener('click', (event) => {
       event.preventDefault();
-      const quickMove = array['quick-move'];
-      console.log(quickMove);
-      const specialAttack = array[i].name;
-      selectQM.innerHTML = `
-        <option value="">Quick Move</option>
-        <option id="cadaMove">${quickMove}</option>
-      `;
-
-      selectSA.innerHMTL = `
-        <option value="">Special Attack</option>
-        <option id="cadaSpecial">${specialAttack}</option>
-      `;
+      selectQM.innerHTML = '';
+      const quickMove = array[i]['quick-move'];
+      quickMove.forEach((element) => {
+        selectQM.innerHTML += `
+          <option value="${element.name}">${element.name}</option>
+        `;
+        const typeQM = element.type;// comparar este tipo con el tipo de pokemon y aumentar un 20% si es ===
+        const baseDamage = element['base-damage'];
+        console.log(baseDamage);
+        const eps = element.energy / element['move-duration-seg'];
+        console.log(eps);
+        // console.log(selectQM);
+      });
       listaSet.setAttribute('class', 'ocultar2');
       listaSet.innerHTML = '';
+    });
+    onePokList.addEventListener('click', (event) => {
+      event.preventDefault();
+      selectSA.innerHTML = '';
+      const specialAttack = array[i]['special-attack'];
+      specialAttack.forEach((element) => {
+        // console.log(element);
+        selectSA.innerHMTL += `
+          <option value="${element.name}">${element.name}</option>
+        `;
+        const typeSA = element.type;
+        const baseDamage = element['base-damage'];
+        console.log(baseDamage);
+        console.log(typeSA);
+      });
     });
   }
 };
@@ -251,7 +258,7 @@ showList(arrObj);
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
-  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+  listaSet.setAttribute('class', ' mostrar2 listaSetPok');
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
     listaSet.innerHTML = '';
@@ -260,3 +267,6 @@ inputSet.addEventListener('keyup', (event) => {
     listaSet.setAttribute('class', 'ocultar2');
   }
 });
+
+// comparar el tipo del QM/SA seleccionado con el tipo del pokemon seleccionado usar la funcion
+// typeFilter y el retorno compararlo con el tipo de QM y SA
