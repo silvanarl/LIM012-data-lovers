@@ -65,7 +65,7 @@
       <aside>
         <div class="fotoTextoSet">
           <div class="imagenBatalla"></div>
-          <p>¡AVERIGUA QUÉ<br>SET DE MOVIMIENTOS HACE MÁS DAÑO A TU OPONENTE!</p>
+          <p>¡AVERIGUA QUÉ SET DE MOVIMIENTOS HACE MÁS DAÑO A TU OPONENTE!</p>
         </div>
         <form class="formBuscarSet" name="formulario">
           <div class="busquedaSet">
@@ -73,13 +73,10 @@
             <button id="botonBuscarSet" class="boton-buscar"></button> 
           </div>
           <ul id="listaSet" class="ocultar2"></ul>
+          <p class="pokemonNameSet"></p>
           <div class="filtrosSet">
-            <select id="selectQM" class="filter_type_Set">
-              <option value="">Quick Move</option>
-            </select>
-            <select id="selectSA" class="filter_type_Set">
-              <option value="">Special Attack</option>
-            </select>
+            <div class="filtrosQM" id="filtrosQM"></div>
+            <div class="filtrosSA" id="filtrosSA"></div>
           </div>
           <div class="contenedorResultado">
             <button class="botonCalculo" id="btnCalculo">Go!</button>

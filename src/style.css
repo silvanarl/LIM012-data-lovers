@@ -527,7 +527,7 @@ a:link, a:visited, a:active{
 
 aside{
     width: 320px;
-    height: 510px;
+    height: 520px;
     display: flex;
     background-color: red;
     margin-top: 15px;
@@ -551,7 +551,7 @@ aside{
 }
 
 aside p{
-    font-size: 20px;
+    font-size: 16px;
     font-family: Mogra;
     text-align: center;
     color: white;
@@ -589,10 +589,27 @@ aside p{
 
 .filtrosSet{
     display: flex;
-    width: 100%;
     flex-direction: row;
-    margin: 15px 0;
     justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.tituloSetMov{
+    text-align: center;
+    font-family: KoHo;
+    color: white;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pokemonNameSet{
+    text-align: center;
+    font-family: KoHo;
+    color: white;
+    font-size: 16px;
+    margin: 5px 0;
 }
 
 .filter_type_Set{
@@ -609,6 +626,7 @@ aside p{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
 }
 
 .botonCalculo{
@@ -827,6 +845,10 @@ footer p{
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
+    }
+
+    aside p{
+        font-size: 20px;
     }
 
     .fotoTextoSet{

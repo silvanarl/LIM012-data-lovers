@@ -203,50 +203,6 @@ orderMaxPC.addEventListener('change', () => {
 // busqueda con menú desplegable
 
 const listaSet = document.getElementById('listaSet');
-const selectQM = document.getElementById('selectQM');
-const selectSA = document.getElementById('selectSA');
-
-const showList = (array) => {
-  for (let i = 0; i < array.length; i += 1) {
-    const namePok = array[i].name;
-    const numPok = array[i].num;
-    const onePokList = document.createElement('li');
-    onePokList.setAttribute('data-search-num-pokemon', numPok);
-    onePokList.setAttribute('class', 'cadaPok');
-    onePokList.textContent = `
-      ${namePok}
-    `;
-    listaSet.appendChild(onePokList);
-
-    //
-    // const dividir2 = (arr) => {
-    //   const newDivSet = '';
-    //   newDivSet.innerHMTL += `
-    //     <span>${arr[i]}</span>
-    //   `;
-    // };
-    //
-
-    onePokList.addEventListener('click', (event) => {
-      event.preventDefault();
-      const quickMove = array['quick-move'];
-      console.log(quickMove);
-      const specialAttack = array[i].name;
-      selectQM.innerHTML = `
-        <option value="">Quick Move</option>
-        <option id="cadaMove">${quickMove}</option>
-      `;
-
-      selectSA.innerHMTL = `
-        <option value="">Special Attack</option>
-        <option id="cadaSpecial">${specialAttack}</option>
-      `;
-      listaSet.setAttribute('class', 'ocultar2');
-      listaSet.innerHTML = '';
-    });
-  }
-};
-showList(arrObj);
 
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
@@ -260,3 +216,54 @@ inputSet.addEventListener('keyup', (event) => {
     listaSet.setAttribute('class', 'ocultar2');
   }
 });
+
+const showList = (array) => {
+  for (let i = 0; i < array.length; i += 1) {
+    const namePok = array[i].name;
+    const numPok = array[i].num;
+    const onePokList = document.createElement('li');
+    onePokList.setAttribute('data-search-num-pokemon', numPok);
+    onePokList.setAttribute('class', 'cadaPok');
+    onePokList.textContent = `
+      ${namePok}
+    `;
+    listaSet.appendChild(onePokList);
+
+    onePokList.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      inputSet.value = '';
+
+      const pokemonNameSet = document.querySelector('.pokemonNameSet');
+      pokemonNameSet.innerHTML = `Pokemon ${namePok}`;
+
+      const filtrosQM = document.querySelector('#filtrosQM');
+      const filtrosSA = document.querySelector('#filtrosSA');
+      const quickMove = array[i]['quick-move'];
+      const specialAttack = array[i]['special-attack'];
+
+      let optionQM = `
+        <p class="tituloSetMov">Quick Move</p>
+        <select class="filter_type_Set">`;
+      quickMove.forEach((element) => {
+        optionQM += `<option>` + element.name + `</option>`;
+      });
+      optionQM += `</select>`;
+
+      let optionSA = `
+        <p class="tituloSetMov">Special Attack</p>
+        <select class="filter_type_Set">`;
+      specialAttack.forEach((element) => {
+        optionSA += `<option>` + element.name + `</option>`;
+      });
+      optionSA += `</select>`;
+
+      filtrosQM.innerHTML = optionQM;
+      filtrosSA.innerHTML = optionSA;
+
+      listaSet.setAttribute('class', 'ocultar2');
+      listaSet.innerHTML = '';
+    }, false);
+  }
+};
+showList(arrObj);
