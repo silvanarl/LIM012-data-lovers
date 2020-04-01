@@ -203,7 +203,6 @@ orderMaxPC.addEventListener('change', () => {
 // busqueda con menú desplegable
 
 const listaSet = document.getElementById('listaSet');
-
 const inputSet = document.getElementById('buscadorSet');
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
@@ -249,6 +248,12 @@ const showList = (array) => {
         optionQM += `<option>${element.name}</option>`;
       });
       optionQM += `</select>`;
+      
+        const typeQM = element.type;// comparar este tipo con el tipo de pokemon y aumentar un 20% si es ===
+        const baseDamage = element['base-damage'];
+        console.log(baseDamage);
+        const eps = element.energy / element['move-duration-seg'];
+        console.log(eps);
 
       let optionSA = `
         <p class="tituloSetMov">Special Attack</p>
@@ -257,7 +262,12 @@ const showList = (array) => {
         optionSA += `<option>${element.name}</option>`;
       });
       optionSA += `</select>`;
-
+  
+        const typeSA = element.type;
+        const baseDamage = element['base-damage'];
+        console.log(baseDamage);
+        console.log(typeSA);
+      
       filtrosQM.innerHTML = optionQM;
       filtrosSA.innerHTML = optionSA;
 
