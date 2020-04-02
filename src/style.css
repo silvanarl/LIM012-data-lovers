@@ -465,7 +465,7 @@ a:link, a:visited, a:active{
     z-index: 2;
 }
 
-.fiveRow{
+.fifthRow{
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
@@ -475,8 +475,6 @@ a:link, a:visited, a:active{
 }
 
 .nextEvolution{
-    /* width: 70px;
-    height: 60px; */
     box-sizing: border-box;
     align-items: center;
     font-size: 12px;
@@ -487,8 +485,6 @@ a:link, a:visited, a:active{
 }
 
 .prevEvolution{
-    /* width: 70px;
-    height: 60px; */
     box-sizing: border-box;
     align-items: center;
     font-size: 12px;
@@ -496,6 +492,12 @@ a:link, a:visited, a:active{
     justify-content: flex-start;
     margin-bottom: 5px;
 }
+
+.evolutionAlign {
+    display: flex;
+    flex-direction: row;
+}
+
 .imgEvolution{
     width: 50px;
     height: 50px;
