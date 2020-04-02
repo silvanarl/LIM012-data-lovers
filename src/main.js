@@ -39,19 +39,37 @@ const showInfo = (elemento) => {
   };
 
   const evolutions = elemento.evolution;
-  const nextE = evolutions['next-evolution'];
   const prevE = evolutions['prev-evolution'];
+  const nextE = evolutions['next-evolution'];
+
   let evolutionPokemon = '';
   if (nextE === undefined && prevE === undefined) {
     evolutionPokemon += `
       <p class="">Este pokemon no tiene evolución</p>    
-  `;
+    `;
   }
   if (prevE !== undefined) {
+    const prevPrevE = prevE[0]['prev-evolution'];
+    if (prevPrevE !== undefined) {
+      evolutionPokemon += `
+      <div class="prevEvolution">
+      <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevPrevE[0].num}.png"/>
+      <p class="">${prevPrevE[0].name[0].toUpperCase()}${prevPrevE[0].name.substring(1)}</p>
+      </div>
+      `;
+    }
+    if (prevPrevE === undefined) {
+      evolutionPokemon += `
+      <div class="prevEvolution">
+      <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
+      <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
+      </div>
+      `;
+    }
     evolutionPokemon += `
     <div class="prevEvolution">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevE[0].num}.png"/>
-    <p class="">${prevE[0].name}</p>
+    <p class="">${prevE[0].name[0].toUpperCase()}${prevE[0].name.substring(1)}</p>
     </div>
     `;
   }
@@ -59,9 +77,18 @@ const showInfo = (elemento) => {
     evolutionPokemon += `
     <div class="nextEvolution">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextE[0].num}.png"/>
-    <p class="">${nextE[0].name}</p>
+    <p class="">${nextE[0].name[0].toUpperCase()}${nextE[0].name.substring(1)}</p>
     </div>  
-  `;
+    `;
+    const nextNextE = nextE[0]['next-evolution'];
+    if (nextNextE !== undefined) {
+      evolutionPokemon += `
+      <div class="nextEvolution">
+      <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextNextE[0].num}.png"/>
+      <p class="">${nextNextE[0].name[0].toUpperCase()}${nextNextE[0].name.substring(1)}</p>
+      </div>
+      `;
+    }
   }
 
   infoPok.innerHTML = `
@@ -245,29 +272,33 @@ const showList = (array) => {
         <p class="tituloSetMov">Quick Move</p>
         <select class="filter_type_Set">`;
       quickMove.forEach((element) => {
-        optionQM += `<option>${element.name}</option>`;
+        optionQM += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
       });
-      optionQM += `</select>`;
-      
-        const typeQM = element.type;// comparar este tipo con el tipo de pokemon y aumentar un 20% si es ===
-        const baseDamage = element['base-damage'];
-        console.log(baseDamage);
-        const eps = element.energy / element['move-duration-seg'];
-        console.log(eps);
+      optionQM += '</select>';
+
+      // const typeQM = element.type;
+      // const baseDamage = element['base-damage'];
+      // console.log(baseDamage);
+      // const eps = element.energy / element['move-duration-seg'];
+      // console.log(eps);
 
       let optionSA = `
         <p class="tituloSetMov">Special Attack</p>
         <select class="filter_type_Set">`;
       specialAttack.forEach((element) => {
-        optionSA += `<option>${element.name}</option>`;
+        optionSA += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
+        const specialAttackSelect = optionSA.value;
+        console.log(specialAttackSelect);
       });
-      optionSA += `</select>`;
-  
-        const typeSA = element.type;
-        const baseDamage = element['base-damage'];
-        console.log(baseDamage);
-        console.log(typeSA);
-      
+      optionSA += '</select>';
+
+      // const specialAttackSelect = optionSA.value;
+      // console.log(specialAttackSelect);
+      // const typeSA = specialAttackSelect.type;
+      // const baseDamage = element['base-damage'];
+      // console.log(baseDamage);
+      // console.log(typeSA);
+
       filtrosQM.innerHTML = optionQM;
       filtrosSA.innerHTML = optionSA;
 
