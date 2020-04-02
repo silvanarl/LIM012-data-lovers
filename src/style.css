@@ -470,32 +470,32 @@ a:link, a:visited, a:active{
     flex-direction: row;
     margin-bottom: 10px;
     box-sizing: border-box;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
 }
 
-.nextEvolution{
-    box-sizing: border-box;
-    align-items: center;
+.evolutionPok{
     font-size: 12px;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
     margin-bottom: 5px;
-    align-content: space-around;
+    text-align: center;
+    margin: 0 20px;
 }
 
-.prevEvolution{
-    box-sizing: border-box;
-    align-items: center;
-    font-size: 12px;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    margin-bottom: 5px;
+.evolutionPok::after{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 10px solid black;
+    border-bottom: 5px solid transparent;
 }
 
-.evolutionAlign {
+.evolutionAlign{
     display: flex;
     flex-direction: row;
+    text-align: center;
+    align-items: center;
 }
 
 .imgEvolution{
