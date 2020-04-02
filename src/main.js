@@ -247,13 +247,14 @@ const showList = (array) => {
       quickMove.forEach((element) => {
         optionQM += `<option>${element.name}</option>`;
       });
-      optionQM += `</select>`;
-      
-        const typeQM = element.type;// comparar este tipo con el tipo de pokemon y aumentar un 20% si es ===
-        const baseDamage = element['base-damage'];
-        console.log(baseDamage);
-        const eps = element.energy / element['move-duration-seg'];
-        console.log(eps);
+      optionQM += '</select>';
+
+      // comparar este tipo con el tipo de pokemon y aumentar un 20% si es ===
+      // const typeQM = element.type;
+      // const baseDamage = element['base-damage'];
+      // console.log(baseDamage);
+      // const eps = element.energy / element['move-duration-seg'];
+      // console.log(eps);
 
       let optionSA = `
         <p class="tituloSetMov">Special Attack</p>
@@ -261,13 +262,13 @@ const showList = (array) => {
       specialAttack.forEach((element) => {
         optionSA += `<option>${element.name}</option>`;
       });
-      optionSA += `</select>`;
-  
-        const typeSA = element.type;
-        const baseDamage = element['base-damage'];
-        console.log(baseDamage);
-        console.log(typeSA);
-      
+      optionSA += '</select>';
+
+      // const typeSA = element.type;
+      // const baseDamage = element['base-damage'];
+      // console.log(baseDamage);
+      // console.log(typeSA);
+
       filtrosQM.innerHTML = optionQM;
       filtrosSA.innerHTML = optionSA;
 
