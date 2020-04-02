@@ -42,31 +42,28 @@ const showInfo = (elemento) => {
   const prevE = evolutions['prev-evolution'];
   const nextE = evolutions['next-evolution'];
 
-  let evolutionPokemon = '';
-  if (nextE === undefined && prevE === undefined) {
-    evolutionPokemon += `
-      <p class="">Este pokemon no tiene evolución</p>    
-    `;
-  }
+  const prevDiv = document.createElement('div');
+  prevDiv.setAttribute('class', 'ocultar2 evolutionAlign');
+
+  const sameDiv = document.createElement('div');
+  sameDiv.setAttribute('class', 'evolutionAlign');
+
+  const nextDiv = document.createElement('div');
+  nextDiv.setAttribute('class', 'ocultar2 evolutionAlign');
+
+  let prevEvolutionPokemon = '';
+  let nextEvolutionPokemon = '';
   if (prevE !== undefined) {
     const prevPrevE = prevE[0]['prev-evolution'];
     if (prevPrevE !== undefined) {
-      evolutionPokemon += `
+      prevEvolutionPokemon += `
       <div class="prevEvolution">
       <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevPrevE[0].num}.png"/>
       <p class="">${prevPrevE[0].name[0].toUpperCase()}${prevPrevE[0].name.substring(1)}</p>
       </div>
       `;
     }
-    if (prevPrevE === undefined) {
-      evolutionPokemon += `
-      <div class="prevEvolution">
-      <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
-      <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
-      </div>
-      `;
-    }
-    evolutionPokemon += `
+    prevEvolutionPokemon += `
     <div class="prevEvolution">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevE[0].num}.png"/>
     <p class="">${prevE[0].name[0].toUpperCase()}${prevE[0].name.substring(1)}</p>
@@ -74,7 +71,7 @@ const showInfo = (elemento) => {
     `;
   }
   if (nextE !== undefined) {
-    evolutionPokemon += `
+    nextEvolutionPokemon += `
     <div class="nextEvolution">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextE[0].num}.png"/>
     <p class="">${nextE[0].name[0].toUpperCase()}${nextE[0].name.substring(1)}</p>
@@ -82,7 +79,7 @@ const showInfo = (elemento) => {
     `;
     const nextNextE = nextE[0]['next-evolution'];
     if (nextNextE !== undefined) {
-      evolutionPokemon += `
+      nextEvolutionPokemon += `
       <div class="nextEvolution">
       <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextNextE[0].num}.png"/>
       <p class="">${nextNextE[0].name[0].toUpperCase()}${nextNextE[0].name.substring(1)}</p>
@@ -144,7 +141,13 @@ const showInfo = (elemento) => {
               <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>
-          <div class = "fiveRow">${evolutionPokemon}</div>
+          <div class = "fifthRow">
+            <div class="evolutionAlign">${prevEvolutionPokemon}</div>
+            <div class="nextEvolution"><img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
+            <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
+            </div>
+            <div class="evolutionAlign">${nextEvolutionPokemon}</div>
+          </div>
         </div>
     `;
   return infoPok;
