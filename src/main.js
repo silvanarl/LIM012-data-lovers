@@ -278,12 +278,7 @@ const showList = (array) => {
         optionQM += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
       });
       optionQM += '</select>';
-
-      // const typeQM = element.type;
-      // const baseDamage = element['base-damage'];
-      // console.log(baseDamage);
-      // const eps = element.energy / element['move-duration-seg'];
-      // console.log(eps);
+      
 
       let optionSA = `
         <p class="tituloSetMov">Special Attack</p>
@@ -294,13 +289,6 @@ const showList = (array) => {
         console.log(specialAttackSelect);
       });
       optionSA += '</select>';
-
-      // const specialAttackSelect = optionSA.value;
-      // console.log(specialAttackSelect);
-      // const typeSA = specialAttackSelect.type;
-      // const baseDamage = element['base-damage'];
-      // console.log(baseDamage);
-      // console.log(typeSA);
 
       filtrosQM.innerHTML = optionQM;
       filtrosSA.innerHTML = optionSA;
