@@ -262,7 +262,7 @@ const showList = (array) => {
       const specialAttack = array[i]['special-attack'];
       // Quick Move
       const selectQM = document.querySelector('#selectQM');
-      // let quickMoveSelect;
+      let quickMoveSelect;
 
       // const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
       // const energyQM = parseInt(quickMove[i].energy, 10);
@@ -271,21 +271,13 @@ const showList = (array) => {
       // const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
       // const eps = (energyQM / moveDurationQM);
 
-      //
       quickMove.forEach((element) => {
-        const arrQMtype = Array.from();
-        console.log(arrQMtype);
         selectQM.innerHTML += `
-        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
-
+        console.log(element);
         selectQM.addEventListener('change', () => {
-          // quickMoveSelect = selectQM.value;
-          if (arrQMtype[i] === typePok[i]) {
-            console.log('Hola');
-          } else {
-            console.log('chau');
-          }
+          quickMoveSelect = selectQM.value;
         });
       });
 
@@ -295,7 +287,7 @@ const showList = (array) => {
 
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
-        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element[i]}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
       });
       selectSA.addEventListener('change', () => {
