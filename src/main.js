@@ -242,6 +242,7 @@ const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     const namePok = array[i].name;
     const numPok = array[i].num;
+    const typePok = array[i].type;
     const onePokList = document.createElement('li');
     onePokList.setAttribute('data-search-num-pokemon', numPok);
     onePokList.setAttribute('class', 'cadaPok');
@@ -255,26 +256,49 @@ const showList = (array) => {
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
-
+      console.log(typePok);
       const quickMove = array[i]['quick-move'];
       const specialAttack = array[i]['special-attack'];
       // Quick Move
       const selectQM = document.querySelector('#selectQM');
-      const optionQM = document.createElement('option');
+      // let quickMoveSelect;
 
+      // const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
+      // const energyQM = parseInt(quickMove[i].energy, 10);
+      // const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
+      // // Cálculo DPS y EPS
+      // const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
+      // const eps = (energyQM / moveDurationQM);
+
+      //
       quickMove.forEach((element) => {
-        optionQM.innerHTML += `
-        ${element.name[0].toUpperCase()}${element.name.substring(1)}
+        const arrQMtype = Array.from();
+        console.log(arrQMtype);
+        selectQM.innerHTML += `
+        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
-        selectQM.appendChild(optionQM);
+
+        selectQM.addEventListener('change', () => {
+          // quickMoveSelect = selectQM.value;
+          if (arrQMtype[i] === typePok[i]) {
+            console.log('Hola');
+          } else {
+            console.log('chau');
+          }
+        });
       });
 
       // Special Attack
       const selectSA = document.querySelector('#selectSA');
+      let specialAttackSelect;
+
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
         <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
+      });
+      selectSA.addEventListener('change', () => {
+        specialAttackSelect = selectSA.value;
       });
 
       listaSet.setAttribute('class', 'ocultar2');

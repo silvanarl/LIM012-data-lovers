@@ -529,9 +529,9 @@ a:link, a:visited, a:active{
 
 aside{
     width: 320px;
-    height: 530px;
+    height: 520px;
     display: flex;
-    background-color: red;
+    background-color: #8ED100;
     margin-top: 15px;
     margin: 0 auto;
     flex-direction: column;
@@ -690,7 +690,7 @@ form h3{
 
 footer{
     width: 100%;
-    height: 30px;
+    height: 50px;
     padding: 20px 0;
 }
 
@@ -866,6 +866,13 @@ footer p{
 }
 
 @media screen and (min-width: 1250px){
+
+    header {
+        height: 140px;
+    }
+
+    header img{height: 80%}
+
     main{
         display: flex;
         flex-direction: row;
@@ -914,6 +921,10 @@ footer p{
         justify-content: flex-start;
     }
 
+    aside p{
+        font-size: 22px;
+    }
+
     .busquedaSet{
         padding: 0 30px;
     }
@@ -924,7 +935,7 @@ footer p{
 
     .imagenBatalla{
         width: 100%;
-        height: 150px;
+        height: 160px;
     }
 
     .fotoTextoSet{
