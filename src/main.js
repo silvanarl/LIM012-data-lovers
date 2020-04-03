@@ -52,6 +52,7 @@ const showInfo = (elemento) => {
       <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevPrevE[0].num}.png"/>
       <p class="">${prevPrevE[0].name[0].toUpperCase()}${prevPrevE[0].name.substring(1)}</p>
       </div>
+      <div class = "triangle"></div>
       `;
     }
     prevEvolutionPokemon += `
@@ -115,7 +116,7 @@ const showInfo = (elemento) => {
             </div>
           </div>
           <div class="thirdRow">
-            <p class="text2">Máx</p>
+            <p class="text2">Max</p>
             <img class="icono2" src = "img/glove.svg">
             <p class="text2"> ${maxCp} </p>
             <p class="text2">|</p>
@@ -124,11 +125,11 @@ const showInfo = (elemento) => {
           </div>
           <div class="fourthRow">
             <div class="resistant">
-              <p class="text2">Resistencia</p>
+              <p class="text2">Resistant</p>
               <div class="separar">${dividir(resistant)}</div>
             </div>
             <div class="weaknesses">
-              <p class="text2">Debilidad</p>
+              <p class="text2">Weaknesses</p>
               <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>

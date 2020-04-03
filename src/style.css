@@ -132,8 +132,9 @@ h1{
 }
 
 .msjAlerta{
-    font-size: 12px;
-    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(172, 41, 41);
 }
 
 .filter_type{
@@ -482,20 +483,24 @@ a:link, a:visited, a:active{
     margin: 0 20px;
 }
 
-.evolutionPok::after{
-    content: "";
-    width: 0;
-    height: 0;
-    border-top: 5px solid transparent;
-    border-left: 10px solid black;
-    border-bottom: 5px solid transparent;
-}
-
 .evolutionAlign{
     display: flex;
     flex-direction: row;
     text-align: center;
-    align-items: center;
+  align-items: center;
+}
+
+.evolutionPok::before{
+    content:"";
+    height: 0;
+    border-top: 5px solid transparent;
+    border-left: 5px solid rgb(0, 0, 0);
+    border-bottom: 5px solid transparent;
+}
+
+.evolutionPok:before{
+    vertical-align: middle;
+    display: inline-block;
 }
 
 .imgEvolution{
