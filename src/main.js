@@ -67,7 +67,7 @@ const showInfo = (elemento) => {
     <div class="evolutionPok">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextE[0].num}.png"/>
     <p class="">${nextE[0].name[0].toUpperCase()}${nextE[0].name.substring(1)}</p>
-    </div> 
+    </div>
     `;
     const nextNextE = nextE[0]['next-evolution'];
     if (nextNextE !== undefined) {
@@ -136,8 +136,8 @@ const showInfo = (elemento) => {
           <div class = "fifthRow">
             <div class="evolutionAlign">${prevEvolutionPokemon}</div>
             <div class="evolutionPok">
-            <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
-            <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
+              <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
+              <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
             </div>
             <div class="evolutionAlign">${nextEvolutionPokemon}</div>
           </div>
@@ -243,6 +243,7 @@ const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     const namePok = array[i].name;
     const numPok = array[i].num;
+    const typePok = array[i].type;
     const onePokList = document.createElement('li');
     onePokList.setAttribute('data-search-num-pokemon', numPok);
     onePokList.setAttribute('class', 'cadaPok');
@@ -253,41 +254,57 @@ const showList = (array) => {
 
     onePokList.addEventListener('click', (event) => {
       event.preventDefault();
-
       inputSet.value = '';
-
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
-      pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
-
-      const filtrosQM = document.querySelector('#filtrosQM');
-      const filtrosSA = document.querySelector('#filtrosSA');
+      pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
+      console.log(typePok);
       const quickMove = array[i]['quick-move'];
       const specialAttack = array[i]['special-attack'];
+      // Quick Move
+      const selectQM = document.querySelector('#selectQM');
+      // let quickMoveSelect;
 
-      let optionQM = `
-        <p class="tituloSetMov">Quick Move</p>
-        <select class="filter_type_Set">`;
+      // const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
+      // const energyQM = parseInt(quickMove[i].energy, 10);
+      // const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
+      // // Cálculo DPS y EPS
+      // const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
+      // const eps = (energyQM / moveDurationQM);
+
+      //
       quickMove.forEach((element) => {
-        optionQM += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
-      });
-      optionQM += '</select>';
+        const arrQMtype = Array.from();
+        console.log(arrQMtype);
+        selectQM.innerHTML += `
+        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        `;
 
-      let optionSA = `
-        <p class="tituloSetMov">Special Attack</p>
-        <select class="filter_type_Set">`;
+        selectQM.addEventListener('change', () => {
+          // quickMoveSelect = selectQM.value;
+          if (arrQMtype[i] === typePok[i]) {
+            console.log('Hola');
+          } else {
+            console.log('chau');
+          }
+        });
+      });
+
+      // Special Attack
+      const selectSA = document.querySelector('#selectSA');
+      let specialAttackSelect;
+
       specialAttack.forEach((element) => {
-        optionSA += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
-        const specialAttackSelect = optionSA.value;
-        console.log(specialAttackSelect);
+        selectSA.innerHTML += `
+        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        `;
       });
-      optionSA += '</select>';
-
-      filtrosQM.innerHTML = optionQM;
-      filtrosSA.innerHTML = optionSA;
+      selectSA.addEventListener('change', () => {
+        specialAttackSelect = selectSA.value;
+      });
 
       listaSet.setAttribute('class', 'ocultar2');
       listaSet.innerHTML = '';
-    }, false);
+    });
   }
 };
 showList(arrObj);

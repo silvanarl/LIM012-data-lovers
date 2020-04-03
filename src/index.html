@@ -73,10 +73,14 @@
             <input type="text" id="buscadorSet" placeholder="Name or number" autocomplete="off"> 
           </div>
           <ul id="listaSet" class="ocultar2"></ul>
-          <p class="pokemonNameSet"></p>
+          <p class="pokemonNameSet">Evalúa a tu pokemón</p>
           <div class="filtrosSet">
-            <div class="filtrosQM" id="filtrosQM"></div>
-            <div class="filtrosSA" id="filtrosSA"></div>
+            <select name="" id="selectQM" class="filter_type_Set">
+              <option value="" selected disabled>Quick Move</option>
+            </select>
+            <select name="" id="selectSA" class="filter_type_Set">
+              <option value="" selected disabled>Special Attack</option>
+            </select>
           </div>
           <div class="contenedorResultado">
             <button class="botonCalculo" id="btnCalculo">Go!</button>
@@ -88,6 +92,7 @@
     </main>
     <footer>
       <p>Derechos Reservados Pokemón Go</p>
+      <p>Build by Silvana Ramos y Alice Ramírez</p>
     </footer>
     <script src="main.js" type="module"></script>
   </body>
