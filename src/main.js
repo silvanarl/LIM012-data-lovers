@@ -252,41 +252,34 @@ const showList = (array) => {
 
     onePokList.addEventListener('click', (event) => {
       event.preventDefault();
-
       inputSet.value = '';
-
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
 
-      const filtrosQM = document.querySelector('#filtrosQM');
-      const filtrosSA = document.querySelector('#filtrosSA');
       const quickMove = array[i]['quick-move'];
       const specialAttack = array[i]['special-attack'];
+      // Quick Move
+      const selectQM = document.querySelector('#selectQM');
+      const optionQM = document.createElement('option');
 
-      let optionQM = `
-        <p class="tituloSetMov">Quick Move</p>
-        <select class="filter_type_Set">`;
       quickMove.forEach((element) => {
-        optionQM += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
+        optionQM.innerHTML += `
+        ${element.name[0].toUpperCase()}${element.name.substring(1)}
+        `;
+        selectQM.appendChild(optionQM);
       });
-      optionQM += '</select>';
 
-      let optionSA = `
-        <p class="tituloSetMov">Special Attack</p>
-        <select class="filter_type_Set">`;
+      // Special Attack
+      const selectSA = document.querySelector('#selectSA');
       specialAttack.forEach((element) => {
-        optionSA += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
-        const specialAttackSelect = optionSA.value;
-        console.log(specialAttackSelect);
+        selectSA.innerHTML += `
+        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        `;
       });
-      optionSA += '</select>';
-
-      filtrosQM.innerHTML = optionQM;
-      filtrosSA.innerHTML = optionSA;
 
       listaSet.setAttribute('class', 'ocultar2');
       listaSet.innerHTML = '';
-    }, false);
+    });
   }
 };
 showList(arrObj);
