@@ -42,29 +42,21 @@ const showInfo = (elemento) => {
   const prevE = evolutions['prev-evolution'];
   const nextE = evolutions['next-evolution'];
 
-  const prevDiv = document.createElement('div');
-  prevDiv.setAttribute('class', 'ocultar2 evolutionAlign');
-
-  const sameDiv = document.createElement('div');
-  sameDiv.setAttribute('class', 'evolutionAlign');
-
-  const nextDiv = document.createElement('div');
-  nextDiv.setAttribute('class', 'ocultar2 evolutionAlign');
-
   let prevEvolutionPokemon = '';
   let nextEvolutionPokemon = '';
   if (prevE !== undefined) {
     const prevPrevE = prevE[0]['prev-evolution'];
     if (prevPrevE !== undefined) {
       prevEvolutionPokemon += `
-      <div class="prevEvolution">
+      <div class="evolutionPok">
       <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevPrevE[0].num}.png"/>
       <p class="">${prevPrevE[0].name[0].toUpperCase()}${prevPrevE[0].name.substring(1)}</p>
       </div>
+      <div class = "triangle"></div>
       `;
     }
     prevEvolutionPokemon += `
-    <div class="prevEvolution">
+    <div class="evolutionPok">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${prevE[0].num}.png"/>
     <p class="">${prevE[0].name[0].toUpperCase()}${prevE[0].name.substring(1)}</p>
     </div>
@@ -72,15 +64,15 @@ const showInfo = (elemento) => {
   }
   if (nextE !== undefined) {
     nextEvolutionPokemon += `
-    <div class="nextEvolution">
+    <div class="evolutionPok">
     <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextE[0].num}.png"/>
     <p class="">${nextE[0].name[0].toUpperCase()}${nextE[0].name.substring(1)}</p>
-    </div>  
+    </div> 
     `;
     const nextNextE = nextE[0]['next-evolution'];
     if (nextNextE !== undefined) {
       nextEvolutionPokemon += `
-      <div class="nextEvolution">
+      <div class="evolutionPok">
       <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${nextNextE[0].num}.png"/>
       <p class="">${nextNextE[0].name[0].toUpperCase()}${nextNextE[0].name.substring(1)}</p>
       </div>
@@ -124,7 +116,7 @@ const showInfo = (elemento) => {
             </div>
           </div>
           <div class="thirdRow">
-            <p class="text2">Máx</p>
+            <p class="text2">Max</p>
             <img class="icono2" src = "img/glove.svg">
             <p class="text2"> ${maxCp} </p>
             <p class="text2">|</p>
@@ -133,17 +125,18 @@ const showInfo = (elemento) => {
           </div>
           <div class="fourthRow">
             <div class="resistant">
-              <p class="text2">Resistencia</p>
+              <p class="text2">Resistant</p>
               <div class="separar">${dividir(resistant)}</div>
             </div>
             <div class="weaknesses">
-              <p class="text2">Debilidad</p>
+              <p class="text2">Weaknesses</p>
               <div class="separar">${dividir(weaknesses)}</div>
             </div>
           </div>
           <div class = "fifthRow">
             <div class="evolutionAlign">${prevEvolutionPokemon}</div>
-            <div class="nextEvolution"><img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
+            <div class="evolutionPok">
+            <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
             <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
             </div>
             <div class="evolutionAlign">${nextEvolutionPokemon}</div>
@@ -264,7 +257,7 @@ const showList = (array) => {
       inputSet.value = '';
 
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
-      pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
+      pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
 
       const filtrosQM = document.querySelector('#filtrosQM');
       const filtrosSA = document.querySelector('#filtrosSA');
@@ -278,7 +271,6 @@ const showList = (array) => {
         optionQM += `<option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>`;
       });
       optionQM += '</select>';
-      
 
       let optionSA = `
         <p class="tituloSetMov">Special Attack</p>

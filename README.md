@@ -150,22 +150,163 @@ Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
 contándonos cómo fue tu proceso de diseño y cómo crees que el producto resuelve
 el problema (o problemas) que tiene tu usuario.
 
-**Público objetivo:** jugador principiante de Pokemón Go que desea saber información extra de cada pokemón y saber que set de movimientos es el adecuado para ganar una batalla pokemón.
+**Público objetivo:** Jugador principiante de Pokemón Go que desea saber información extra de cada pokemón y saber que set de movimientos es el adecuado para ganar una batalla pokemón.
 
 **Descripción:** Es una página web donde el usuario podrá encontrar los 251 pokemones de las regiones de Kanto y Johto. Podrá ordenar los pokemon alfabéticamente, podrá filtrarlos según el tipo y ordenarlo según el máx CP. Además podrá ver que Set de Movimientos es el más adecuado para su pokemón para que pueda usarlo en las batallas pokemón. Podrá también ver información extra de cada pokemón (peso, altura, generación, tipo, máx-cp, máx-hp, evoluciones, a qué pokemones es débil y resistente).
 
 ### Historias de usuario
 
-Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
-de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
-todo lo que el usuario necesita hacer/ver. Las **Historias de Usuario** deben
-ser el resultado de tu proceso de investigación o _research_ de tus usuarios.
+HU1: 
+Como <<jugadorx pokemon >>
+Quiero <<ver una lista de los pokemon>>
+Para <<tener acceso a una vista rápida de los pokemon>>
 
-Asegúrate de incluir la definición de terminado (_definition of done_) y los
-Criterios de Aceptación para cada una.
+**Criterios de aceptación:**
 
-En la medida de lo posible, termina una historia de usuario antes de pasar
-a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
+1. Las y los usuarios verán una galería pokemon ordenada según el número de la pokedex.
+2. Verán 18 de 251 pokemon al ingresar a la página. El usuario podrá hacer uso del scroll para ver los demás pokemon. 
+
+**Definición de terminado**
+
+1. Se ha implementado una función que mostrará los 251 pokemones.
+2. Delimitar el contenedor donde irán los pokemon. Crear un scroll para que el usuario pueda recorrer la lista de pokemon.
+3. El código se subió al repositorio de Git Hub.
+4. El código se trabajó en pair-programming.
+5. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
+6. La página debe ser responsive. En versión mobile debe mostrar un listado de 6 pokemon y el scroll debe recorrer la lista de los 251 pokemon.
+
+HU2:
+Como <<jugadorx pokemon >>
+Quiero <<buscar a un pokemón según su nombre o número>>
+Para <<saber sus características principales>>
+
+**Criterios de aceptación:**
+
+1. Las y los usuarios verán un buscador donde podrán escribir el nombre o número del pokemon a buscar.
+2. La galería de pokemon se actualizará según la búsqueda. Puede mostrar coincidencias o solo un pokemon.
+3. De no encontrar coincidencias mostrará un texto "no se encontraron coincidencias".
+4. el usuario podrá hacer la búsqueda de otro pokemon usando el buscador.
+
+**Definición de terminado:**
+
+1. El buscador arrojará las coincidencias.
+2. El mensaje de alerta debe funcionar cuando no haya coincidencias en la data.
+3. La galería debe mostrar los pokemon según la búsqueda.
+4. Hacer el test para comprobar si llama a todos los pokemon, si acepta mayúsculas o minúsculas y si detecta el ingreso inválido(devuelve true o false).
+5. El código se subió al repositorio de Git Hub.
+6. El código se trabajó en pair-programming.
+7. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
+
+HU3:
+Yo como <<jugadorx Pokemón>>
+Quiero <<ver información detallada de un pokemon>>
+Para <<conocer los datos mas relevantes sobre ese pokemon(nombre, peso, altura, generación, tipo y resistencia, evolución)>>
+
+**Criterios de aceptación:**
+1. Las y los usuarios, al hacer click sobre las imagenes de la galería  tendrán acceso a informacion detallada de cualquier pokemon mediante un ventana emergente. 
+2. Podrán salir de la ventana al pulsar en X.
+
+**Definición de terminado:**
+1. La ventana emergente debe mostrar los valores específicos segun el recorrido de la data.
+2. El botón x debe regresar a la página principal.
+3. Hacer el test para comprobar si llama a la información de cada pokemon. (No se necesitó test).
+5. El código se subió al repositorio de Git Hub.
+6. El código se trabajó en pair-programming.
+
+HU5:
+Yo como <<jugadorx pokemon >>
+Quiero <<poder filtrar a los pokemon por tipo >>
+Para <<identificar a un grupo de pokemon rápidamente cuando solo recuerdo alguna característica en especial >>
+
+**Criterios de aceptación:**
+
+1. Las y los usuarios verán un menú desplegable. Donde se listará los tipo de pokemon. 
+2. Al dar clic, el menú desplegable muestra las opciones de todos los tipos de pokemon (agua, tierra, fuego, eléctrico, entre otros). El usuario podrá escoger entre las opciones.
+3. según la opción escogida, la galería se actualizará y el usuario podrá usar el scroll para encontrar al pokemón deseado. 
+4. Podrán escoger otro tipo de pokemon y la galería se actualizará según el tipo solicitado.
+
+**Definición de terminado:**
+
+1. Al dar clic al botón de filtro "tipo" debe mostrar las opciones de los tipos de pokemon.
+2. el filtro debe recorrer la data según "type" y ordenar los nombres según el tipo correctamente.
+2. Los pokemon que se muestren debe ser del tipo escogido.
+3. El código se subió al repositorio de Git Hub.
+4. Hacer el test para comprobar si hace el filtro correcto.
+5. El código se trabajó en pair-programming.
+6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
+
+HU4:
+Yo como <<jugadorx pokemon >>
+Quiero <<ordenar a los pokemon de forma ascendente o descendente>>
+Para <<encontrar más fácilmente los primeros o últimos pokemón según su nombre>>
+
+**Criterios de aceptación:**
+
+1. Los y las usuarias verán un menú desplegable para ordenar a los pokemones alfabeticamente. 
+2. Al dar clic, el menú desplegable muestra las opciones A-Z y Z-A. Podrán escoger entre las 2 opciones.
+3. Según la opción escogida, la galería se actualizará y el usuario podrá usar el scroll para encontrar al pokemón deseado. 
+
+**Definición de terminado**
+
+1. Al dar clic al botón "ordenar o sort" debe mostrar las opciones de orden de la A-Z y Z-A
+2. La función debe recorrer la data según "name" y ordenar los nombres alfabética y correctamente.
+2. Los pokemon que se muestren debe ordenarse según A-Z o Z-A.
+3. El código se subió al repositorio de Git Hub.
+4. Hacer el test para comprobar si ordena correctamente.
+5. El código se trabajó en pair-programming.
+6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
+
+HU6:
+Yo como <<jugadorx pokemon >>
+Quiero <<ordenar a los pokemon por PC máximo>>
+Para <<saber hasta donde llegará el max PC de mis pokemones y así entrenarlos para ello>>
+
+**Criterios de aceptación:**
+1. Los y las usuarias verán un menú desplegable para ordenar a los pokemones según PC máx.
+2. Al dar clic, el menú desplegable muestra las opciones de ordenar mayor-menor o menor-mayor.
+3. Según la opción escogida, la galería se actualizará y el usuario podrá usar el scroll para encontrar al pokemón deseado. 
+4. Los y las usuarias podrán escoger ordenar y/o filtrar la galería de otro modo y esta se actualizará según lo solicitado.
+
+**Definición de terminado:**
+
+1. Al dar clic al botón de orden "max-PC" debe mostrar las opciones de orden de mayor-menor y menor-mayor.
+2. La función debe recorrer la data según "máx-PC" y ordenar los pokemon según el máx puntaje de combate.
+2. Los pokemon que se muestren debe ser del orden escogido.
+3. El código se subió al repositorio de Git Hub.
+4. Hacer el test para comprobar si hace el orden correcto.
+5. El código se trabajó en pair-programming.
+6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
+
+HU7:
+Yo como <<jugadorx Pokemón>>
+Quiero <<Conocer el mejor set de movimientos de mi pokemón>>
+Para <<para saber cuanto daño puedo generar a mi oponente en una batalla pokemón>>
+
+**Criterios de aceptación:**
+
+1. Los y las usuarias podrán ver en la página un seccion que dirá: ¡Averigua qué set de movimiento hace más daño a tu oponente!
+2. Se deberá ingresar el nombre del pokemón en un buscador para seleccionarlo.
+3. Los y las usuarias deberán escoger el quick-move y el special-atack del pokemon seleccionado.
+4. Darán click en Go! para calcular su mejor mov-set.
+5. El resultado sera mostrado en la parte inferior de esta sección.
+
+**Definición de Terminado:**
+
+1. El buscador debe encontrar al pokemon deseado.
+   El buscador recibirá la data que es arrObj, se recorrerá ese array y ubicará la propiedad name, crearemos un espacio debajo del buscador donde aparecerá el nombre del pokemon seleccionado, (Veamos que puedes lograr con name_del_pokemon) aquí podemos usar coincidencias function (seria bueno si mostrará las coincidencias mientras escribe) 
+2. Los menús desplegables de los quick-move y de los special-attack deben funcionar en base al pokemon buscado. 
+  Aparecerán en cuanto el pokemon buscado sea seleccionado. 
+Propiedad: quick-move.name
+Propiedad: special-attack.name
+Deberá seleccionar un ítem de cada lista (radio button) la selección debe ser === al valor en data
+3. Las variables deben coger los valores adecuados (base-damage, energy, move-duration-seg)
+
+4. Las funciones deben hacer las operaciones de manera correcta.
+5. El resultado se debe mostrar de manera correcta en la web.
+6. El código se subió al repositorio de Git Hub.
+7. Hacer el test para comprobar si coge los valores correctos y si hace la fórmula correctamente.
+8. El código se trabajó en pair-programming.
+9. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
 ### Diseño de la Interfaz de Usuario
 
