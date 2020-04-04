@@ -256,13 +256,10 @@ const showList = (array) => {
       event.preventDefault();
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
-      pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
-      console.log(typePok);
+      pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
       const quickMove = array[i]['quick-move'];
       const specialAttack = array[i]['special-attack'];
-      // Quick Move
-      const selectQM = document.querySelector('#selectQM');
-      let quickMoveSelect;
+
 
       // const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
       // const energyQM = parseInt(quickMove[i].energy, 10);
@@ -270,28 +267,44 @@ const showList = (array) => {
       // // Cálculo DPS y EPS
       // const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
       // const eps = (energyQM / moveDurationQM);
-
+      const selectQM = document.querySelector('#selectQM');
       quickMove.forEach((element) => {
         selectQM.innerHTML += `
-        <option value= "${element}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
-        console.log(element);
-        selectQM.addEventListener('change', () => {
-          quickMoveSelect = selectQM.value;
-        });
+      });
+
+      let baseDamageQM = quickMove[i]['base-damage'];
+      let energyQM;
+      let time = quickMove[i]['move-duration-seg'];
+      let dps;
+      selectQM.addEventListener('change', (evento) => {
+        if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
+          baseDamageQM = quickMove[i]['base-damage'];
+          energyQM = quickMove[i].energy;
+          time = quickMove[i]['move-duration-seg'];
+          dps = parseInt((baseDamageQM * 1.2) / time, 10);
+          console.log(dps);
+        } else {
+          dps = baseDamageQM / time;
+          console.log(dps);
+        }
       });
 
       // Special Attack
       const selectSA = document.querySelector('#selectSA');
-      let specialAttackSelect;
 
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
-        <option value= "${element[i]}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
       });
-      selectSA.addEventListener('change', () => {
-        specialAttackSelect = selectSA.value;
+      selectSA.addEventListener('change', (evento) => {
+        if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
+          console.log('hola');
+        } else {
+          console.log('adio');
+        }
       });
 
       listaSet.setAttribute('class', 'ocultar2');
