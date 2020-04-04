@@ -257,49 +257,41 @@ const showList = (array) => {
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
-      console.log(typePok);
+
+      // Array de Quick Move y Special Attack
       const quickMove = array[i]['quick-move'];
       const specialAttack = array[i]['special-attack'];
+
       // Quick Move
       const selectQM = document.querySelector('#selectQM');
-      // let quickMoveSelect;
 
-      // const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
-      // const energyQM = parseInt(quickMove[i].energy, 10);
-      // const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
-      // // Cálculo DPS y EPS
-      // const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
-      // const eps = (energyQM / moveDurationQM);
-
-      //
       quickMove.forEach((element) => {
-        const arrQMtype = Array.from();
-        console.log(arrQMtype);
         selectQM.innerHTML += `
-        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
-
-        selectQM.addEventListener('change', () => {
-          // quickMoveSelect = selectQM.value;
-          if (arrQMtype[i] === typePok[i]) {
-            console.log('Hola');
-          } else {
-            console.log('chau');
-          }
-        });
+      });
+      selectQM.addEventListener('change', (evento) => {
+        if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
+          console.log('hola');
+        } else {
+          console.log('chau');
+        }
       });
 
       // Special Attack
       const selectSA = document.querySelector('#selectSA');
-      let specialAttackSelect;
 
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
-        <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
       });
-      selectSA.addEventListener('change', () => {
-        specialAttackSelect = selectSA.value;
+      selectSA.addEventListener('change', (e) => {
+        if (e.target.value === typePok[0] || e.target.value === typePok[1]) {
+          console.log('hola');
+        } else {
+          console.log('chau');
+        }
       });
 
       listaSet.setAttribute('class', 'ocultar2');
@@ -308,3 +300,11 @@ const showList = (array) => {
   }
 };
 showList(arrObj);
+
+
+// const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
+// const energyQM = parseInt(quickMove[i].energy, 10);
+// const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
+// // Cálculo DPS y EPS
+// const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
+// const eps = (energyQM / moveDurationQM);
