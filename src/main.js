@@ -262,8 +262,31 @@ const showList = (array) => {
       const quickMove = array[i]['quick-move'];
       const specialAttack = array[i]['special-attack'];
 
-      // Quick Move
-      const selectQM = document.querySelector('#selectQM');
+      // Funciones cálculo //
+
+      let baseDamage;
+      let moveDuration;
+
+      const calculoDpsSameType = (obj) => {
+        baseDamage = parseInt((obj['base-damage']), 10);
+        moveDuration = parseFloat(obj['move-duration-seg']);
+        const dpsST = (baseDamage * 1.2 / moveDuration);
+        return dpsST;
+      };
+
+      const calculoDps = (obj) => {
+        baseDamage = parseInt((obj['base-damage']), 10);
+        moveDuration = parseFloat(obj['move-duration-seg']);
+        const dps = (baseDamage / moveDuration);
+        return dps;
+      };
+
+      const calculoEps = (obj) => {
+        const energy = parseInt((obj.energy), 10);
+        moveDuration = parseFloat(obj['move-duration-seg']);
+        const eps = (energy / moveDuration);
+        return eps;
+      };
 
       // // redondeo
       // const redondeo = (value, places) => {
@@ -271,30 +294,22 @@ const showList = (array) => {
       //   return Math.round(value * power) / power;
       // };
 
+      // Quick Move
+      const selectQM = document.querySelector('#selectQM');
       quickMove.forEach((element) => {
+        console.log(element);
         selectQM.innerHTML += `
         <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
-
-        selectQM.addEventListener('change', (evento) => {
-          const baseDamageQM = parseInt((quickMove[i]['base-damage']), 10);
-          const energyQM = parseInt((quickMove[i].energy), 10);
-          const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
-
-          if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
-            const dpsSameType = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
-            const epsSameType = (energyQM / moveDurationQM);
-            console.log(dpsSameType);
-            console.log(epsSameType);
-          } else {
-            const dps = (baseDamageQM / moveDurationQM);
-            const eps = (energyQM / moveDurationQM);
-            console.log(dps);
-            console.log(eps);
-          }
-        });
       });
 
+      selectQM.addEventListener('change', (evento) => {
+        if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
+          console.log('Hola');
+        } else {
+          console.log('Chau');
+        }
+      });
 
       // Special Attack
       const selectSA = document.querySelector('#selectSA');
@@ -303,21 +318,23 @@ const showList = (array) => {
         selectSA.innerHTML += `
         <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
+      });
 
-        selectSA.addEventListener('change', (e) => {
-          const baseDamageSA = parseInt((specialAttack[i]['base-damage']), 10);
-          const moveDurationSA = parseFloat(specialAttack[i]['move-duration-seg']);
+      selectSA.addEventListener('change', (e) => {
+        // const baseDamageSA = parseInt((specialAttack[i]['base-damage']), 10);
+        // const moveDurationSA = parseFloat(specialAttack[i]['move-duration-seg']);
 
-          if (e.target.value === typePok[0] || e.target.value === typePok[1]) {
-            const danoBaseSameType = baseDamageSA + ((baseDamageSA * 20) / 100);
-            const dpsSASameType = (danoBaseSameType / moveDurationSA);
-            console.log(danoBaseSameType);
-            console.log(dpsSASameType);
-          } else {
-            const dpsSA = (baseDamageSA / moveDurationSA);
-            console.log(dpsSA);
-          }
-        });
+        if (e.target.value === typePok[0] || e.target.value === typePok[1]) {
+          // const danoBaseSameType = baseDamageSA + ((baseDamageSA * 20) / 100);
+          // const dpsSASameType = (danoBaseSameType / moveDurationSA);
+          // console.log(danoBaseSameType);
+          // console.log(dpsSASameType);
+          console.log('Hola');
+        } else {
+          // const dpsSA = (baseDamageSA / moveDurationSA);
+          // console.log(dpsSA);
+          console.log('Chau');
+        }
       });
 
       listaSet.setAttribute('class', 'ocultar2');
