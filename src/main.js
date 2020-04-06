@@ -257,10 +257,6 @@ const showList = (array) => {
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
-      const quickMove = array[i]['quick-move'];
-      const specialAttack = array[i]['special-attack'];
-
-
       // const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
       // const energyQM = parseInt(quickMove[i].energy, 10);
       // const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
@@ -268,6 +264,8 @@ const showList = (array) => {
       // const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
       // const eps = (energyQM / moveDurationQM);
       const selectQM = document.querySelector('#selectQM');
+
+      const quickMove = array[i]['quick-move'];
       quickMove.forEach((element) => {
         selectQM.innerHTML += `
         <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
@@ -275,24 +273,33 @@ const showList = (array) => {
       });
 
       let baseDamageQM = quickMove[i]['base-damage'];
-      let energyQM;
-      let time = quickMove[i]['move-duration-seg'];
+      let energyQM = quickMove[i].energy;
+      console.log('energía QM', energyQM);
+      let timeQM = quickMove[i]['move-duration-seg'];
       let dps;
+      let eps;
+
       selectQM.addEventListener('change', (evento) => {
         if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
-          baseDamageQM = quickMove[i]['base-damage'];
-          energyQM = quickMove[i].energy;
-          time = quickMove[i]['move-duration-seg'];
-          dps = parseInt((baseDamageQM * 1.2) / time, 10);
-          console.log(dps);
+          dps = ((baseDamageQM * 1.2) / timeQM); // esto es igual a la funcion redondeo
+          console.log('dps quick move', dps);
+          eps = energyQM / timeQM;
+          console.log('epsQM', eps);
         } else {
-          dps = baseDamageQM / time;
+          dps = baseDamageQM / timeQM;
           console.log(dps);
         }
       });
 
       // Special Attack
       const selectSA = document.querySelector('#selectSA');
+      const specialAttack = array[i]['special-attack'];
+
+      let baseDamageSA = specialAttack[i]['base-damage'];
+      let energySA = specialAttack[i].energy;
+      let timeSA;
+      let dpsSA;
+      let barraEnergia;
 
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
@@ -301,7 +308,18 @@ const showList = (array) => {
       });
       selectSA.addEventListener('change', (evento) => {
         if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
-          console.log('hola');
+          timeSA = specialAttack[i]['move-duration-seg'];
+          console.log('timeSA', timeSA);
+          dpsSA = (baseDamageSA / timeSA);
+          console.log('dps special attack', dpsSA);
+          barraEnergia = ((energySA * -1) / eps);
+          console.log('tiempo de carga de barra', barraEnergia);
+          const danoBase = ((dps * barraEnergia) + baseDamageSA);
+          console.log('daño base SA', danoBase);
+          const timeBattleSeg = (30 / (barraEnergia + timeSA));
+          console.log('ataques esp en 30segundos', timeBattleSeg);
+          const setMove = (((dpsSA * barraEnergia) + danoBase) * timeBattleSeg);
+          console.log('mejor movset en 30s', setMove);
         } else {
           console.log('adio');
         }
