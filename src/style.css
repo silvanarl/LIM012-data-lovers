@@ -634,6 +634,13 @@ aside p{
     margin-top: 10px;
 }
 
+#result{
+    color: white;
+    text-align: center;
+    font-family: 'KoHo';
+    font-size: 14px;
+}
+
 .botonCalculo{
     width: 50px;
     height: 36px;
