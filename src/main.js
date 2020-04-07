@@ -292,3 +292,11 @@ const showList = (array) => {
   }
 };
 showList(arrObj);
+
+
+// const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
+// const energyQM = parseInt(quickMove[i].energy, 10);
+// const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
+// // Cálculo DPS y EPS
+// const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
+// const eps = (energyQM / moveDurationQM);
