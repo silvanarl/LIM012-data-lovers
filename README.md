@@ -317,6 +317,16 @@ solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
 iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
 `README.md`.
 
+Primeros bosquejos:
+![ProtoB1](src/img/bosquejo1.jpg)
+Este fue el primer prototipo que hicimos de nuestra web y el feedback que recibimos fue que las imágenes eran demasiado grandes y no se entendía lo que debían hacer en el menú superior, también se noto que las imágenes eran muy pocas, no se sabía si eran las únicas.
+![ProtoB2](src/img/bosquejo2.jpg)
+Deberia tener un espacio donde tener la cantidad de pokemones se ven o un scroll o botones avanzar y retroceder, eso lo quisismos usar luego decidimos que no, ya que no sabíamos si podrñiamos hacerlo en el tiempo que teníamos.
+![ProtoB3](src/img/bosquejo3.jpg)
+El feedback fue que podríamos poner mejorara el espacio del moveset, ya que si es algo importante no deberí ser tan pequeño o escondido. 
+![ProtoB4](src/img/bosquejo4.jpeg)
+En este bosquejo el feedback fue que la pokedex no tenía mucho sentido de ponerlo junto a la búsqueda porque ya estaría ahí, se nos sugirió que la pokedex debería ser consecuencia de la búsqueda y mostrar los pokemones un poco mas grandecitos, para que se tenga una vista rápida, la lista que está al medio decidimos sacarla y agrandar el contenedor de los pokemones.
+
 ![Prototipo desktop](src/img/mostrar_setmove.jpg)
 ![Prototipo mobile](src/img/mostrar_mobile.jpg)
 ![Pokedex](src/img/pokedex_baja.jpg)

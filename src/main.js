@@ -256,86 +256,35 @@ const showList = (array) => {
       event.preventDefault();
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
-      pokemonNameSet.innerHTML = `Evaluemos a ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
+      pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
 
-      // Array de Quick Move y Special Attack
-      const quickMove = array[i]['quick-move'];
-      const specialAttack = array[i]['special-attack'];
-
-      // Funciones cálculo //
-
-      let baseDamage;
-      let moveDuration;
-
-      const calculoDpsSameType = (obj) => {
-        baseDamage = parseInt((obj['base-damage']), 10);
-        moveDuration = parseFloat(obj['move-duration-seg']);
-        const dpsST = (baseDamage * 1.2 / moveDuration);
-        return dpsST;
-      };
-
-      const calculoDps = (obj) => {
-        baseDamage = parseInt((obj['base-damage']), 10);
-        moveDuration = parseFloat(obj['move-duration-seg']);
-        const dps = (baseDamage / moveDuration);
-        return dps;
-      };
-
-      const calculoEps = (obj) => {
-        const energy = parseInt((obj.energy), 10);
-        moveDuration = parseFloat(obj['move-duration-seg']);
-        const eps = (energy / moveDuration);
-        return eps;
-      };
-
-      // // redondeo
-      // const redondeo = (value, places) => {
-      //   const power = Math.pow(10, places);
-      //   return Math.round(value * power) / power;
-      // };
-
-      // Quick Move
       const selectQM = document.querySelector('#selectQM');
-      quickMove.forEach((element) => {
-        console.log(element);
-        selectQM.innerHTML += `
-        <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
-        `;
-      });
-
-      selectQM.addEventListener('change', (evento) => {
-        if (evento.target.value === typePok[0] || evento.target.value === typePok[1]) {
-          console.log('Hola');
-        } else {
-          console.log('Chau');
-        }
-      });
-
-      // Special Attack
       const selectSA = document.querySelector('#selectSA');
 
+      const quickMove = array[i]['quick-move'];
+      quickMove.forEach((element) => {
+        selectQM.innerHTML += `
+        <option value= "${element['base-damage']}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        `;
+      });
+      const specialAttack = array[i]['special-attack'];
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
-        <option value= "${element.type}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
+        <option value= "${element['base-damage']}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
       });
 
-      selectSA.addEventListener('change', (e) => {
-        // const baseDamageSA = parseInt((specialAttack[i]['base-damage']), 10);
-        // const moveDurationSA = parseFloat(specialAttack[i]['move-duration-seg']);
-
-        if (e.target.value === typePok[0] || e.target.value === typePok[1]) {
-          // const danoBaseSameType = baseDamageSA + ((baseDamageSA * 20) / 100);
-          // const dpsSASameType = (danoBaseSameType / moveDurationSA);
-          // console.log(danoBaseSameType);
-          // console.log(dpsSASameType);
-          console.log('Hola');
-        } else {
-          // const dpsSA = (baseDamageSA / moveDurationSA);
-          // console.log(dpsSA);
-          console.log('Chau');
+      const sumarAlgo = () => {
+        const result = document.getElementById('result');
+        result.innerHTML = '';
+        if (selectQM.value && selectSA.value) {
+          result.innerHTML = parseInt((selectQM.value), 10) + parseInt((selectSA.value), 10);
         }
-      });
+        console.log('resultado', result);
+      };
+
+      selectQM.addEventListener('change', sumarAlgo);
+      selectSA.addEventListener('change', sumarAlgo);
 
       listaSet.setAttribute('class', 'ocultar2');
       listaSet.innerHTML = '';

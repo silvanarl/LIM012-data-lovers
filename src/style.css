@@ -490,7 +490,7 @@ a:link, a:visited, a:active{
   align-items: center;
 }
 
-.evolutionPok::before{
+.evolutionPok::after{
     content:"";
     height: 0;
     border-top: 5px solid transparent;
@@ -498,7 +498,7 @@ a:link, a:visited, a:active{
     border-bottom: 5px solid transparent;
 }
 
-.evolutionPok:before{
+.evolutionPok::after{
     vertical-align: middle;
     display: inline-block;
 }
@@ -536,7 +536,7 @@ aside{
     width: 320px;
     height: 520px;
     display: flex;
-    background-color: #8ED100;
+    background-color: rgba(142, 209, 0, .9);
     margin-top: 15px;
     margin: 0 auto;
     flex-direction: column;
@@ -634,6 +634,13 @@ aside p{
     margin-top: 10px;
 }
 
+#result{
+    color: white;
+    text-align: center;
+    font-family: 'KoHo';
+    font-size: 14px;
+}
+
 .botonCalculo{
     width: 50px;
     height: 36px;
@@ -691,6 +698,7 @@ form h3{
     font-size: 14px;
     background-color: white;
     border: 2px black;
+    pointer-events: stroke;
 }
 
 footer{
