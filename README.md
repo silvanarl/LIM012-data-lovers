@@ -157,6 +157,7 @@ el problema (o problemas) que tiene tu usuario.
 ### Historias de usuario
 
 **Historia de usuario 1:** 
+
 Como <<jugadorx pokemon >>
 Quiero <<ver una lista de los pokemon>>
 Para <<tener acceso a una vista rápida de los pokemon>>
@@ -176,6 +177,7 @@ Para <<tener acceso a una vista rápida de los pokemon>>
 6. La página debe ser responsive. En versión mobile debe mostrar un listado de 6 pokemon y el scroll debe recorrer la lista de los 251 pokemon.
 
 **Historia de usuario 2:**
+
 Como <<jugadorx pokemon >>
 Quiero <<buscar a un pokemón según su nombre o número>>
 Para <<saber sus características principales>>
@@ -198,6 +200,7 @@ Para <<saber sus características principales>>
 7. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
 **Historia de usuario 3:**
+
 Yo como <<jugadorx Pokemón>>
 Quiero <<ver información detallada de un pokemon>>
 Para <<conocer los datos mas relevantes sobre ese pokemon(nombre, peso, altura, generación, tipo y resistencia, evolución)>>
@@ -214,6 +217,7 @@ Para <<conocer los datos mas relevantes sobre ese pokemon(nombre, peso, altura, 
 6. El código se trabajó en pair-programming.
 
 **Historia de usuario 5:**
+
 Yo como <<jugadorx pokemon >>
 Quiero <<poder filtrar a los pokemon por tipo >>
 Para <<identificar a un grupo de pokemon rápidamente cuando solo recuerdo alguna característica en especial >>
@@ -236,6 +240,7 @@ Para <<identificar a un grupo de pokemon rápidamente cuando solo recuerdo algun
 6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
 **Historia de usuario 4:**
+
 Yo como <<jugadorx pokemon >>
 Quiero <<ordenar a los pokemon de forma ascendente o descendente>>
 Para <<encontrar más fácilmente los primeros o últimos pokemón según su nombre>>
@@ -257,6 +262,7 @@ Para <<encontrar más fácilmente los primeros o últimos pokemón según su nom
 6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
 **Historia de usuario 6:**
+
 Yo como <<jugadorx pokemon >>
 Quiero <<ordenar a los pokemon por PC máximo>>
 Para <<saber hasta donde llegará el max PC de mis pokemones y así entrenarlos para ello>>
@@ -278,6 +284,7 @@ Para <<saber hasta donde llegará el max PC de mis pokemones y así entrenarlos 
 6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
 **Historia de usuario 7:**
+
 Yo como <<jugadorx Pokemón>>
 Quiero <<Conocer el mejor set de movimientos de mi pokemón>>
 Para <<para saber cuanto daño puedo generar a mi oponente en una batalla pokemón>>
@@ -318,6 +325,7 @@ iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
 `README.md`.
 
 Primeros bosquejos:
+
 ![ProtoB1](src/img/bosquejo1.jpeg)
 Este fue el primer prototipo que hicimos de nuestra web y el feedback que recibimos fue que las imágenes eran demasiado grandes y no se entendía lo que debían hacer en el menú superior, también se noto que las imágenes eran muy pocas, no se sabía si eran las únicas.
 ![ProtoB2](src/img/bosquejo2.jpeg)

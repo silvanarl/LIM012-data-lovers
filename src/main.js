@@ -263,14 +263,12 @@ const showList = (array) => {
 
       //
       const quickMove = array[i]['quick-move'];
-      console.log(quickMove);
       quickMove.forEach((element) => {
         selectQM.innerHTML += `
         <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
         `;
       });
       const specialAttack = array[i]['special-attack'];
-      console.log(specialAttack);
       specialAttack.forEach((element) => {
         selectSA.innerHTML += `
         <option value= "${element.name}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
@@ -283,28 +281,19 @@ const showList = (array) => {
       btnGo.addEventListener('click', (e) => {
         e.preventDefault();
         const arrQM = quickMove.filter(element => selectQM.value === element.name);
-        console.log(arrQM);
         const arrSA = specialAttack.filter(element => selectSA.value === element.name);
-        console.log(arrSA);
 
         // Valores de Quick Move
         const baseDamageQM = parseInt(arrQM[i]['base-damage'], 10);
-        console.log('baseDamage QM', baseDamageQM);
         const energyQM = parseInt(arrQM[i].energy, 10);
-        console.log('energy QM', energyQM);
         const timeQM = parseFloat(arrQM[i]['move-duration-seg']);
-        console.log('time QM', timeQM);
         let dps;
         let eps;
 
         // Valores de Special Attack
         const baseDamageSA = parseInt((arrSA[i]['base-damage']), 10);
-        console.log('baseDamage SA', baseDamageSA);
         const energySA = parseInt((arrSA[i].energy), 10);
-        console.log('energy SA', energySA);
         const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
-        console.log('time SA', timeSA);
-        let dpsSA;
         let barraEnergia;
 
         // Redondeo
@@ -319,82 +308,52 @@ const showList = (array) => {
 
         // Comparaciones
         if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1]) && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
-          console.log('QM igual SA igual');
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          console.log('dpsQM+stab', dps);
           eps = parseFloat(energyQM / timeQM);
-          console.log('epsQM+stab', eps);
           const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          console.log('daño base', danoBase);
-          dpsSA = (danoBase / timeSA);
-          console.log('dpsSA', dpsSA);
           barraEnergia = energySA * -1 / eps;
-          console.log('barra energia', barraEnergia);
           const timeBattleSeg = (30 / (barraEnergia + timeSA));
-          console.log('ataques esp en 30segundos', timeBattleSeg);
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
-          console.log(setMove);
           result.innerHTML = setMove;
           //
         } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1]) && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
-          console.log('QM distinto SA igual');
           //
           dps = (baseDamageQM / timeQM);
-          console.log('dpsQM+stab', dps);
           eps = parseFloat(energyQM / timeQM);
-          console.log('epsQM+stab', eps);
           const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          console.log('daño base', danoBase);
-          dpsSA = (danoBase / timeSA);
-          console.log('dpsSA', dpsSA);
           barraEnergia = energySA * -1 / eps;
-          console.log('barra energia', barraEnergia);
           const timeBattleSeg = (30 / (barraEnergia + timeSA));
-          console.log('ataques esp en 30segundos', timeBattleSeg);
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
-          console.log(setMove);
           result.innerHTML = setMove;
           //
         } else if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1]) && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
-          console.log('QM igual SA distinto');
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          console.log('dpsQM+stab', dps);
           eps = parseFloat(energyQM / timeQM);
-          console.log('epsQM+stab', eps);
           const danoBase = parseInt((baseDamageSA), 10);
-          console.log('daño base', danoBase);
-          dpsSA = (danoBase / timeSA);
-          console.log('dpsSA', dpsSA);
           barraEnergia = energySA * -1 / eps;
-          console.log('barra energia', barraEnergia);
           const timeBattleSeg = (30 / (barraEnergia + timeSA));
-          console.log('ataques esp en 30segundos', timeBattleSeg);
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
-          console.log(setMove);
           result.innerHTML = setMove;
           //
         } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1]) && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
-          console.log('QM distinto SA distinto');
           //
           dps = (baseDamageQM / timeQM);
-          console.log('dpsQM+stab', dps);
           eps = parseFloat(energyQM / timeQM);
-          console.log('epsQM+stab', eps);
           const danoBase = parseInt((baseDamageSA), 10);
-          console.log('daño base', danoBase);
-          dpsSA = (danoBase / timeSA);
-          console.log('dpsSA', dpsSA);
           barraEnergia = energySA * -1 / eps;
-          console.log('barra energia', barraEnergia);
           const timeBattleSeg = (30 / (barraEnergia + timeSA));
-          console.log('ataques esp en 30segundos', timeBattleSeg);
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
-          console.log(setMove);
           result.innerHTML = setMove;
           //
         }
+        selectQM.innerHTML = `
+        <option>Quick Move</option>
+        `;
+        selectSA.innerHTML = `
+        <option>Special Attack</option>
+        `;
       });
 
       listaSet.setAttribute('class', 'ocultar2');
