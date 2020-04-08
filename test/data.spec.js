@@ -4,6 +4,7 @@ import {
   orderAZ,
   orderZA,
   orderMxCP,
+  redondeo,
 } from '../src/data.js';
 
 const data = [
