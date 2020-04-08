@@ -4,6 +4,7 @@ import {
   orderAZ,
   orderZA,
   orderMxCP,
+  redondeo,
 } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
@@ -296,18 +297,13 @@ const showList = (array) => {
         const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
         let barraEnergia;
 
-        // Redondeo
-        const redondeo = (value, places) => {
-          const power = Math.pow(10, places);
-          return Math.round(value * power) / power;
-        };
-
         // Mostrar resultado
         const result = document.getElementById('result');
         result.innerHTML = '';
 
         // Comparaciones
-        if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1]) && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
+        if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1])
+        && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
           eps = parseFloat(energyQM / timeQM);
@@ -317,7 +313,8 @@ const showList = (array) => {
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
-        } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1]) && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
+        } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1])
+        && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
           eps = parseFloat(energyQM / timeQM);
@@ -327,7 +324,8 @@ const showList = (array) => {
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
-        } else if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1]) && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
+        } else if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1])
+        && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
           eps = parseFloat(energyQM / timeQM);
@@ -337,7 +335,8 @@ const showList = (array) => {
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
-        } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1]) && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
+        } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1])
+        && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
           eps = parseFloat(energyQM / timeQM);

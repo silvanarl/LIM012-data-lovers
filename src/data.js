@@ -11,8 +11,6 @@ export const coincidencias = (array, string) => {
   }
   return arrCoincidencias;
 };
-// podria hacerse un else con algo como que si pokmin o
-// poknum no estan en la data o son undefined retorne false, y dar msj error.
 
 export const typeFilter = (arr, property, condition) => {
   const filtrado = arr.filter(element => (element[property][0] === condition
@@ -39,4 +37,9 @@ export const orderMxCP = (arr, condition) => {
     orden = arr.sort((a, b) => a.stats['max-cp'] - b.stats['max-cp']);
   }
   return orden;
+};
+
+export const redondeo = (value, places) => {
+  const power = 10 ** places;
+  return Math.round(value * power) / power;
 };

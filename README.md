@@ -115,13 +115,13 @@ y de equipo.
 - [✓] Manipular objects (key | value).
 - [✓] Entender el uso de condicionales (`if-else` | `switch`).
 - [✓] Entender el uso de bucles (`for` | `forEach`).
-- [ ] Entender la diferencia entre expression y statements.
+- [✓] Entender la diferencia entre expression y statements.
 - [✓] Utilizar funciones (`parámetros` | `argumentos` | `valor de retorno`).
 - [ ] Entender la diferencia entre tipos de datos atómicos y estructurados.
 - [✓] Utilizar ES Modules (`import` | `export`).
 
 ### Pruebas Unitarias (_testing_)
-- [ ] Testear funciones (funciones puras).
+- [✓] Testear funciones (funciones puras).
 
 ### Git y GitHub
 - [✓] Ejecutar comandos de git (`add` | `commit` | `pull` | `status` | `push`).
@@ -494,7 +494,7 @@ Y ahora tendríamos la variable `data` disponible en el script `src/main.js`.
 El corazón de este proyecto es la manipulación de datos a través de arreglos
 y objetos.
 
-Te reomendamos que este archivo contenga toda la funcionalidad que corresponda
+Te recomendamos que este archivo contenga toda la funcionalidad que corresponda
 a obtener, procesar y manipular datos (tus funciones). Por ejemplo:
 
 * `filterData(data, condition)`: esta función `filter` o filtrar recibiría la
