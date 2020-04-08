@@ -258,33 +258,6 @@ const showList = (array) => {
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
 
-      const selectQM = document.querySelector('#selectQM');
-      const selectSA = document.querySelector('#selectSA');
-
-      const quickMove = array[i]['quick-move'];
-      quickMove.forEach((element) => {
-        selectQM.innerHTML += `
-        <option value= "${element['base-damage']}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
-        `;
-      });
-      const specialAttack = array[i]['special-attack'];
-      specialAttack.forEach((element) => {
-        selectSA.innerHTML += `
-        <option value= "${element['base-damage']}">${element.name[0].toUpperCase()}${element.name.substring(1)}</option>
-        `;
-      });
-
-      const sumarAlgo = () => {
-        const result = document.getElementById('result');
-        result.innerHTML = '';
-        if (selectQM.value && selectSA.value) {
-          result.innerHTML = parseInt((selectQM.value), 10) + parseInt((selectSA.value), 10);
-        }
-        console.log('resultado', result);
-      };
-
-      selectQM.addEventListener('change', sumarAlgo);
-      selectSA.addEventListener('change', sumarAlgo);
 
       listaSet.setAttribute('class', 'ocultar2');
       listaSet.innerHTML = '';
@@ -292,11 +265,3 @@ const showList = (array) => {
   }
 };
 showList(arrObj);
-
-
-// const baseDamageQM = parseInt(quickMove[i]['base-damage'], 10);
-// const energyQM = parseInt(quickMove[i].energy, 10);
-// const moveDurationQM = parseFloat(quickMove[i]['move-duration-seg']);
-// // Cálculo DPS y EPS
-// const dps = ((baseDamageQM + (baseDamageQM * 20) / 100) / moveDurationQM);
-// const eps = (energyQM / moveDurationQM);
