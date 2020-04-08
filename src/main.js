@@ -228,22 +228,10 @@ orderMaxPC.addEventListener('change', () => {
 
 const listaSet = document.getElementById('listaSet');
 const inputSet = document.getElementById('buscadorSet');
-inputSet.addEventListener('keyup', (event) => {
-  event.preventDefault();
-  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-  const pokemonSet = inputSet.value;
-  if (pokemonSet !== '') {
-    listaSet.innerHTML = '';
-    showList(coincidencias(arrObj, pokemonSet));
-  } else {
-    listaSet.setAttribute('class', 'ocultar2');
-  }
-});
 
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     const namePok = array[i].name;
-    // const numPok = array[i].num;
     const typePok = array[i].type;
     const onePokList = document.createElement('li');
     onePokList.setAttribute('value', namePok);
@@ -258,6 +246,7 @@ const showList = (array) => {
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Let's test ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
+      pokemonNameSet.classList.add('namePok');
 
       const selectQM = document.querySelector('#selectQM');
       const selectSA = document.querySelector('#selectSA');
@@ -282,22 +271,23 @@ const showList = (array) => {
       btnGo.addEventListener('click', (e) => {
         e.preventDefault();
         const arrQM = quickMove.filter(element => selectQM.value === element.name);
-        console.log(arrQM);
         const arrSA = specialAttack.filter(element => selectSA.value === element.name);
-        console.log(arrSA);
 
         // Valores de Quick Move
         const baseDamageQM = parseInt(arrQM[i]['base-damage'], 10);
         const energyQM = parseInt(arrQM[i].energy, 10);
         const timeQM = parseFloat(arrQM[i]['move-duration-seg']);
         let dps;
-        let eps;
+        const eps = parseFloat(energyQM / timeQM);
 
         // Valores de Special Attack
         const baseDamageSA = parseInt((arrSA[i]['base-damage']), 10);
         const energySA = parseInt((arrSA[i].energy), 10);
         const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
-        let barraEnergia;
+        const barraEnergia = energySA * -1 / eps;
+
+        //
+        const timeBattleSeg = (30 / (barraEnergia + timeSA));
 
         // Mostrar resultado
         const result = document.getElementById('result');
@@ -308,10 +298,7 @@ const showList = (array) => {
         && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -319,10 +306,7 @@ const showList = (array) => {
         && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -330,10 +314,7 @@ const showList = (array) => {
         && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -341,10 +322,7 @@ const showList = (array) => {
         && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -364,4 +342,14 @@ const showList = (array) => {
 };
 showList(arrObj);
 
-// para hacer pull request
+inputSet.addEventListener('keyup', (event) => {
+  event.preventDefault();
+  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+  const pokemonSet = inputSet.value;
+  if (pokemonSet !== '') {
+    listaSet.innerHTML = '';
+    showList(coincidencias(arrObj, pokemonSet));
+  } else {
+    listaSet.setAttribute('class', 'ocultar2');
+  }
+});
