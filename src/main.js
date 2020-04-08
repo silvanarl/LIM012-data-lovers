@@ -13,6 +13,21 @@ const arrObj = pokemon.pokemon;
 const currentDiv = document.getElementById('contenedor');
 const pokedex = document.querySelector('#overlay');
 
+const nuevaBusqueda = document.getElementById('nuevaBusqueda');
+
+// // Media Query
+
+// const mediaQuery = (x) => {
+//   if (x.matches) {
+//     nuevaBusqueda.setAttribute('class', 'mostrar2');
+//   } else {
+//     nuevaBusqueda.setAttribute('class', 'mostrar2');
+//   }
+// };
+
+// const x = window.matchMedia('@media screen and (max-width: 768px)');
+// mediaQuery(x);
+
 // Pokedex
 
 const showInfo = (elemento) => {
@@ -183,10 +198,11 @@ showPokemon(arrObj);
 
 const buscarPokemon = document.getElementById('botonBuscar');
 const msjAlerta = document.getElementById('msjAlerta');
+const busquedaPok = document.getElementById('buscador');
 
 buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
-  let pokemonBuscado = document.getElementById('buscador').value;
+  let pokemonBuscado = busquedaPok.value;
   if (pokemonBuscado !== '') {
     msjAlerta.innerHTML = '';
     currentDiv.innerHTML = '';
@@ -194,9 +210,16 @@ buscarPokemon.addEventListener('click', (event) => {
     pokemonBuscado = '';
   } else {
     msjAlerta.classList.remove('ocultar');
-    msjAlerta.innerHTML = 'No se encontraron coincidencias';
+    // msjAlerta.innerHTML = 'No se encontraron coincidencias';
     showPokemon(arrObj);
   }
+});
+
+// Nueva búsqueda
+nuevaBusqueda.addEventListener('click', (evento) => {
+  evento.preventDefault();
+  busquedaPok.value = '';
+  showPokemon(arrObj);
 });
 
 // Filtro
@@ -224,26 +247,14 @@ orderMaxPC.addEventListener('change', () => {
 });
 
 // SET DE MOVIMIENTOS
-// busqueda con menú desplegable
 
 const listaSet = document.getElementById('listaSet');
 const inputSet = document.getElementById('buscadorSet');
-inputSet.addEventListener('keyup', (event) => {
-  event.preventDefault();
-  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
-  const pokemonSet = inputSet.value;
-  if (pokemonSet !== '') {
-    listaSet.innerHTML = '';
-    showList(coincidencias(arrObj, pokemonSet));
-  } else {
-    listaSet.setAttribute('class', 'ocultar2');
-  }
-});
+
 
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     const namePok = array[i].name;
-    // const numPok = array[i].num;
     const typePok = array[i].type;
     const onePokList = document.createElement('li');
     onePokList.setAttribute('value', namePok);
@@ -289,13 +300,16 @@ const showList = (array) => {
         const energyQM = parseInt(arrQM[i].energy, 10);
         const timeQM = parseFloat(arrQM[i]['move-duration-seg']);
         let dps;
-        let eps;
+        const eps = parseFloat(energyQM / timeQM);
 
         // Valores de Special Attack
         const baseDamageSA = parseInt((arrSA[i]['base-damage']), 10);
         const energySA = parseInt((arrSA[i].energy), 10);
         const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
-        let barraEnergia;
+        const barraEnergia = energySA * -1 / eps;
+
+        //
+        const timeBattleSeg = (30 / (barraEnergia + timeSA));
 
         // Mostrar resultado
         const result = document.getElementById('result');
@@ -306,10 +320,7 @@ const showList = (array) => {
         && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -317,10 +328,7 @@ const showList = (array) => {
         && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -328,10 +336,7 @@ const showList = (array) => {
         && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -339,10 +344,7 @@ const showList = (array) => {
         && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
-          eps = parseFloat(energyQM / timeQM);
           const danoBase = parseInt((baseDamageSA), 10);
-          barraEnergia = energySA * -1 / eps;
-          const timeBattleSeg = (30 / (barraEnergia + timeSA));
           const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
@@ -362,4 +364,14 @@ const showList = (array) => {
 };
 showList(arrObj);
 
-// para hacer pull request
+inputSet.addEventListener('keyup', (event) => {
+  event.preventDefault();
+  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+  const pokemonSet = inputSet.value;
+  if (pokemonSet !== '') {
+    listaSet.innerHTML = '';
+    showList(coincidencias(arrObj, pokemonSet));
+  } else {
+    listaSet.setAttribute('class', 'ocultar2');
+  }
+});
