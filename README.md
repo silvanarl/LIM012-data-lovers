@@ -105,16 +105,16 @@ y de equipo.
 
 ### DOM
 
-- [ ] Entender y reconocer los selectores del DOM (`querySelector` | `querySelectorAll`).
+- [✓] Entender y reconocer los selectores del DOM (`querySelector` | `querySelectorAll`).
 - [✓] Manejar eventos del DOM. (`addEventListener`)
 - [✓] Manipular dinámicamente el DOM. (`createElement`, `appendchild`, `innerHTML`, `value`)
 
 ### Javascript
 
-- [ ] Manipular arrays (`filter` | `map` | `sort` | `reduce`).
+- [✓] Manipular arrays (`filter` | `map` | `sort` | `reduce`).
 - [✓] Manipular objects (key | value).
 - [✓] Entender el uso de condicionales (`if-else` | `switch`).
-- [ ] Entender el uso de bucles (`for` | `forEach`).
+- [✓] Entender el uso de bucles (`for` | `forEach`).
 - [ ] Entender la diferencia entre expression y statements.
 - [✓] Utilizar funciones (`parámetros` | `argumentos` | `valor de retorno`).
 - [ ] Entender la diferencia entre tipos de datos atómicos y estructurados.
@@ -156,7 +156,8 @@ el problema (o problemas) que tiene tu usuario.
 
 ### Historias de usuario
 
-HU1: 
+**Historia de usuario 1:** 
+
 Como <<jugadorx pokemon >>
 Quiero <<ver una lista de los pokemon>>
 Para <<tener acceso a una vista rápida de los pokemon>>
@@ -175,7 +176,8 @@ Para <<tener acceso a una vista rápida de los pokemon>>
 5. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 6. La página debe ser responsive. En versión mobile debe mostrar un listado de 6 pokemon y el scroll debe recorrer la lista de los 251 pokemon.
 
-HU2:
+**Historia de usuario 2:**
+
 Como <<jugadorx pokemon >>
 Quiero <<buscar a un pokemón según su nombre o número>>
 Para <<saber sus características principales>>
@@ -197,7 +199,8 @@ Para <<saber sus características principales>>
 6. El código se trabajó en pair-programming.
 7. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
-HU3:
+**Historia de usuario 3:**
+
 Yo como <<jugadorx Pokemón>>
 Quiero <<ver información detallada de un pokemon>>
 Para <<conocer los datos mas relevantes sobre ese pokemon(nombre, peso, altura, generación, tipo y resistencia, evolución)>>
@@ -213,7 +216,8 @@ Para <<conocer los datos mas relevantes sobre ese pokemon(nombre, peso, altura, 
 5. El código se subió al repositorio de Git Hub.
 6. El código se trabajó en pair-programming.
 
-HU5:
+**Historia de usuario 5:**
+
 Yo como <<jugadorx pokemon >>
 Quiero <<poder filtrar a los pokemon por tipo >>
 Para <<identificar a un grupo de pokemon rápidamente cuando solo recuerdo alguna característica en especial >>
@@ -235,7 +239,8 @@ Para <<identificar a un grupo de pokemon rápidamente cuando solo recuerdo algun
 5. El código se trabajó en pair-programming.
 6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
-HU4:
+**Historia de usuario 4:**
+
 Yo como <<jugadorx pokemon >>
 Quiero <<ordenar a los pokemon de forma ascendente o descendente>>
 Para <<encontrar más fácilmente los primeros o últimos pokemón según su nombre>>
@@ -256,7 +261,8 @@ Para <<encontrar más fácilmente los primeros o últimos pokemón según su nom
 5. El código se trabajó en pair-programming.
 6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
-HU6:
+**Historia de usuario 6:**
+
 Yo como <<jugadorx pokemon >>
 Quiero <<ordenar a los pokemon por PC máximo>>
 Para <<saber hasta donde llegará el max PC de mis pokemones y así entrenarlos para ello>>
@@ -277,7 +283,8 @@ Para <<saber hasta donde llegará el max PC de mis pokemones y así entrenarlos 
 5. El código se trabajó en pair-programming.
 6. La historia se testeó en usuarios reales y se hicieron los cambios resultantes del testeo.
 
-HU7:
+**Historia de usuario 7:**
+
 Yo como <<jugadorx Pokemón>>
 Quiero <<Conocer el mejor set de movimientos de mi pokemón>>
 Para <<para saber cuanto daño puedo generar a mi oponente en una batalla pokemón>>
@@ -318,11 +325,12 @@ iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
 `README.md`.
 
 Primeros bosquejos:
-![ProtoB1](src/img/bosquejo1.jpg)
+
+![ProtoB1](src/img/bosquejo1.jpeg)
 Este fue el primer prototipo que hicimos de nuestra web y el feedback que recibimos fue que las imágenes eran demasiado grandes y no se entendía lo que debían hacer en el menú superior, también se noto que las imágenes eran muy pocas, no se sabía si eran las únicas.
-![ProtoB2](src/img/bosquejo2.jpg)
+![ProtoB2](src/img/bosquejo2.jpeg)
 Deberia tener un espacio donde tener la cantidad de pokemones se ven o un scroll o botones avanzar y retroceder, eso lo quisismos usar luego decidimos que no, ya que no sabíamos si podrñiamos hacerlo en el tiempo que teníamos.
-![ProtoB3](src/img/bosquejo3.jpg)
+![ProtoB3](src/img/bosquejo3.jpeg)
 El feedback fue que podríamos poner mejorara el espacio del moveset, ya que si es algo importante no deberí ser tan pequeño o escondido. 
 ![ProtoB4](src/img/bosquejo4.jpeg)
 En este bosquejo el feedback fue que la pokedex no tenía mucho sentido de ponerlo junto a la búsqueda porque ya estaría ahí, se nos sugirió que la pokedex debería ser consecuencia de la búsqueda y mostrar los pokemones un poco mas grandecitos, para que se tenga una vista rápida, la lista que está al medio decidimos sacarla y agrandar el contenedor de los pokemones.
@@ -350,7 +358,7 @@ diseño debe seguir los fundamentos de _visual design_.
 ![Figma tablet](src/img/tablet_figma.JPG)
 ![Figma mobile](src/img/mobile_figma.JPG)
 ![Figma pokedex desktop](src/img/pokedex_desktop.JPG)
-![Figma pokedex mobile](src/img/pokedex_desktop.JPG)
+![Figma pokedex mobile](src/img/pokedex_mobile.JPG)
 
 #### Testeos de usabilidad
 
