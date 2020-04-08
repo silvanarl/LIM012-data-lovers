@@ -251,7 +251,6 @@ orderMaxPC.addEventListener('change', () => {
 const listaSet = document.getElementById('listaSet');
 const inputSet = document.getElementById('buscadorSet');
 
-
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
     const namePok = array[i].name;
@@ -269,6 +268,7 @@ const showList = (array) => {
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
       pokemonNameSet.innerHTML = `Let's test ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
+      pokemonNameSet.classList.add('namePok');
 
       const selectQM = document.querySelector('#selectQM');
       const selectSA = document.querySelector('#selectSA');
