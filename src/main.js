@@ -13,6 +13,21 @@ const arrObj = pokemon.pokemon;
 const currentDiv = document.getElementById('contenedor');
 const pokedex = document.querySelector('#overlay');
 
+const nuevaBusqueda = document.getElementById('nuevaBusqueda');
+
+// // Media Query
+
+// const mediaQuery = (x) => {
+//   if (x.matches) {
+//     nuevaBusqueda.setAttribute('class', 'mostrar2');
+//   } else {
+//     nuevaBusqueda.setAttribute('class', 'mostrar2');
+//   }
+// };
+
+// const x = window.matchMedia('@media screen and (max-width: 768px)');
+// mediaQuery(x);
+
 // Pokedex
 
 const showInfo = (elemento) => {
@@ -183,10 +198,11 @@ showPokemon(arrObj);
 
 const buscarPokemon = document.getElementById('botonBuscar');
 const msjAlerta = document.getElementById('msjAlerta');
+const busquedaPok = document.getElementById('buscador');
 
 buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
-  let pokemonBuscado = document.getElementById('buscador').value;
+  let pokemonBuscado = busquedaPok.value;
   if (pokemonBuscado !== '') {
     msjAlerta.innerHTML = '';
     currentDiv.innerHTML = '';
@@ -194,9 +210,16 @@ buscarPokemon.addEventListener('click', (event) => {
     pokemonBuscado = '';
   } else {
     msjAlerta.classList.remove('ocultar');
-    msjAlerta.innerHTML = 'No se encontraron coincidencias';
+    // msjAlerta.innerHTML = 'No se encontraron coincidencias';
     showPokemon(arrObj);
   }
+});
+
+// Nueva búsqueda
+nuevaBusqueda.addEventListener('click', (evento) => {
+  evento.preventDefault();
+  busquedaPok.value = '';
+  showPokemon(arrObj);
 });
 
 // Filtro
@@ -224,7 +247,6 @@ orderMaxPC.addEventListener('change', () => {
 });
 
 // SET DE MOVIMIENTOS
-// busqueda con menú desplegable
 
 const listaSet = document.getElementById('listaSet');
 const inputSet = document.getElementById('buscadorSet');
