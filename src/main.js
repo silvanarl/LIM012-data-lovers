@@ -256,7 +256,7 @@ const showList = (array) => {
       event.preventDefault();
       inputSet.value = '';
       const pokemonNameSet = document.querySelector('.pokemonNameSet');
-      pokemonNameSet.innerHTML = `Let's evaluate ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
+      pokemonNameSet.innerHTML = `Let's test ${namePok[0].toUpperCase()}${namePok.substring(1)}`;
 
       const selectQM = document.querySelector('#selectQM');
       const selectSA = document.querySelector('#selectSA');
@@ -281,7 +281,9 @@ const showList = (array) => {
       btnGo.addEventListener('click', (e) => {
         e.preventDefault();
         const arrQM = quickMove.filter(element => selectQM.value === element.name);
+        console.log(arrQM);
         const arrSA = specialAttack.filter(element => selectSA.value === element.name);
+        console.log(arrSA);
 
         // Valores de Quick Move
         const baseDamageQM = parseInt(arrQM[i]['base-damage'], 10);

@@ -646,10 +646,11 @@ aside p{
 }
 
 .resultado{
-    width: 200px;
+    width: 150px;
     height: 36px;
     background-color: black;
-    text-align: center;
+    display: flex;
+    align-items: center;
     justify-content: center;
     border-radius: 10px;
     margin-bottom: 5px;
