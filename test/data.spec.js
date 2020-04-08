@@ -3541,3 +3541,17 @@ describe('orderMxCP', () => {
     expect(orderMxCP(data, 'menor-mayor')).toEqual(output8);
   });
 });
+
+describe('redondeo', () => {
+  it('is a function', () => {
+    expect(typeof redondeo).toBe('function');
+  });
+
+  it('Debería retornar "682.19" para "682.1917808219179"', () => {
+    expect(redondeo(682.1917808219179, 2)).toBe(682.19);
+  });
+
+  it('Debería retornar "5.3" para "5.333333333"', () => {
+    expect(redondeo(5.333333333, 1)).toBe(5.3);
+  });
+});

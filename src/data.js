@@ -40,3 +40,8 @@ export const orderMxCP = (arr, condition) => {
   }
   return orden;
 };
+
+export const redondeo = (value, places) => {
+  const power = 10 ** places;
+  return Math.round(value * power) / power;
+};

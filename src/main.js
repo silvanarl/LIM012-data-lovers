@@ -4,6 +4,7 @@ import {
   orderAZ,
   orderZA,
   orderMxCP,
+  redondeo,
 } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
@@ -281,9 +282,7 @@ const showList = (array) => {
       btnGo.addEventListener('click', (e) => {
         e.preventDefault();
         const arrQM = quickMove.filter(element => selectQM.value === element.name);
-        console.log(arrQM);
         const arrSA = specialAttack.filter(element => selectSA.value === element.name);
-        console.log(arrSA);
 
         // Valores de Quick Move
         const baseDamageQM = parseInt(arrQM[i]['base-damage'], 10);
@@ -297,12 +296,6 @@ const showList = (array) => {
         const energySA = parseInt((arrSA[i].energy), 10);
         const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
         let barraEnergia;
-
-        // Redondeo
-        const redondeo = (value, places) => {
-          const power = Math.pow(10, places);
-          return Math.round(value * power) / power;
-        };
 
         // Mostrar resultado
         const result = document.getElementById('result');
