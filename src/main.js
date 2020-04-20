@@ -15,7 +15,7 @@ const pokedex = document.querySelector('#overlay');
 
 const resetSearch = document.getElementById('resetSearch');
 
-// Pokedex
+// Mostra la info de cada pokemón - Pokedex
 
 const showInfo = (elemento) => {
   const infoPok = document.createElement('div');
@@ -149,7 +149,7 @@ const showInfo = (elemento) => {
   return infoPok;
 };
 
-// Mostrar pokemon
+// Mostrar los 251 pokemon
 
 const showPokemon = (array) => {
   currentDiv.innerHTML = '';
@@ -181,7 +181,7 @@ const showPokemon = (array) => {
 };
 showPokemon(arrObj);
 
-// Coincidencias
+// Mostrar las coincidencias de la búsqueda
 
 const buscarPokemon = document.getElementById('searchButton');
 const msjAlerta = document.getElementById('msjAlerta');
@@ -197,25 +197,26 @@ buscarPokemon.addEventListener('click', (event) => {
     pokemonBuscado = '';
   } else {
     msjAlerta.classList.remove('ocultar');
-    // msjAlerta.innerHTML = 'No se encontraron coincidencias';
     showPokemon(arrObj);
   }
 });
 
 // Nueva búsqueda
-resetSearch.addEventListener('click', (evento) => {
-  evento.preventDefault();
+resetSearch.addEventListener('click', (event) => {
+  event.preventDefault();
   busquedaPok.value = '';
   showPokemon(arrObj);
 });
 
-// Filtro
+// Filtrar pokemon según su tipo
+
 const menuTipo = document.getElementById('selectType');
 let tipoSeleccionado;
 menuTipo.addEventListener('change', () => {
   tipoSeleccionado = menuTipo.value;
   showPokemon(filterByType(arrObj, 'type', tipoSeleccionado));
 });
+
 // Orden AZ
 const orderPokemonAZ = document.getElementById('orderByNamePokemon');
 orderPokemonAZ.addEventListener('change', () => {
@@ -233,7 +234,7 @@ orderMaxPC.addEventListener('change', () => {
   showPokemon(orderByMxCP(arrObj, tipoSeleccionado));
 });
 
-// SET DE MOVIMIENTOS
+// Set de movimientos
 
 const pokemonListForMoveSet = document.getElementById('pokemonListForMoveSet');
 const inputSet = document.getElementById('searchBox');
@@ -349,6 +350,8 @@ const showList = (array) => {
   }
 };
 showList(arrObj);
+
+// Búsqueda del pokemón para el set de movimientos
 
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
