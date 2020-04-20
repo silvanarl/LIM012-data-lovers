@@ -15,19 +15,6 @@ const pokedex = document.querySelector('#overlay');
 
 const resetSearch = document.getElementById('resetSearch');
 
-// // Media Query
-
-// const mediaQuery = (x) => {
-//   if (x.matches) {
-//     nuevaBusqueda.setAttribute('class', 'mostrar2');
-//   } else {
-//     nuevaBusqueda.setAttribute('class', 'mostrar2');
-//   }
-// };
-
-// const x = window.matchMedia('@media screen and (max-width: 768px)');
-// mediaQuery(x);
-
 // Pokedex
 
 const showInfo = (elemento) => {
