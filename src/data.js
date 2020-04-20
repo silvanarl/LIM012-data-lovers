@@ -1,15 +1,15 @@
-export const coincidencias = (array, string) => {
-  const arrCoincidencias = [];
+export const coincidences = (array, string) => {
+  const arrCoincidences = [];
   for (let i = 0; i < array.length; i += 1) {
     const pokemonMin = array[i].name.toLowerCase();
     const pokemonNum = array[i].num;
     if (pokemonMin.startsWith(string.toLowerCase())) {
-      arrCoincidencias.push(array[i]);
+      arrCoincidences.push(array[i]);
     } else if (pokemonNum.indexOf(string) !== -1) {
-      arrCoincidencias.push(array[i]);
+      arrCoincidences.push(array[i]);
     }
   }
-  return arrCoincidencias;
+  return arrCoincidences;
 };
 
 export const filterByType = (arr, property, condition) => {
@@ -39,7 +39,7 @@ export const orderByMxCP = (arr, condition) => {
   return resultOrderByMaxCP;
 };
 
-export const redondeo = (value, places) => {
+export const rounded = (value, places) => {
   const power = 10 ** places;
   return Math.round(value * power) / power;
 };
