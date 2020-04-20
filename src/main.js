@@ -237,7 +237,7 @@ orderMaxPC.addEventListener('change', () => {
 // Set de movimientos
 
 const pokemonListForMoveSet = document.getElementById('pokemonListForMoveSet');
-const inputSet = document.getElementById('searchBox');
+const inputSet = document.getElementById('searchBoxForMoveSet');
 
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {

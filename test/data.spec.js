@@ -1,9 +1,9 @@
 import {
   coincidencias,
-  typeFilter,
+  filterByType,
   orderAZ,
   orderZA,
-  orderMxCP,
+  orderByMxCP,
   redondeo,
 } from '../src/data.js';
 
@@ -3502,11 +3502,11 @@ describe('coincidencias', () => {
 
 describe('typeFilter', () => {
   it('is a function', () => {
-    expect(typeof typeFilter).toBe('function');
+    expect(typeof filterByType).toBe('function');
   });
 
   it('Debería retornar un array con los elementos que coincidan con tipo bug.', () => {
-    expect(typeFilter(data, 'type', 'bug')).toEqual(output4);
+    expect(filterByType(data, 'type', 'bug')).toEqual(output4);
   });
 });
 
@@ -3528,18 +3528,17 @@ describe('orderZA', () => {
     expect(orderZA(data, 'z-a')).toEqual(output6);
   });
 });
-
-describe('orderMxCP', () => {
+describe('orderByMxCP', () => {
   it('is a function', () => {
-    expect(typeof orderMxCP).toBe('function');
+    expect(typeof orderByMxCP).toBe('function');
   });
 
   it('Debería retornar un array con todos los elementos ordenados de mayor a menor por max PC.', () => {
-    expect(orderMxCP(data, 'mayor-menor')).toEqual(output7);
+    expect(orderByMxCP(data, 'high-low')).toEqual(output7);
   });
 
   it('Debería retornar un array con todos los elementos ordenados de menor a mayor por max PC.', () => {
-    expect(orderMxCP(data, 'menor-mayor')).toEqual(output8);
+    expect(orderByMxCP(data, 'low-high')).toEqual(output8);
   });
 });
 
