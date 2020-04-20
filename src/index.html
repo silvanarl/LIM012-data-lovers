@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Data Lovers</title>
+    <link rel="shortcut icon" href="img/pikachu.ico" />
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=KoHo:400,600|Mogra&display=swap" rel="stylesheet">
   </head>
@@ -13,75 +14,74 @@
     </header>
     <main>
       <section>
-          <h1>Discover your pokemon!</h1>
-          <div class="selectores">
-            <form class="formBuscar" name="formulario">
-              <div class="busquedaPok">
-                <div class="busqueda">
-                  <input type="text" id="buscador" placeholder="Name or number" autocomplete="off">
-                  <button id="botonBuscar" class="boton-buscar"></button>
-                </div>
-                <button class="nuevabusqueda" id="nuevaBusqueda">Nueva Búsqueda</button>
-            </div>
-              <p class="ocultar msjAlerta" id="msjAlerta"></p>
-              <div class="filtros">
-                <h2>Filter by: </h2>
-                <select id="selectType" class="filter_type">
-                  <option value="type" selected disabled>Type</option>
-                  <option value="normal">Normal</option>
-                  <option value="electric">Electric</option>
-                  <option value="fighting">Fighting</option>
-                  <option value="flying">Flying</option>
-                  <option value="poison">Poison</option>
-                  <option value="ground">Ground</option>
-                  <option value="rock">Rock</option>
-                  <option value="bug">Bug</option>
-                  <option value="ghost">Ghost</option>
-                  <option value="steel">Steel</option>
-                  <option value="fire">Fire</option> 
-                  <option value="water">Water</option> 
-                  <option value="grass">Grass</option> 
-                  <option value="psychic">Psychic</option> 
-                  <option value="ice">Ice</option> 
-                  <option value="dragon">Dragon</option> 
-                  <option value="dark">Dark</option>
-                  <option value="fairy">Fairy</option>
-                </select>
-                <h2>Sort by: </h2>
-                <select id="orderPokemon" class="filter_type">
-                  <option value="ordenar" selected disabled>Sort</option>
-                  <option value="a-z">A-Z</option>
-                  <option value="z-a">Z-A</option>
-                </select>
-                <select id="maxPC" class="filter_type">
-                  <option value="maxPC" selected disabled>Max CP</option>
-                  <option value="mayor-menor">High to Low</option>
-                  <option value="menor-mayor">Low to High</option>                 
-                </select> 
+        <h1>Discover your pokemon!</h1>
+        <div class="topContainer">
+          <form class="formBuscar">
+            <div class="busquedaPok">   <!--divSearchPokemon-->
+              <div class="searchBox">
+                <input type="text" id="search" placeholder="Name or number" autocomplete="off">
+                <button id="searchButton" class="search-button"></button>
               </div>
-            </form>
+              <button id="resetSearch" class="reset-search">Reset Search</button>
+            </div>
+            <p class="hide msjAlerta" id="msjAlerta"></p>
+            <div class="filterAndOrder">
+              <label>Filter by: </label>
+              <select id="selectType" class="filter-type">
+                <option value="type" selected disabled>Type</option>
+                <option value="normal">Normal</option>
+                <option value="electric">Electric</option>
+                <option value="fighting">Fighting</option>
+                <option value="flying">Flying</option>
+                <option value="poison">Poison</option>
+                <option value="ground">Ground</option>
+                <option value="rock">Rock</option>
+                <option value="bug">Bug</option>
+                <option value="ghost">Ghost</option>
+                <option value="steel">Steel</option>
+                <option value="fire">Fire</option> 
+                <option value="water">Water</option> 
+                <option value="grass">Grass</option> 
+                <option value="psychic">Psychic</option> 
+                <option value="ice">Ice</option> 
+                <option value="dragon">Dragon</option> 
+                <option value="dark">Dark</option>
+                <option value="fairy">Fairy
+              </select>
+              <label>Sort by: </label>
+              <select id="orderByNamePokemon" class="filter-type">
+                <option value="orderByNamePokemon" selected disabled>Sort</option>
+                <option value="a-z">A-Z</option>
+                <option value="z-a">Z-A</option>
+              </select>
+              <select id="orderByMaxPC" class="filter-type">
+                <option value="orderByMaxPC" selected disabled>Max CP</option>
+                <option value="high-low">High to Low</option>
+                <option value="low-high">Low to High</option>                 
+              </select> 
+            </div>
+          </form>
         </div>
-          <div id="contenedor"></div>
-          <div class="overlay ocultar" id="overlay">
-        </div>
+        <div id="mainContainer"></div>
+        <div class="overlay hide" id="overlay"></div>
       </section>
       <aside>
-        <div class="fotoTextoSet">
-          <div class="imagenBatalla"></div>
-          <p>FIND OUT WHAT SET MOVE DOES MORE DAMAGE TO YOUR OPPONENT!</p>
+        <div class="moveSetImageAndText">
+          <div class="battleImage"></div>
+          <p>FIND OUT WHAT MOVE SET DOES MORE DAMAGE TO YOUR OPPONENT!</p>
         </div>
-        <form class="formBuscarSet" name="formulario">
+        <form class="formForMoveSet">
           <div class="busquedaSet">
-            <p class="subtitulo">Choose your Pokemon!</p>
-            <input type="text" id="buscadorSet" placeholder="Name or number" autocomplete="off"> 
+            <label class="subtitulo">Choose your Pokemon!</label>
+            <input type="text" id="searchBox" placeholder="Name or number" autocomplete="off"> 
           </div>
-          <ul id="listaSet" class="ocultar2"></ul>
+          <ul id="pokemonListForMoveSet" class="ocultar2"></ul>
           <p class="pokemonNameSet">Test your pokemon!</p>
-          <div class="filtrosSet">
-            <select name="" id="selectQM" class="filter_type_Set">
+          <div class="filtersForMoveSet">
+            <select id="selectQM" class="filter_type_Set">
               <option value="" selected disabled>Quick Move</option>
             </select>
-            <select name="" id="selectSA" class="filter_type_Set">
+            <select id="selectSA" class="filter_type_Set">
               <option value="" selected disabled>Special Attack</option>
             </select>
           </div>

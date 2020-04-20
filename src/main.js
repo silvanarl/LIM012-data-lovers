@@ -1,19 +1,19 @@
 import {
   coincidencias,
-  typeFilter,
+  filterByType,
   orderAZ,
   orderZA,
-  orderMxCP,
+  orderByMxCP,
   redondeo,
 } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
 const arrObj = pokemon.pokemon;
 
-const currentDiv = document.getElementById('contenedor');
+const currentDiv = document.getElementById('mainContainer');
 const pokedex = document.querySelector('#overlay');
 
-const nuevaBusqueda = document.getElementById('nuevaBusqueda');
+const resetSearch = document.getElementById('resetSearch');
 
 // Mostra la info de cada pokemón - Pokedex
 
@@ -183,9 +183,9 @@ showPokemon(arrObj);
 
 // Mostrar las coincidencias de la búsqueda
 
-const buscarPokemon = document.getElementById('botonBuscar');
+const buscarPokemon = document.getElementById('searchButton');
 const msjAlerta = document.getElementById('msjAlerta');
-const busquedaPok = document.getElementById('buscador');
+const busquedaPok = document.getElementById('search');
 
 buscarPokemon.addEventListener('click', (event) => {
   event.preventDefault();
@@ -201,10 +201,9 @@ buscarPokemon.addEventListener('click', (event) => {
   }
 });
 
-// Botón de nueva búsqueda
-
-nuevaBusqueda.addEventListener('click', (evento) => {
-  evento.preventDefault();
+// Nueva búsqueda
+resetSearch.addEventListener('click', (event) => {
+  event.preventDefault();
   busquedaPok.value = '';
   showPokemon(arrObj);
 });
@@ -215,12 +214,11 @@ const menuTipo = document.getElementById('selectType');
 let tipoSeleccionado;
 menuTipo.addEventListener('change', () => {
   tipoSeleccionado = menuTipo.value;
-  showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
+  showPokemon(filterByType(arrObj, 'type', tipoSeleccionado));
 });
 
-// Orden Alfabético
-
-const orderPokemonAZ = document.getElementById('orderPokemon');
+// Orden AZ
+const orderPokemonAZ = document.getElementById('orderByNamePokemon');
 orderPokemonAZ.addEventListener('change', () => {
   tipoSeleccionado = orderPokemonAZ.value;
   if (tipoSeleccionado === 'a-z') {
@@ -230,18 +228,16 @@ orderPokemonAZ.addEventListener('change', () => {
   }
 });
 
-// Orden según Máx PC
-
-const orderMaxPC = document.getElementById('maxPC');
+const orderMaxPC = document.getElementById('orderByMaxPC');
 orderMaxPC.addEventListener('change', () => {
   tipoSeleccionado = orderMaxPC.value;
-  showPokemon(orderMxCP(arrObj, tipoSeleccionado));
+  showPokemon(orderByMxCP(arrObj, tipoSeleccionado));
 });
 
 // Set de movimientos
 
-const listaSet = document.getElementById('listaSet');
-const inputSet = document.getElementById('buscadorSet');
+const pokemonListForMoveSet = document.getElementById('pokemonListForMoveSet');
+const inputSet = document.getElementById('searchBox');
 
 const showList = (array) => {
   for (let i = 0; i < array.length; i += 1) {
@@ -253,7 +249,7 @@ const showList = (array) => {
     onePokList.textContent = `
       ${namePok}
     `;
-    listaSet.appendChild(onePokList);
+    pokemonListForMoveSet.appendChild(onePokList);
 
     onePokList.addEventListener('click', (event) => {
       event.preventDefault();
@@ -265,7 +261,6 @@ const showList = (array) => {
       const selectQM = document.querySelector('#selectQM');
       const selectSA = document.querySelector('#selectSA');
 
-      //
       const quickMove = array[i]['quick-move'];
       quickMove.forEach((element) => {
         selectQM.innerHTML += `
@@ -349,8 +344,8 @@ const showList = (array) => {
         `;
       });
 
-      listaSet.setAttribute('class', 'ocultar2');
-      listaSet.innerHTML = '';
+      pokemonListForMoveSet.setAttribute('class', 'ocultar2');
+      pokemonListForMoveSet.innerHTML = '';
     });
   }
 };
@@ -360,12 +355,12 @@ showList(arrObj);
 
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
-  listaSet.setAttribute('class', 'mostrar2 listaSetPok');
+  pokemonListForMoveSet.setAttribute('class', 'mostrar2 listaSetPok');
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
-    listaSet.innerHTML = '';
+    pokemonListForMoveSet.innerHTML = '';
     showList(coincidencias(arrObj, pokemonSet));
   } else {
-    listaSet.setAttribute('class', 'ocultar2');
+    pokemonListForMoveSet.setAttribute('class', 'ocultar2');
   }
 });
