@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.ocultar{visibility: hidden;}
+.hide{visibility: hidden;}
 
 .mostrar{visibility: visible;}
 
@@ -74,7 +74,7 @@ input{
     margin-bottom: 10px;
 }
 
-.nuevabusqueda{
+.reset-search{
     width: 120px;
     height: 30px;
     font-size: 12px;
@@ -96,18 +96,18 @@ h1{
     font-weight: 400;
 }
 
-.busqueda{
+.searchBox{
     width: 280px;
     display: flex;
 }
 
-.filtros{
+.filterAndOrder{
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
 
-#buscador{
+#search{
     width: 250px;
     height: 44px;
     font-family: KoHo;
@@ -138,7 +138,7 @@ h1{
     margin-bottom: 10px;
 }
 
-.boton-buscar{
+.search-button{
     background-color:rgba(255, 255, 255);
     background-image: url(img/pokelupa.svg);
     background-position: center;
@@ -161,7 +161,7 @@ h1{
     color: rgb(172, 41, 41);
 }
 
-.filter_type{
+.filter-type{
     width: 240px;
     height: 36px;
     border: 2px solid #BDBDBD;
@@ -171,7 +171,7 @@ h1{
     padding-left: 10px;
 }
 
-#contenedor{
+#mainContainer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -183,17 +183,17 @@ h1{
     overflow: auto;
 }
 
-#contenedor::-webkit-scrollbar-thumb {
+#mainContainer::-webkit-scrollbar-thumb {
     background: rgb(231, 117, 117);
     border-radius: 4px;
 }
 
-#contenedor::-webkit-scrollbar{
-    width: 8px;     /* Tamaño del desplazamiento en vertical */
-    height: 8px;    /* Tamaño del desplazamiento en horizontal */
+#mainContainer::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
 }
 
-#contenedor::-webkit-scrollbar-track{
+#mainContainer::-webkit-scrollbar-track{
     background-color: #e9e7e7;
     border-radius: 6px;
 }
@@ -228,12 +228,6 @@ a:link, a:visited, a:active{
 .enlace{font-size: 14px}
 
 /*///////////////// POKEDEX MOBILE //////////////////*/
-
-/*.pokemon{
-	width: 120px;
-	height: 120px;
-	background-color: grey;
-}*/
 
 .overlay{
 	background: rgba(0, 0, 0, .3);
@@ -570,7 +564,7 @@ aside{
     border-radius: 10px;
 }
 
-.imagenBatalla{
+.battleImage{
     width: 280px;
     height: 140px;
     background-image: url(img/batalla-pokemon.jpg);
@@ -589,12 +583,8 @@ aside p{
     margin-bottom: 10px;
 }
 
-.formBuscarSet{
-    /*display: flex;*/
+.formForMoveSet{
     width: 100%;
-    /*margin: 0 auto;
-    flex-direction: column; 
-    align-items: center;*/
 }
 
 .busquedaSet{
@@ -602,10 +592,9 @@ aside p{
     display: flex;
     padding: 0 10px;
     flex-direction: column;
-    /*margin-bottom: 15px;*/
 }
 
-#buscadorSet{
+#searchBoxForMoveSet{
     width: 100%;
     height: 44px;
     font-family: KoHo;
@@ -615,7 +604,7 @@ aside p{
     text-align: center; 
 }
 
-.filtrosSet{
+.filtersForMoveSet{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -721,8 +710,8 @@ form h3{
 }
 
 .listaSetPok::-webkit-scrollbar{
-    width: 8px;     /* Tamaño del desplazamiento en vertical */
-    height: 8px;    /* Tamaño del desplazamiento en horizontal */
+    width: 8px;
+    height: 8px;
 }
 
 .listaSetPok::-webkit-scrollbar-track{
@@ -758,7 +747,7 @@ footer p{
 
     section{width: 740px}
 
-    #contenedor{width: 720px}
+    #mainContainer{width: 720px}
 
     .busquedaPok{
         flex-direction: row;
@@ -766,7 +755,7 @@ footer p{
         padding-right: 50px;
     }
 
-    .nuevabusqueda{
+    .reset-search{
         margin-top: 0;
     }
 
@@ -775,14 +764,14 @@ footer p{
         margin: 0 auto;
     }
 
-    .filtros{
+    .filterAndOrder{
         width: 100%;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
     }
 
-    .filter_type{width: 150px}
+    .filter-type{width: 150px}
 
     .formBuscar h2{margin: 0}
     
@@ -920,14 +909,14 @@ footer p{
         font-size: 20px;
     }
 
-    .fotoTextoSet{
+    .moveSetImageAndText{
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 40%;
     }
 
-    .formBuscarSet{
+    .formForMoveSet{
         width: 40%;
         margin: 0;
     }
@@ -961,13 +950,13 @@ footer p{
         margin-top: 0px;
     }
 
-    #contenedor{
+    #mainContainer{
         width: 90%;
         height: 340px;
         box-sizing: border-box;
     }
 
-    .selectores{
+    .topContainer{
         width: 84%;
         margin: 0 auto;
     }
@@ -1000,16 +989,16 @@ footer p{
         padding: 0 30px;
     }
 
-    .imagenBatalla{
+    .battleImage{
         width: 100%;
         height: 160px;
     }
 
-    .fotoTextoSet{
+    .moveSetImageAndText{
         width: 100%;
     }
 
-    .formBuscarSet{
+    .formForMoveSet{
         width: 100%;
     }
 

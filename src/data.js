@@ -12,31 +12,31 @@ export const coincidencias = (array, string) => {
   return arrCoincidencias;
 };
 
-export const typeFilter = (arr, property, condition) => {
-  const filtrado = arr.filter(element => (element[property][0] === condition
+export const filterByType = (arr, property, condition) => {
+  const resultFilterByType = arr.filter(element => (element[property][0] === condition
   || element[property][1] === condition));
-  return filtrado;
+  return resultFilterByType;
 };
 
 export const orderAZ = (arr) => {
-  const resultAZ = arr.sort((a, b) => (a.name > b.name ? 1 : -1));
-  return resultAZ;
+  const resultOrderForAZ = arr.sort((a, b) => (a.name > b.name ? 1 : -1));
+  return resultOrderForAZ;
 };
 
 export const orderZA = (arr) => {
-  const resultZA = arr.sort((a, b) => (a.name > b.name ? -1 : 1));
-  return resultZA;
+  const resultOrderForZA = arr.sort((a, b) => (a.name > b.name ? -1 : 1));
+  return resultOrderForZA;
 };
 
-export const orderMxCP = (arr, condition) => {
-  let orden = [];
-  if (condition === 'mayor-menor') {
-    orden = arr.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
+export const orderByMxCP = (arr, condition) => {
+  let resultOrderByMaxCP = [];
+  if (condition === 'high-low') {
+    resultOrderByMaxCP = arr.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
   }
-  if (condition === 'menor-mayor') {
-    orden = arr.sort((a, b) => a.stats['max-cp'] - b.stats['max-cp']);
+  if (condition === 'low-high') {
+    resultOrderByMaxCP = arr.sort((a, b) => a.stats['max-cp'] - b.stats['max-cp']);
   }
-  return orden;
+  return resultOrderByMaxCP;
 };
 
 export const redondeo = (value, places) => {
