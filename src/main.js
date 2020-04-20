@@ -15,7 +15,7 @@ const pokedex = document.querySelector('#overlay');
 
 const nuevaBusqueda = document.getElementById('nuevaBusqueda');
 
-// Pokedex
+// Mostra la info de cada pokemón - Pokedex
 
 const showInfo = (elemento) => {
   const infoPok = document.createElement('div');
@@ -149,7 +149,7 @@ const showInfo = (elemento) => {
   return infoPok;
 };
 
-// Mostrar pokemon
+// Mostrar los 251 pokemon
 
 const showPokemon = (array) => {
   currentDiv.innerHTML = '';
@@ -181,7 +181,7 @@ const showPokemon = (array) => {
 };
 showPokemon(arrObj);
 
-// Coincidencias
+// Mostrar las coincidencias de la búsqueda
 
 const buscarPokemon = document.getElementById('botonBuscar');
 const msjAlerta = document.getElementById('msjAlerta');
@@ -197,26 +197,29 @@ buscarPokemon.addEventListener('click', (event) => {
     pokemonBuscado = '';
   } else {
     msjAlerta.classList.remove('ocultar');
-    // msjAlerta.innerHTML = 'No se encontraron coincidencias';
     showPokemon(arrObj);
   }
 });
 
-// Nueva búsqueda
+// Botón de nueva búsqueda
+
 nuevaBusqueda.addEventListener('click', (evento) => {
   evento.preventDefault();
   busquedaPok.value = '';
   showPokemon(arrObj);
 });
 
-// Filtro
+// Filtrar pokemon según su tipo
+
 const menuTipo = document.getElementById('selectType');
 let tipoSeleccionado;
 menuTipo.addEventListener('change', () => {
   tipoSeleccionado = menuTipo.value;
   showPokemon(typeFilter(arrObj, 'type', tipoSeleccionado));
 });
-// Orden AZ
+
+// Orden Alfabético
+
 const orderPokemonAZ = document.getElementById('orderPokemon');
 orderPokemonAZ.addEventListener('change', () => {
   tipoSeleccionado = orderPokemonAZ.value;
@@ -227,13 +230,15 @@ orderPokemonAZ.addEventListener('change', () => {
   }
 });
 
+// Orden según Máx PC
+
 const orderMaxPC = document.getElementById('maxPC');
 orderMaxPC.addEventListener('change', () => {
   tipoSeleccionado = orderMaxPC.value;
   showPokemon(orderMxCP(arrObj, tipoSeleccionado));
 });
 
-// SET DE MOVIMIENTOS
+// Set de movimientos
 
 const listaSet = document.getElementById('listaSet');
 const inputSet = document.getElementById('buscadorSet');
@@ -350,6 +355,8 @@ const showList = (array) => {
   }
 };
 showList(arrObj);
+
+// Búsqueda del pokemón para el set de movimientos
 
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
