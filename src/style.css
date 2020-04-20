@@ -5,14 +5,25 @@
 
 .hide{visibility: hidden;}
 
-.mostrar{visibility: visible;}
+.show{visibility: visible;}
 
-.ocultar2{
-    display: none;
+.hide2{display: none;}
+
+.show2{display: block;}
+
+.text1{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
 }
-.mostrar2{
-    display: block;
+
+.text2{
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
 }
+
+.text3{font-size: 14px}
 
 body{
     font-family: 'Mogra', cursive;
@@ -64,7 +75,7 @@ input{
     border: 2px solid #bdbdbd;
 }
 
-.busquedaPok{
+.searchPokemon{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -107,6 +118,12 @@ h1{
     margin-bottom: 10px;
 }
 
+label{
+    font-size: 18px;
+    color: white;
+    margin-bottom: 10px;
+}
+
 #search{
     width: 250px;
     height: 44px;
@@ -121,7 +138,7 @@ h1{
     border-right: 0px; 
 }
 
-.formBuscar{
+.formSearch{
     display: flex;
     width: 90%;
     margin: 0 auto;
@@ -131,7 +148,7 @@ h1{
     flex-wrap: wrap;
 }
 
-.formBuscar h2{
+.formSearch h2{
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 400;
@@ -155,7 +172,7 @@ h1{
     margin-top: 0px; 
 }
 
-.msjAlerta{
+.message-alert{
     font-size: 14px;
     font-weight: bold;
     color: rgb(172, 41, 41);
@@ -198,7 +215,7 @@ h1{
     border-radius: 6px;
 }
 
-.contenedorPokemon{
+.eachPokemon{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -225,8 +242,6 @@ a:link, a:visited, a:active{
     color: black;
 }
 
-.enlace{font-size: 14px}
-
 /*///////////////// POKEDEX MOBILE //////////////////*/
 
 .overlay{
@@ -252,42 +267,42 @@ a:link, a:visited, a:active{
 
 @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
 
-.pok_1{
+.modal_1{
 	width: 145px;
 	height: 450px;
 	background-color: #D10707;
 	border-radius: 25px 25px 0 25px;
 }
 
-.pok_2{
+.modal_2{
 	width: 66px;
 	height: 418px;
 	background-color: #D10707;
 	align-self: flex-end;
 }
 
-.pok_3{
+.modal_3{
 	width: 58px;
 	height: 418px;
 	align-self: flex-end;
 	flex-direction: column;
 }
 
-.pok_3_1{
+.modal_3_1{
 	width: 0;
 	height: 0;
 	border-right: 58px solid transparent;
 	border-bottom: 50px solid #D10707;
 }
 
-.pok_3_2{
+.modal_3_2{
 	width: 58px;
 	height: 368px;
 	background-color: #D10707;
 }
 
 
-.pok_4{
+.modal_4{
 	width: 79px;
 	height: 368px;
 	background-color: #D10707;
@@ -324,20 +339,6 @@ a:link, a:visited, a:active{
     justify-content: space-between;
     margin-bottom: 20px;
 }
-
-.text1{
-    font-size: 20px;
-    color: white;
-    font-weight: 600;
-}
-
-.text2{
-    font-size: 14px;
-    color: white;
-    font-weight: 500;
-}
-
-.text3{font-size: 14px}
 
 .secondRow{
     display: flex;
@@ -396,13 +397,13 @@ a:link, a:visited, a:active{
     align-items: center;
 }
 
-.icono{
+.icon{
     width: 25px;
     height: 25px;
     margin-right: 10px;
 }
 
-.icono2{
+.icon2{
     width: 25px;
     height: 25px;
 }
@@ -452,7 +453,7 @@ a:link, a:visited, a:active{
     text-align: center; 
 }
 
-.separar{
+.toSeparate{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -461,7 +462,7 @@ a:link, a:visited, a:active{
     height: 70px;
 }
 
-.tipos{
+.allTypes{
     font-size: 13px;
     width: 55px;
     height: 18px;
@@ -471,7 +472,7 @@ a:link, a:visited, a:active{
     box-shadow: 4px 8px 8px rgb(117, 4, 4);
 }
 
-#boton-exit{
+#btn-exit{
     background-image: url(img/boton.svg);
     background-repeat: no-repeat;
     background-color: transparent;
@@ -587,7 +588,7 @@ aside p{
     width: 100%;
 }
 
-.busquedaSet{
+.searchSetMove{
     width: 260px;
     display: flex;
     padding: 0 10px;
@@ -612,16 +613,7 @@ aside p{
     flex-wrap: wrap;
 }
 
-.tituloSetMov{
-    text-align: center;
-    font-family: KoHo;
-    color: white;
-    margin-bottom: 5px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.pokemonNameSet, .subtitulo{
+.pokemonNameSet, .subtitle{
     text-align: center;
     font-family: KoHo;
     color: white;
@@ -645,14 +637,14 @@ aside p{
     color: black;
 }
 
-.contenedorResultado{
+.resultBox{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
 }
 
-.botonCalculo{
+.btn-cal{
     width: 50px;
     height: 36px;
     background-color: #FFFFFF;
@@ -663,13 +655,13 @@ aside p{
     margin-bottom: 15px;
 }
 
-.botonCalculo:hover{
+.btn-cal:hover{
     background-color: rgb(138, 135, 135);
     color: rgb(255, 255, 255);
     font-weight: bold;
 }
 
-.resultado{
+.resultText{
     width: 150px;
     height: 36px;
     background-color: black;
@@ -694,7 +686,7 @@ form h3{
     text-align: center;
 }
 
-.listaSetPok{
+.listSetPok{
     width: 250px;
     height: 120px;
     font-size: 15px;
@@ -704,22 +696,22 @@ form h3{
     list-style-type: none;
 }
 
-.listaSetPok::-webkit-scrollbar-thumb {
+.listSetPok::-webkit-scrollbar-thumb {
     background: rgb(231, 117, 117);
     border-radius: 4px;
 }
 
-.listaSetPok::-webkit-scrollbar{
+.listSetPok::-webkit-scrollbar{
     width: 8px;
     height: 8px;
 }
 
-.listaSetPok::-webkit-scrollbar-track{
+.listSetPok::-webkit-scrollbar-track{
     background-color: #e9e7e7;
     border-radius: 6px;
 }
 
-.cadaPok{
+.eachPokSetMov{
     width: 250px;
     height: 30px;
     color: black;
@@ -749,7 +741,7 @@ footer p{
 
     #mainContainer{width: 720px}
 
-    .busquedaPok{
+    .searchPokemon{
         flex-direction: row;
         padding-left: 100px;
         padding-right: 50px;
@@ -771,9 +763,13 @@ footer p{
         justify-content: space-evenly;
     }
 
+    label{
+        margin-bottom: 0;
+    }
+
     .filter-type{width: 150px}
 
-    .formBuscar h2{margin: 0}
+    .formSearch h2{margin: 0}
     
     input{width: 338px}
 
@@ -786,36 +782,36 @@ footer p{
 
     @keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
 
-    .pok_1{
+    .modal_1{
         width: 348px;
         height: 554px;
         border-radius: 40px 40px 0 40px;
     }
 
-    .pok_2{
+    .modal_2{
         width: 75px;
         height: 500px;
     }
 
-    .pok_3{
+    .modal_3{
         width: 58px;
         height: 500px;
     }
 
-    .pok_3_1{
+    .modal_3_1{
         width: 0;
         height: 0;
         border-right: 58px solid transparent;
         border-bottom: 48px solid #D10707;
     }
 
-    .pok_3_2{
+    .modal_3_2{
         width: 58px;
         height: 452px;
     }
 
 
-    .pok_4{
+    .modal_4{
         width: 85px;
         height: 452px;
         border-radius: 0 40px 40px 0;
@@ -852,12 +848,12 @@ footer p{
 
     .moreInfo{height: 150px}
 
-    .icono{
+    .icon{
         width: 35px;
         height: 35px;
     }
 
-    .icono2{
+    .icon2{
         width: 35px;
         height: 35px;
     }
@@ -883,9 +879,9 @@ footer p{
 
     .fourthRow{margin-bottom: 20px}
 
-    .separar{height: 80px}
+    .toSeparate{height: 80px}
 
-    .tipos{
+    .allTypes{
         font-size: 15px;
         width: 68px;
         height: 24px;
@@ -961,7 +957,7 @@ footer p{
         margin: 0 auto;
     }
 
-    .formBuscar{
+    .formSearch{
         width: 100%;
     }
 
@@ -981,11 +977,11 @@ footer p{
         font-size: 22px;
     }
 
-    .busquedaSet{
+    .searchSetMove{
         padding: 0 30px;
     }
 
-    .listaSetPok{
+    .listSetPok{
         padding: 0 30px;
     }
 
@@ -1002,14 +998,14 @@ footer p{
         width: 100%;
     }
 
-    .contenedorResultado{
+    .resultBox{
         flex-direction: row;
         align-items: flex-start;
         justify-content: space-evenly;
         padding: 0 40px;
     }
 
-    .resultado{
+    .resultText{
         width: 150px;
     }
 }

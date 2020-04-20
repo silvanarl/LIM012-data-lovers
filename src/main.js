@@ -1,10 +1,10 @@
 import {
-  coincidencias,
+  coincidences,
   filterByType,
   orderAZ,
   orderZA,
   orderByMxCP,
-  redondeo,
+  rounded,
 } from './data.js';
 import pokemon from './data/pokemon/pokemon.js';
 
@@ -17,31 +17,31 @@ const resetSearch = document.getElementById('resetSearch');
 
 // Mostra la info de cada pokemón - Pokedex
 
-const showInfo = (elemento) => {
+const showInfo = (element) => {
   const infoPok = document.createElement('div');
   infoPok.setAttribute('class', 'pokedex');
-  const num = elemento.num;
-  const img = elemento.img;
-  const name = elemento.name;
-  const weight = elemento.size.weight;
-  const height = elemento.size.height;
-  const generation = elemento.generation.name;
-  const type = elemento.type;
-  const maxCp = elemento.stats['max-cp'];
-  const maxHp = elemento.stats['max-hp'];
-  const resistant = elemento.resistant;
-  const weaknesses = elemento.weaknesses;
-  const dividir = (arr) => {
-    let newDiv2 = '';
+  const num = element.num;
+  const img = element.img;
+  const name = element.name;
+  const weight = element.size.weight;
+  const height = element.size.height;
+  const generation = element.generation.name;
+  const type = element.type;
+  const maxCp = element.stats['max-cp'];
+  const maxHp = element.stats['max-hp'];
+  const resistant = element.resistant;
+  const weaknesses = element.weaknesses;
+  const divide = (arr) => {
+    let newDiv = '';
     for (let i = 0; i < arr.length; i += 1) {
-      newDiv2 += `
-        <span class="tipos pok_type_${arr[i]}">${arr[i]}</span>
+      newDiv += `
+        <span class="allTypes pok_type_${arr[i]}">${arr[i]}</span>
       `;
     }
-    return newDiv2;
+    return newDiv;
   };
 
-  const evolutions = elemento.evolution;
+  const evolutions = element.evolution;
   const prevE = evolutions['prev-evolution'];
   const nextE = evolutions['next-evolution'];
 
@@ -84,14 +84,14 @@ const showInfo = (elemento) => {
   }
 
   infoPok.innerHTML = `
-        <div class="pok_1"></div>
-        <div class="pok_2"></div>
-        <div class="pok_3">
-          <div class="pok_3_1"></div>
-          <div class="pok_3_2"></div>
+        <div class="modal_1"></div>
+        <div class="modal_2"></div>
+        <div class="modal_3">
+          <div class="modal_3_1"></div>
+          <div class="modal_3_2"></div>
         </div>
-        <div class="pok_4">
-          <button id="boton-exit"></button>
+        <div class="modal_4">
+          <button id="btn-exit"></button>
         </div>
         <div class="info">
           <div class="nameAndNum">
@@ -102,11 +102,11 @@ const showInfo = (elemento) => {
             <img class = "imgPokInfo" src = ${img}>
             <div class="moreInfo">
               <div class="weight">
-                <img class="icono" src = "img/weight.svg">
+                <img class="icon" src = "img/weight.svg">
                 <p class="text2"> ${weight} </p>
               </div>
               <div class="height">
-                <img class="icono" src = "img/height.svg">
+                <img class="icon" src = "img/height.svg">
                 <p class="text2"> ${height} </p>
               </div>
               <div class="generation">
@@ -114,33 +114,33 @@ const showInfo = (elemento) => {
                 <span class="text2"> ${generation[0].toUpperCase()}${generation.substring(1)} </span>
               </div>
               <div class="type">         
-                <div class="separar">${dividir(type)}</div>
+                <div class="toSeparate">${divide(type)}</div>
               </div>
             </div>
           </div>
           <div class="thirdRow">
             <p class="text2">Max</p>
-            <img class="icono2" src = "img/glove.svg">
+            <img class="icon2" src = "img/glove.svg">
             <p class="text2"> ${maxCp} </p>
             <p class="text2">|</p>
-            <img class="icono2" src = "img/heart.svg">
+            <img class="icon2" src = "img/heart.svg">
             <p class="text2"> ${maxHp} </p>
           </div>
           <div class="fourthRow">
             <div class="resistant">
               <p class="text2">Resistant</p>
-              <div class="separar">${dividir(resistant)}</div>
+              <div class="toSeparate">${divide(resistant)}</div>
             </div>
             <div class="weaknesses">
               <p class="text2">Weaknesses</p>
-              <div class="separar">${dividir(weaknesses)}</div>
+              <div class="toSeparate">${divide(weaknesses)}</div>
             </div>
           </div>
           <div class = "fifthRow">
             <div class="evolutionAlign">${prevEvolutionPokemon}</div>
             <div class="evolutionPok">
-              <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${elemento.num}.png"/>
-              <p class="">${elemento.name[0].toUpperCase()}${elemento.name.substring(1)}</p>
+              <img class="imgEvolution" src="https://www.serebii.net/pokemongo/pokemon/${element.num}.png"/>
+              <p class="">${element.name[0].toUpperCase()}${element.name.substring(1)}</p>
             </div>
             <div class="evolutionAlign">${nextEvolutionPokemon}</div>
           </div>
@@ -155,25 +155,25 @@ const showPokemon = (array) => {
   currentDiv.innerHTML = '';
   for (let i = 0; i < array.length; i += 1) {
     const divElement = document.createElement('div');
-    divElement.setAttribute('class', 'contenedorPokemon');
+    divElement.setAttribute('class', 'eachPokemon');
     const num = array[i].num;
     const img = array[i].img;
     const name = array[i].name;
     divElement.innerHTML = `
       <a href="#" id="btnInfo">
-       <p class ="enlace" > ${num} </p>
-       <img class = "imgPokemon" src = ${img}>
-      <p class ="enlace">${name[0].toUpperCase()}${name.substring(1)}</p>
+      <p class ="text3" > ${num} </p>
+      <img class = "imgPokemon" src = ${img}>
+      <p class ="text3">${name[0].toUpperCase()}${name.substring(1)}</p>
       </a>
     `;
     divElement.addEventListener('click', (event) => {
       event.preventDefault();
-      pokedex.classList.add('mostrar');
+      pokedex.classList.add('show');
       pokedex.appendChild(showInfo(array[i]));
-      const botonExit = document.getElementById('boton-exit');
-      botonExit.addEventListener('click', () => {
+      const btnExit = document.getElementById('btn-exit');
+      btnExit.addEventListener('click', () => {
         pokedex.innerHTML = '';
-        pokedex.classList.remove('mostrar');
+        pokedex.classList.remove('show');
       });
     });
     currentDiv.appendChild(divElement);
@@ -183,20 +183,20 @@ showPokemon(arrObj);
 
 // Mostrar las coincidencias de la búsqueda
 
-const buscarPokemon = document.getElementById('searchButton');
-const msjAlerta = document.getElementById('msjAlerta');
-const busquedaPok = document.getElementById('search');
+const btnSearch = document.getElementById('searchButton');
+const messageAlert = document.getElementById('messageAlert');
+const searchPok = document.getElementById('search');
 
-buscarPokemon.addEventListener('click', (event) => {
+btnSearch.addEventListener('click', (event) => {
   event.preventDefault();
-  let pokemonBuscado = busquedaPok.value;
-  if (pokemonBuscado !== '') {
-    msjAlerta.innerHTML = '';
+  let foundPokemon = searchPok.value;
+  if (foundPokemon !== '') {
+    messageAlert.innerHTML = '';
     currentDiv.innerHTML = '';
-    showPokemon(coincidencias(arrObj, pokemonBuscado));
-    pokemonBuscado = '';
+    showPokemon(coincidences(arrObj, foundPokemon));
+    foundPokemon = '';
   } else {
-    msjAlerta.classList.remove('ocultar');
+    messageAlert.classList.remove('hide');
     showPokemon(arrObj);
   }
 });
@@ -204,34 +204,34 @@ buscarPokemon.addEventListener('click', (event) => {
 // Nueva búsqueda
 resetSearch.addEventListener('click', (event) => {
   event.preventDefault();
-  busquedaPok.value = '';
+  searchPok.value = '';
   showPokemon(arrObj);
 });
 
 // Filtrar pokemon según su tipo
 
-const menuTipo = document.getElementById('selectType');
-let tipoSeleccionado;
-menuTipo.addEventListener('change', () => {
-  tipoSeleccionado = menuTipo.value;
-  showPokemon(filterByType(arrObj, 'type', tipoSeleccionado));
+const typeMenu = document.getElementById('selectType');
+let typeSelected;
+typeMenu.addEventListener('change', () => {
+  typeSelected = typeMenu.value;
+  showPokemon(filterByType(arrObj, 'type', typeSelected));
 });
 
 // Orden AZ
 const orderPokemonAZ = document.getElementById('orderByNamePokemon');
 orderPokemonAZ.addEventListener('change', () => {
-  tipoSeleccionado = orderPokemonAZ.value;
-  if (tipoSeleccionado === 'a-z') {
+  typeSelected = orderPokemonAZ.value;
+  if (typeSelected === 'a-z') {
     showPokemon(orderAZ(arrObj));
-  } else if (tipoSeleccionado === 'z-a') {
+  } else if (typeSelected === 'z-a') {
     showPokemon(orderZA(arrObj));
   }
 });
 
 const orderMaxPC = document.getElementById('orderByMaxPC');
 orderMaxPC.addEventListener('change', () => {
-  tipoSeleccionado = orderMaxPC.value;
-  showPokemon(orderByMxCP(arrObj, tipoSeleccionado));
+  typeSelected = orderMaxPC.value;
+  showPokemon(orderByMxCP(arrObj, typeSelected));
 });
 
 // Set de movimientos
@@ -245,7 +245,7 @@ const showList = (array) => {
     const typePok = array[i].type;
     const onePokList = document.createElement('li');
     onePokList.setAttribute('value', namePok);
-    onePokList.setAttribute('class', 'cadaPok');
+    onePokList.setAttribute('class', 'eachPokSetMov');
     onePokList.textContent = `
       ${namePok}
     `;
@@ -275,7 +275,7 @@ const showList = (array) => {
       });
 
       // Botón GO
-      const btnGo = document.getElementById('btnCalculo');
+      const btnGo = document.getElementById('btnCal');
 
       btnGo.addEventListener('click', (e) => {
         e.preventDefault();
@@ -293,10 +293,10 @@ const showList = (array) => {
         const baseDamageSA = parseInt((arrSA[i]['base-damage']), 10);
         const energySA = parseInt((arrSA[i].energy), 10);
         const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
-        const barraEnergia = energySA * -1 / eps;
+        const powerBar = energySA * -1 / eps;
 
         //
-        const timeBattleSeg = (30 / (barraEnergia + timeSA));
+        const timeBattleSeg = (30 / (powerBar + timeSA));
 
         // Mostrar resultado
         const result = document.getElementById('result');
@@ -307,32 +307,32 @@ const showList = (array) => {
         && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
+          const totalBaseDamage = parseInt((baseDamageSA * 1.2), 10);
+          const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
         } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1])
         && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
-          const danoBase = parseInt((baseDamageSA * 1.2), 10);
-          const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
+          const totalBaseDamage = parseInt((baseDamageSA * 1.2), 10);
+          const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
         } else if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1])
         && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
-          const danoBase = parseInt((baseDamageSA), 10);
-          const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
+          const totalBaseDamage = parseInt((baseDamageSA), 10);
+          const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
         } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1])
         && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
-          const danoBase = parseInt((baseDamageSA), 10);
-          const setMove = redondeo((((dps * barraEnergia) + danoBase) * timeBattleSeg), 2);
+          const totalBaseDamage = parseInt((baseDamageSA), 10);
+          const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
         }
@@ -344,7 +344,7 @@ const showList = (array) => {
         `;
       });
 
-      pokemonListForMoveSet.setAttribute('class', 'ocultar2');
+      pokemonListForMoveSet.setAttribute('class', 'hide2');
       pokemonListForMoveSet.innerHTML = '';
     });
   }
@@ -355,12 +355,12 @@ showList(arrObj);
 
 inputSet.addEventListener('keyup', (event) => {
   event.preventDefault();
-  pokemonListForMoveSet.setAttribute('class', 'mostrar2 listaSetPok');
+  pokemonListForMoveSet.setAttribute('class', 'show2 listSetPok');
   const pokemonSet = inputSet.value;
   if (pokemonSet !== '') {
     pokemonListForMoveSet.innerHTML = '';
-    showList(coincidencias(arrObj, pokemonSet));
+    showList(coincidences(arrObj, pokemonSet));
   } else {
-    pokemonListForMoveSet.setAttribute('class', 'ocultar2');
+    pokemonListForMoveSet.setAttribute('class', 'hide2');
   }
 });

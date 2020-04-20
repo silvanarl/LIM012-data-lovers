@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>Data Lovers</title>
-    <link rel="shortcut icon" href="img/pikachu.ico" />
+    <link rel="shortcut icon" href="img/pikachu.ico"/>
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=KoHo:400,600|Mogra&display=swap" rel="stylesheet">
   </head>
@@ -16,15 +16,15 @@
       <section>
         <h1>Discover your pokemon!</h1>
         <div class="topContainer">
-          <form class="formBuscar">
-            <div class="busquedaPok">   <!--divSearchPokemon-->
+          <form class="formSearch">
+            <div class="searchPokemon">
               <div class="searchBox">
                 <input type="text" id="search" placeholder="Name or number" autocomplete="off">
                 <button id="searchButton" class="search-button"></button>
               </div>
               <button id="resetSearch" class="reset-search">Reset Search</button>
             </div>
-            <p class="hide msjAlerta" id="msjAlerta"></p>
+            <p class="hide message-alert" id="messageAlert"></p>
             <div class="filterAndOrder">
               <label>Filter by: </label>
               <select id="selectType" class="filter-type">
@@ -71,11 +71,11 @@
           <p>FIND OUT WHAT MOVE SET DOES MORE DAMAGE TO YOUR OPPONENT!</p>
         </div>
         <form class="formForMoveSet">
-          <div class="busquedaSet">
-            <label class="subtitulo">Choose your Pokemon!</label>
-            <input type="text" id="searchBoxForMoveSet" placeholder="Name or number" autocomplete="off"> 
+          <div class="searchSetMove">
+            <label class="subtitle">Choose your Pokemon!</label>
+            <input type="text" id="searchBoxForMoveSet" placeholder="Name or number" autocomplete="off">
           </div>
-          <ul id="pokemonListForMoveSet" class="ocultar2"></ul>
+          <ul id="pokemonListForMoveSet" class="hide2"></ul>
           <p class="pokemonNameSet">Test your pokemon!</p>
           <div class="filtersForMoveSet">
             <select id="selectQM" class="filter_type_Set">
@@ -85,9 +85,9 @@
               <option value="" selected disabled>Special Attack</option>
             </select>
           </div>
-          <div class="contenedorResultado">
-            <button class="botonCalculo" id="btnCalculo">Go!</button>
-            <div class="resultado">
+          <div class="resultBox">
+            <button class="btn-cal" id="btnCal">Go!</button>
+            <div class="resultText">
               <span id="result"></span>
             </div>
           </div>
