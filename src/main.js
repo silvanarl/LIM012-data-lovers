@@ -280,19 +280,20 @@ const showList = (array) => {
       btnGo.addEventListener('click', (e) => {
         e.preventDefault();
         const arrQM = quickMove.filter(element => selectQM.value === element.name);
+        console.log(arrQM);
         const arrSA = specialAttack.filter(element => selectSA.value === element.name);
 
         // Valores de Quick Move
-        const baseDamageQM = parseInt(arrQM[i]['base-damage'], 10);
-        const energyQM = parseInt(arrQM[i].energy, 10);
-        const timeQM = parseFloat(arrQM[i]['move-duration-seg']);
+        const baseDamageQM = parseInt(arrQM[0]['base-damage'], 10);
+        const energyQM = parseInt(arrQM[0].energy, 10);
+        const timeQM = parseFloat(arrQM[0]['move-duration-seg']);
         let dps;
         const eps = parseFloat(energyQM / timeQM);
 
         // Valores de Special Attack
-        const baseDamageSA = parseInt((arrSA[i]['base-damage']), 10);
-        const energySA = parseInt((arrSA[i].energy), 10);
-        const timeSA = parseFloat(arrSA[i]['move-duration-seg']);
+        const baseDamageSA = parseInt((arrSA[0]['base-damage']), 10);
+        const energySA = parseInt((arrSA[0].energy), 10);
+        const timeSA = parseFloat(arrSA[0]['move-duration-seg']);
         const powerBar = energySA * -1 / eps;
 
         //
@@ -303,32 +304,32 @@ const showList = (array) => {
         result.innerHTML = '';
 
         // Comparaciones
-        if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1])
-        && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
+        if ((arrQM[0].type === typePok[0] || arrQM[0].type === typePok[1])
+        && (arrSA[0].type === typePok[0] || arrSA[0].type === typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
           const totalBaseDamage = parseInt((baseDamageSA * 1.2), 10);
           const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
-        } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1])
-        && (arrSA[i].type === typePok[0] || arrSA[i].type === typePok[1])) {
+        } else if ((arrQM[0].type !== typePok[0] || arrQM[0].type !== typePok[1])
+        && (arrSA[0].type === typePok[0] || arrSA[0].type === typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
           const totalBaseDamage = parseInt((baseDamageSA * 1.2), 10);
           const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
-        } else if ((arrQM[i].type === typePok[0] || arrQM[i].type === typePok[1])
-        && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
+        } else if ((arrQM[0].type === typePok[0] || arrQM[0].type === typePok[1])
+        && (arrSA[0].type !== typePok[0] || arrSA[0].type !== typePok[1])) {
           //
           dps = ((baseDamageQM * 1.2) / timeQM);
           const totalBaseDamage = parseInt((baseDamageSA), 10);
           const setMove = rounded((((dps * powerBar) + totalBaseDamage) * timeBattleSeg), 2);
           result.innerHTML = setMove;
           //
-        } else if ((arrQM[i].type !== typePok[0] || arrQM[i].type !== typePok[1])
-        && (arrSA[i].type !== typePok[0] || arrSA[i].type !== typePok[1])) {
+        } else if ((arrQM[0].type !== typePok[0] || arrQM[0].type !== typePok[1])
+        && (arrSA[0].type !== typePok[0] || arrSA[0].type !== typePok[1])) {
           //
           dps = (baseDamageQM / timeQM);
           const totalBaseDamage = parseInt((baseDamageSA), 10);

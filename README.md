@@ -1,6 +1,7 @@
 # Data Lovers
+[Pokedex](src/img/pokedex.png)
 
-## Índice
+<!-- ## Índice
 
 * [1. Preámbulo](#1-preámbulo)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
@@ -10,11 +11,10 @@
 * [6. Hacker edition](#6-hacker-edition)
 * [7. Consideraciones técnicas](#7-consideraciones-técnicas)
 * [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-* [9. Checklist](#9-checklist)
+* [9. Checklist](#9-checklist) -->
 
-***
 
-## 1. Preámbulo
+<!-- ## 1. Preámbulo
 
 Según [Forbes](https://www.forbes.com/sites/bernardmarr/2018/05/21/how-much-data-do-we-create-every-day-the-mind-blowing-stats-everyone-should-read),
 el 90% de la data que existe hoy ha sido creada durante los últimos dos años.
@@ -30,32 +30,14 @@ En la siguiente imagen, podrás ver cómo con la data que que se ve en la parte
 izquierda se puede construir una interfaz amigable y entendible por el usuario
 al lado derecho.
 
-![json-interfaz](https://lh4.googleusercontent.com/Tn-RPXS26pVvOTdUzRT1KVaJ-_QbFs9SpcGLxSPE43fgbHaXtFgMUInuDt7kV41DkT1j8Tt29V0LxQW7SMtC6digOIhfTXSBKdwI08wUwhD3RAqlwy0hjfmhZ2BFe91mtmCSEqysfgk)
+![json-interfaz](https://lh4.googleusercontent.com/Tn-RPXS26pVvOTdUzRT1KVaJ-_QbFs9SpcGLxSPE43fgbHaXtFgMUInuDt7kV41DkT1j8Tt29V0LxQW7SMtC6digOIhfTXSBKdwI08wUwhD3RAqlwy0hjfmhZ2BFe91mtmCSEqysfgk) -->
 
-## 2. Resumen del proyecto
+##  Resumen del proyecto
 
-En este proyecto **construirás una _página web_ para visualizar un
-_conjunto (set) de datos_** que se adecúe a lo que descubras que tu usuario
-necesita.
+Aplicación web para todxs lxs amantes del juego Pokemon Go, donde encontrarán información acerca de los pokemones y como ganar en los combates.
 
-Como entregable final tendrás una página web que permita **visualizar la data,
-filtrarla, ordenarla y hacer algún cálculo agregado**. Con cálculo agregado
-nos referimos a distintos cálculos que puedes hacer con la data para mostrar
-información aún más relevante para los usuarios (promedio, el valor máximo
-o mínimo, etc).
 
-Esta vez te proponemos una serie de datos de diferentes _temáticas_ para que
-explores y decidas con qué temática te interesa trabajar. Hemos elegido
-específicamente estos sets de datos porque creemos que se adecúan bien a esta
-etapa de tu aprendizaje.
-
-Una vez que definas tu área de interés, buscar entender quién es tu usuario
-y qué necesita saber o ver exactamente; luego podrás construir la interfaz que
-le ayude a interactuar y entender mejor esos datos.
-
-Estos son datos que te proponemos:
-
-* [Pokémon](src/data/pokemon/pokemon.json):
+<!-- * [Pokémon](src/data/pokemon/pokemon.json):
   En este set encontrarás una lista con los 251 Pokémon de la región de Kanto
   y Johto, junto con sus respectivas estadísticas usadas en el juego
   [Pokémon GO](http://pokemongolive.com).
@@ -69,7 +51,7 @@ Estos son datos que te proponemos:
 * [Atletas Olímpicos](src/data/atletas/atletas.json).
   Este set nos proporciona la lista de los atletas que ganaron medallas en las
   olímpiadas de invierno y verano del siglo XXI.
-   - [Investigación con interesados en atletas olímpicos](/src/data/atletas/README.md)
+   - [Investigación con interesados en atletas olímpicos](/src/data/atletas/README.md) -->
 
 <!---
 ¡Too much information para comenzar (Diego)!
@@ -79,7 +61,7 @@ y cada persona está representada como un _objeto_ con una _propiedad_ `altura`,
 podríamos elegir calcular la altura promedio en el grupo entre otras cosas.
 --->
 
-## 3. Objetivos de aprendizaje
+<!-- ## 3. Objetivos de aprendizaje
 
 El objetivo principal de este proyecto es que, entendiendo las necesidades de
 tus usuarios, aprendas a diseñar y construir una interfaz web donde se pueda
@@ -142,13 +124,13 @@ y de equipo.
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
-Los criterios para considerar que has completado este proyecto son:
+Los criterios para considerar que has completado este proyecto son: -->
 
 ### Definición del producto
 
-Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
+<!-- Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
 contándonos cómo fue tu proceso de diseño y cómo crees que el producto resuelve
-el problema (o problemas) que tiene tu usuario.
+el problema (o problemas) que tiene tu usuario. -->
 
 **Público objetivo:** Jugador principiante de Pokemón Go que desea saber información extra de cada pokemón y saber que set de movimientos es el adecuado para ganar una batalla pokemón.
 
@@ -319,11 +301,6 @@ Deberá seleccionar un ítem de cada lista (radio button) la selección debe ser
 
 #### Prototipo de baja fidelidad
 
-Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
-solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
-iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
-`README.md`.
-
 Primeros bosquejos:
 
 ![ProtoB1](src/img/bosquejo1.jpeg)
@@ -341,7 +318,7 @@ En este bosquejo el feedback fue que la pokedex no tenía mucho sentido de poner
 
 #### Prototipo de alta fidelidad
 
-Lo siguiente es diseñar tu Interfaz de Usuario (UI por sus siglas en inglés -
+<!-- Lo siguiente es diseñar tu Interfaz de Usuario (UI por sus siglas en inglés -
 _User Interface_). Para eso debes aprender a utilizar alguna herramienta de
 diseño visual. Nosotros te recomendamos [Figma](https://www.figma.com/) que es
 una herramienta que funciona en el navegador y, además, puedes crear una cuenta
@@ -352,7 +329,7 @@ correspondiente a cada set de datos que elijas.
 
 El diseño debe representar el _ideal_ de tu solución. Digamos que es lo que
 desearías implementar si tuvieras tiempo ilimitado para trabajar. Además, tu
-diseño debe seguir los fundamentos de _visual design_.
+diseño debe seguir los fundamentos de _visual design_. -->
 
 ![Figma desktop](src/img/desktop_figma.JPG)
 ![Figma tablet](src/img/tablet_figma.JPG)
@@ -360,14 +337,14 @@ diseño debe seguir los fundamentos de _visual design_.
 ![Figma pokedex desktop](src/img/pokedex_desktop.JPG)
 ![Figma pokedex mobile](src/img/pokedex_mobile.JPG)
 
-#### Testeos de usabilidad
+<!-- #### Testeos de usabilidad
 
 Durante el reto deberás hacer _tests_ de usabilidad con distintos usuarios, y
 en base a los resultados, deberás iterar tus diseños. Cuéntanos
 qué problemas de usabilidad detectaste a través de los _tests_ y cómo los
-mejoraste en tu propuesta final.
+mejoraste en tu propuesta final. -->
 
-### Implementación de la Interfaz de Usuario (HTML/CSS/JS)
+<!-- ### Implementación de la Interfaz de Usuario (HTML/CSS/JS)
 
 Luego de diseñar tu interfaz de usuario deberás trabajar en su implementación.
 **No** es necesario que construyas la interfaz exactamente como la diseñaste.
@@ -378,7 +355,7 @@ Como mínimo, tu implementación debe:
 1. Mostrar la data en una interfaz: puede ser un card, una tabla, una lista,
    etc.
 2. Permitir al usuario interactuar para obtener la infomación que necesita.
-   <!--filtrar y ordenar la data.-->
+   <!--filtrar y ordenar la data.
 3. Ser _responsive_, es decir, debe visualizarse sin problemas desde distintos
    tamaños de pantallas: móviles, tablets y desktops.
 4. Que la interfaz siga los fundamentos de _visual design_.
@@ -388,14 +365,14 @@ Como mínimo, tu implementación debe:
 El _boilerplate_ de este proyecto no incluye Pruebas Unitarias (_tests_), así es
 que  tendrás que escribirlas tú para las funciones que tenga tu código.
 <!--encargadas de  _procesar_, _filtrar_ y _ordenar_ la data, así
-como _calcular_ estadísticas.-->
+como _calcular_ estadísticas.
 
 Tus _pruebas unitarias_ deben dar una cobertura del 70% de _statements_
 (_sentencias_), _functions_ (_funciones_), _lines_ (_líneas_), y _branches_
 (_ramas_) del archivo `src/data.js` que contenga tus funciones y está detallado
-en la sección de [Consideraciones técnicas](#srcdatajs).
+en la sección de [Consideraciones técnicas](#srcdatajs). -->
 
-## 6. Hacker edition
+<!-- ## 6. Hacker edition
 
 Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
 con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
@@ -411,9 +388,9 @@ Features/características extra sugeridas:
   ello te recomendamos explorar librerías de gráficas como
   [Chart.js](https://www.chartjs.org/)
   o [Google Charts](https://developers.google.com/chart/).
-* 100% Coverage
+* 100% Coverage -->
 
-## 7. Consideraciones técnicas
+<!-- ## 7. Consideraciones técnicas
 
 La lógica del proyecto debe estar implementada completamente en JavaScript
 (ES6), HTML y CSS. En este proyecto NO está permitido usar librerías o
@@ -571,7 +548,7 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
 5. Para ver la interfaz de tu programa en el navegador, usa el comando
   `npm start` para arrancar el servidor web y dirígete a
   `http://localhost:5000` en tu navegador.
-6. A codear se ha dicho! :rocket:
+6. A codear se ha dicho! :rocket: -->
 
 <!--
 En este proyecto deberás trabajar colaborativamente. Para ello, una de las
@@ -623,7 +600,7 @@ compañera:
 
 ***
 
-### Contenido de referencia
+<!-- ### Contenido de referencia
 
 #### Diseño de experiencia de usuario (User Experience Design)
 
@@ -691,4 +668,4 @@ compañera:
 * [ ] UI: Muestra lista y/o tabla con datos y/o indicadores.
 * [ ] UI: Permite ordenar data por uno o más campos (asc y desc).
 * [ ] UI: Permite filtrar data en base a una condición.
-* [ ] UI: Es _responsive_.
+* [ ] UI: Es _responsive_. -->
